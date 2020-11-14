@@ -1,7 +1,7 @@
-<p>Welcome to SBS.shop!</p>
+<p>Welcome to SBS.shop! ♥ ♥ ♥</p>
 
 <?php
 
-    include_once 'admin/model/connect.php';
+    include_once 'app/admin/model/connect.php';
 
 ?>
