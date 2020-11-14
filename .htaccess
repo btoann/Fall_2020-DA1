@@ -1,0 +1,46 @@
+RewriteEngine On
+
+
+<files .htaccess>
+
+order allow,deny
+
+deny from all
+
+</files>
+
+
+<files .system>
+
+order allow,deny
+
+deny from all
+
+</files>
+
+
+<files admin.php>
+
+order allow,deny
+
+deny from all
+
+</files>
+
+<files admin>
+
+order allow,deny
+
+deny from all
+
+</files>
+
+
+
+<files seller>
+
+order allow,deny
+
+deny from all
+
+</files>
