@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 1000px;
+}
+img {
+  max-width: 100%;
+}
+.header {
+  width: 87.9%;
+  margin: 0 auto;
+  height: 100px;
+  display: flex;
+}
+.logo {
+  width: 10%;
+  height: 100px;
+  text-align: center;
+  margin-right: 5%;
+}
+.menu {
+  width: 90%;
+}
+.menu-top {
+  height: 50%;
+  display: flex;
+}
+.menu-top-list {
+  width: 70%;
+  font-size: 1rem;
+  color: #c5c3c4;
+}
+.menu-top-login {
+  width: 30%;
+  text-align: end;
+  color: #0a4f70;
+  font-size: 1.4rem;
+}
+.menu-top-login p {
+  margin-top: 5%;
+}
+.menu-bottom {
+  height: 50%;
+  display: flex;
+  color: #0a4f70;
+}
+.menu-bottom-category {
+  width: 20%;
+}
+.menu-bottom-search {
+  width: 70%;
+  text-align: end;
+  font-size: 1.4rem;
+}
+input {
+  color: #c5c3c4;
+  width: 40%;
+  margin-top: 0.5%;
+  border: 0;
+}
+.menu-bottom-cart {
+  width: 10%;
+  text-align: end;
+  font-size: 1.4rem;
+}
+.menu-bottom-cart i {
+  margin-top: 0.5%;
+}
+.menu-bottom p {
+  font-size: 22px;
+  margin-top: 0.5%;
+}
+.logo img {
+  height: 60px;
+  margin-top: 20%;
+}
+ul {
+  display: flex;
+  margin-top: 2%;
+}
+li {
+  list-style: none;
+  margin-right: 3%;
+}
+.banner {
+  width: 100%;
+  height: 450px;
+  background-color: #51c5de;
+}
+.banner-item {
+  padding-top: 1.5%;
+  width: 87.9%;
+  height: 95%;
+  margin: 0 auto;
+  display: flex;
+}
+.banner-left {
+  width: 20%;
+  background-color: #f8f6f7;
+  margin-right: 2%;
+}
+.banner-right {
+  width: 78%;
+  background-color: #f8f6f7;
+}
+.footer-item {
+  width: 87.9%;
+  margin: 0 auto;
+}
+.footer-item-highlights {
+  width: 45%;
+  background-color: #51c5de;
+  margin-top: 2%;
+}
+h2 {
+  color: white;
+}
+.footer-content {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2%;
+}
+.footer-content-menu {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2%;
+  display: flex;
+}
+.footer-content-menu-item {
+  width: 23%;
+  margin-right: 2%;
+  background-color: #f8f6f7;
+  margin-bottom: 2%;
+  border-radius: 5px;
+  text-align: center;
+}
+.footer-content-menu-item:last-child {
+  margin-right: 0;
+}
+.item-icon {
+  margin-top: 10%;
+  font-size: 1.8rem;
+  color: #51c5de;
+}
+.item-content {
+  font-size: 1rem;
+  color: #81a2b3;
+  margin-bottom: 10%;
+}
