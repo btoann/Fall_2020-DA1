@@ -3,67 +3,81 @@
     padding: 0;
     box-sizing: border-box;
   }
+  
   body {
     height: 1000px;
   }
   img {
     max-width: 100%;
   }
+
   .header {
     max-width: 1200px;
     margin: 0 auto;
     height: 100px;
     display: flex;
   }
+
   .logo {
     width: 10%;
     height: 100px;
     text-align: center;
     margin-right: 5%;
   }
+
   .menu {
     width: 90%;
   }
+
   .menu-top {
     height: 50%;
     display: flex;
   }
+
   .menu-top-list {
     width: 70%;
     font-size: 1rem;
     color: #c5c3c4;
   }
+
   .menu-top-login {
     width: 30%;
     text-align: end;
   }
+
   .menu-login {
     color: #0a4f70;
     font-size: 1.4rem;
     text-decoration: none;
   }
+
   .menu-top-login p {
     margin-top: 5%;
   }
+
   .menu-bottom {
     height: 50%;
     display: flex;
     color: #0a4f70;
   }
+
   .menu-bottom-category {
     width: 20%;
   }
+
   .menu-bottom-search {
     width: 70%;
     text-align: end;
     font-size: 1.4rem;
   }
+
   input {
     color: #c5c3c4;
     width: 40%;
     margin-top: 0.5%;
     border: 0;
   }
+  
   .menu-bottom-cart {
     width: 10%;
     text-align: end;
