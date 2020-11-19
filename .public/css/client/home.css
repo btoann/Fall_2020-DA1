@@ -22,9 +22,9 @@ a:hover {
 }
 
 .logo {
-  width: calc((980px / 12) + 20px);
+  width:calc(((980px / 12) * 2) + 20px) ;
   height: 60px;
-  margin-right: calc((980px / 12) + 20px) ;
+  margin-right: 10px;
 }
 
 .logo img {
@@ -42,7 +42,7 @@ a:hover {
 }
 
 .menu-top-list {
-  width: calc(((980px / 12) + 20px)*7);
+  width: calc(((980px / 12) * 7) + 140px);
   height: 15px;
   line-height: 1;
   font-size: 14px;
@@ -54,11 +54,11 @@ a:hover {
 }
 .menu-top-list li {
   margin-right: 25px;
+  width: fit-content;
 }
 
 .menu-top-login {
   display: flex;
-  width: calc(((980px / 12) + 20px)*3);
   height: 15px;
 }
 .menu-top-login a {
@@ -76,14 +76,14 @@ a:hover {
 
 .menu-bottom-category
 {
-  width: calc(((980px / 12) + 20px)*5);
+  width: calc(((980px / 12) + 20px)*4.7);
   display: flex;
 }
 .menu-bottom-category p{
   display: flex;
   margin: 0;
   height: 20px;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
 }
 .menu-bottom-category p i{
@@ -92,9 +92,12 @@ a:hover {
   height: 20px;
   font-size: 21px;
 }
+.menu-bottom-category p i::before {
+  width: 20px;
+}
 
 .menu-bottom-search {
-  width: calc(((980px / 12) + 20px)*4);
+  width: calc(((980px / 12) * 4) + 80px);
   display: flex;
   text-align: end;
   font-size: 18px;
@@ -102,9 +105,9 @@ a:hover {
 
 .menu-bottom-search input {
   color: #000000;
-  width: 280px;
+  width: 330px;
   font-size: 14px;
-  margin-top: 0.5%;
+  margin-top: 0;
   border: 0;
   padding: 2px 0px;
   border-bottom: 1px #0A4F70 solid ;
@@ -114,22 +117,40 @@ a:hover {
   outline: none;
   border-bottom: 1px #F04C63 solid;
 }
+.menu-bottom-search i {
+  display: flex;
+  font-size: 18px;
+  padding: 2px 1px;
+}
 
 .menu-bottom-cart{
-  width: calc((980 / 12) +20px);
+  position: relative;
+  width: calc(((980px / 12) +20px));
   display: flex;
   text-align: end;
   font-size: 22px;
+  z-index: 1000;
 }
+
 .menu-bottom-cart a{
   display: flex;
   text-align: end;
+  font-size: 22px;
+  color: #0a4f70;
+}
+.menu-bottom-cart a:hover {
+  color: #F04C63;
 }
 .menu-bottom-cart i {
   margin-top: 0.5%;
 }
-.menu-bottom p {
-  font-size: 22px;
+.shopping-cart-number {
+  position: absolute;
+  display: flex;
+  z-index: 999;
+  top: 20%;
+  left: 105%;
+  font-size: 10px;
 }
 
 .menu-link {
@@ -149,12 +170,12 @@ a:hover {
   display: flex;
 }
 .banner-left {
-  width: 20%;
+  width: calc(((980px / 12) * 2) + 20px);
   background-color: #f8f6f7;
-  margin-right: 2%;
+  margin-right: 10px;
 }
 .banner-right {
-  width: 78%;
+  width: calc(((980px / 12) * 10) + 190px);
   background-color: #f8f6f7;
 }
 .footer-item {
