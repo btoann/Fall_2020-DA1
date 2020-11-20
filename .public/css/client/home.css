@@ -18,10 +18,21 @@ img {
   display: flex;
 }
 .logo {
+<<<<<<< HEAD
   width: 10%;
   height: 100px;
   text-align: center;
   margin-right: 5%;
+=======
+  width: calc((980px / 12) + 20px);
+  height: 60px;
+  margin-right: calc((980px / 12) + 20px) ;
+}
+
+.logo img {
+  display: inline-flexbox;
+  height: 100%;
+>>>>>>> parent of 0e8f7db... chinh-sua-header
 }
 .menu {
   width: 90%;
@@ -31,6 +42,7 @@ img {
   display: flex;
 }
 .menu-top-list {
+<<<<<<< HEAD
   width: 70%;
   font-size: 1rem;
   color: #c5c3c4;
@@ -38,28 +50,79 @@ img {
 .menu-top-login {
   width: 30%;
   text-align: end;
+=======
+  width: calc(((980px / 12) + 20px)*7);
+  height: 15px;
+  line-height: 1;
+  font-size: 14px;
+  color: #c5c3c4;
+}
+
+.menu-top-list ul {
+  margin-bottom: 25px !important;
+}
+.menu-top-list li {
+  margin-right: 25px;
+}
+
+.menu-top-login {
+  display: flex;
+  width: calc(((980px / 12) + 20px)*3);
+  height: 15px;
+}
+.menu-top-login a {
+  display: inline-flex;
+  font-size: 14px;
+  height: 15px;
+  line-height: 1;
+>>>>>>> parent of 0e8f7db... chinh-sua-header
 }
 .menu-login {
   color: #0a4f70;
   font-size: 1.4rem;
   text-decoration: none;
 }
+<<<<<<< HEAD
 .menu-top-login p {
   margin-top: 5%;
 }
 .menu-bottom {
   height: 50%;
+=======
+
+.menu-bottom-category
+{
+  width: calc(((980px / 12) + 20px)*5);
+  display: flex;
+}
+.menu-bottom-category p{
+  display: flex;
+  margin: 0;
+  height: 20px;
+  font-size: 24px;
+  line-height: 1;
+}
+.menu-bottom-category p i{
+>>>>>>> parent of 0e8f7db... chinh-sua-header
   display: flex;
   color: #0a4f70;
 }
+<<<<<<< HEAD
 .menu-bottom-category {
   width: 20%;
 }
 .menu-bottom-search {
   width: 70%;
+=======
+
+.menu-bottom-search {
+  width: calc(((980px / 12) + 20px)*4);
+  display: flex;
+>>>>>>> parent of 0e8f7db... chinh-sua-header
   text-align: end;
   font-size: 1.4rem;
 }
+<<<<<<< HEAD
 input {
   color: #c5c3c4;
   width: 40%;
@@ -70,12 +133,40 @@ input {
   width: 10%;
   text-align: end;
   font-size: 1.4rem;
+=======
+
+.menu-bottom-search input {
+  color: #000000;
+  width: 280px;
+  font-size: 14px;
+  margin-top: 0.5%;
+  border: 0;
+  padding: 2px 0px;
+  border-bottom: 1px #0A4F70 solid ;
+  outline: none;
+}
+.menu-bottom-search input:focus {
+  outline: none;
+  border-bottom: 1px #F04C63 solid;
+}
+
+.menu-bottom-cart{
+  width: calc((980 / 12) +20px);
+  display: flex;
+  text-align: end;
+  font-size: 22px;
+}
+.menu-bottom-cart a{
+  display: flex;
+  text-align: end;
+>>>>>>> parent of 0e8f7db... chinh-sua-header
 }
 .menu-bottom-cart i {
   margin-top: 0.5%;
 }
 .menu-bottom p {
   font-size: 22px;
+<<<<<<< HEAD
   margin-top: 0.5%;
 }
 .logo img {
@@ -89,6 +180,8 @@ ul {
 li {
   list-style: none;
   margin-right: 3%;
+=======
+>>>>>>> parent of 0e8f7db... chinh-sua-header
 }
 .menu-link {
   text-decoration: none;
