@@ -19,11 +19,14 @@ img {
 }
 .logo {
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 10%;
   height: 100px;
   text-align: center;
   margin-right: 5%;
 =======
+=======
+>>>>>>> parent of 0e8f7db... chinh-sua-header
   width: calc((980px / 12) + 20px);
   height: 60px;
   margin-right: calc((980px / 12) + 20px) ;
@@ -43,6 +46,7 @@ img {
 }
 .menu-top-list {
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 70%;
   font-size: 1rem;
   color: #c5c3c4;
@@ -51,6 +55,8 @@ img {
   width: 30%;
   text-align: end;
 =======
+=======
+>>>>>>> parent of 0e8f7db... chinh-sua-header
   width: calc(((980px / 12) + 20px)*7);
   height: 15px;
   line-height: 1;
@@ -108,12 +114,15 @@ img {
   color: #0a4f70;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .menu-bottom-category {
   width: 20%;
 }
 .menu-bottom-search {
   width: 70%;
 =======
+=======
+>>>>>>> parent of 0e8f7db... chinh-sua-header
 
 .menu-bottom-search {
   width: calc(((980px / 12) + 20px)*4);
@@ -159,6 +168,9 @@ input {
 .menu-bottom-cart a{
   display: flex;
   text-align: end;
+<<<<<<< HEAD
+>>>>>>> parent of 0e8f7db... chinh-sua-header
+=======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
 }
 .menu-bottom-cart i {
@@ -166,6 +178,7 @@ input {
 }
 .menu-bottom p {
   font-size: 22px;
+<<<<<<< HEAD
 <<<<<<< HEAD
   margin-top: 0.5%;
 }
@@ -180,6 +193,8 @@ ul {
 li {
   list-style: none;
   margin-right: 3%;
+=======
+>>>>>>> parent of 0e8f7db... chinh-sua-header
 =======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
 }
