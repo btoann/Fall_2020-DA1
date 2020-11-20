@@ -20,6 +20,7 @@ img {
 .logo {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 10%;
   height: 100px;
   text-align: center;
@@ -27,6 +28,8 @@ img {
 =======
 =======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
+=======
+>>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
   width: calc((980px / 12) + 20px);
   height: 60px;
   margin-right: calc((980px / 12) + 20px) ;
@@ -47,6 +50,7 @@ img {
 .menu-top-list {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 70%;
   font-size: 1rem;
   color: #c5c3c4;
@@ -57,6 +61,8 @@ img {
 =======
 =======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
+=======
+>>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
   width: calc(((980px / 12) + 20px)*7);
   height: 15px;
   line-height: 1;
@@ -115,6 +121,7 @@ img {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .menu-bottom-category {
   width: 20%;
 }
@@ -123,6 +130,8 @@ img {
 =======
 =======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
+=======
+>>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
 
 .menu-bottom-search {
   width: calc(((980px / 12) + 20px)*4);
@@ -169,15 +178,19 @@ input {
   display: flex;
   text-align: end;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 0e8f7db... chinh-sua-header
 =======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
+=======
+>>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
 }
 .menu-bottom-cart i {
   margin-top: 0.5%;
 }
 .menu-bottom p {
   font-size: 22px;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   margin-top: 0.5%;
@@ -197,6 +210,8 @@ li {
 >>>>>>> parent of 0e8f7db... chinh-sua-header
 =======
 >>>>>>> parent of 0e8f7db... chinh-sua-header
+=======
+>>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
 }
 .menu-link {
   text-decoration: none;
