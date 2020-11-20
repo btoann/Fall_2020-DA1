@@ -22,7 +22,11 @@ a:hover {
 }
 
 .logo {
+<<<<<<< Updated upstream
   width:calc(((980px / 12) * 2) + 20px) ;
+=======
+  width: calc((980px / 12) + 20px);
+>>>>>>> Stashed changes
   height: 60px;
   margin-right: 10px;
 }
@@ -42,7 +46,16 @@ a:hover {
 }
 
 .menu-top-list {
+<<<<<<< Updated upstream
   width: calc(((980px / 12) * 7) + 140px);
+=======
+  width: 70%;
+  font-size: 1rem;
+  color: #c5c3c4;
+}
+.menu-top-login {
+  width: calc(((980px / 12) + 20px)*7);
+>>>>>>> Stashed changes
   height: 15px;
   line-height: 1;
   font-size: 14px;
