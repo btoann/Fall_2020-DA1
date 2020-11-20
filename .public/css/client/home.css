@@ -1,81 +1,48 @@
-* {
-  margin: 0;
-  padding: 0;
-
-  box-sizing: border-box;
-}
+@import "../_style.css";
 body {
   height: 1000px;
 }
-
 img {
   max-width: 100%;
 }
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none !important;
+}
+
 .header {
   max-width: 1200px;
   margin: 0 auto;
-  height: 100px;
+  padding: 10px 0px;
+  height: 80px;
   display: flex;
 }
+
 .logo {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  width: 10%;
-  height: 100px;
-  text-align: center;
-  margin-right: 5%;
-=======
-=======
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-  width: calc((980px / 12) + 20px);
+  width:calc(((980px / 12) * 2) + 20px) ;
   height: 60px;
-  margin-right: calc((980px / 12) + 20px) ;
+  margin-right: 10px;
 }
 
 .logo img {
   display: inline-flexbox;
   height: 100%;
->>>>>>> parent of 0e8f7db... chinh-sua-header
 }
+
 .menu {
   width: 90%;
 }
+
 .menu-top {
-  height: 50%;
+  height: 30px;
   display: flex;
 }
+
 .menu-top-list {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  width: 70%;
-  font-size: 1rem;
-  color: #c5c3c4;
-}
-.menu-top-login {
-  width: 30%;
-  text-align: end;
-=======
-=======
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-  width: calc(((980px / 12) + 20px)*7);
+  width: calc(((980px / 12) * 7) + 140px);
   height: 15px;
   line-height: 1;
   font-size: 14px;
@@ -87,11 +54,11 @@ img {
 }
 .menu-top-list li {
   margin-right: 25px;
+  width: fit-content;
 }
 
 .menu-top-login {
   display: flex;
-  width: calc(((980px / 12) + 20px)*3);
   height: 15px;
 }
 .menu-top-login a {
@@ -99,83 +66,48 @@ img {
   font-size: 14px;
   height: 15px;
   line-height: 1;
->>>>>>> parent of 0e8f7db... chinh-sua-header
 }
-.menu-login {
-  color: #0a4f70;
-  font-size: 1.4rem;
-  text-decoration: none;
-}
-<<<<<<< HEAD
-.menu-top-login p {
-  margin-top: 5%;
-}
+
 .menu-bottom {
-  height: 50%;
-=======
+  height: 20px;
+  display: flex;
+  color: #0a4f70;
+}
 
 .menu-bottom-category
 {
-  width: calc(((980px / 12) + 20px)*5);
+  width: calc(((980px / 12) + 20px)*4.7);
   display: flex;
 }
 .menu-bottom-category p{
   display: flex;
   margin: 0;
   height: 20px;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
 }
 .menu-bottom-category p i{
->>>>>>> parent of 0e8f7db... chinh-sua-header
   display: flex;
-  color: #0a4f70;
+  margin: 0;
+  height: 20px;
+  font-size: 21px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-.menu-bottom-category {
-  width: 20%;
+.menu-bottom-category p i::before {
+  width: 20px;
 }
-.menu-bottom-search {
-  width: 70%;
-=======
-=======
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
 
 .menu-bottom-search {
-  width: calc(((980px / 12) + 20px)*4);
+  width: calc(((980px / 12) * 4) + 80px);
   display: flex;
->>>>>>> parent of 0e8f7db... chinh-sua-header
   text-align: end;
-  font-size: 1.4rem;
+  font-size: 18px;
 }
-<<<<<<< HEAD
-input {
-  color: #c5c3c4;
-  width: 40%;
-  margin-top: 0.5%;
-  border: 0;
-}
-.menu-bottom-cart {
-  width: 10%;
-  text-align: end;
-  font-size: 1.4rem;
-=======
 
 .menu-bottom-search input {
   color: #000000;
-  width: 280px;
+  width: 330px;
   font-size: 14px;
-  margin-top: 0.5%;
+  margin-top: 0;
   border: 0;
   padding: 2px 0px;
   border-bottom: 1px #0A4F70 solid ;
@@ -185,64 +117,42 @@ input {
   outline: none;
   border-bottom: 1px #F04C63 solid;
 }
+.menu-bottom-search i {
+  display: flex;
+  font-size: 18px;
+  padding: 2px 1px;
+}
 
 .menu-bottom-cart{
-  width: calc((980 / 12) +20px);
+  position: relative;
+  width: calc(((980px / 12) +20px));
   display: flex;
   text-align: end;
   font-size: 22px;
+  z-index: 1000;
 }
+
 .menu-bottom-cart a{
   display: flex;
   text-align: end;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
+  font-size: 22px;
+  color: #0a4f70;
+}
+.menu-bottom-cart a:hover {
+  color: #F04C63;
 }
 .menu-bottom-cart i {
   margin-top: 0.5%;
 }
-.menu-bottom p {
-  font-size: 22px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  margin-top: 0.5%;
-}
-.logo img {
-  height: 60px;
-  margin-top: 20%;
-}
-ul {
+.shopping-cart-number {
+  position: absolute;
   display: flex;
-  margin-top: 2%;
+  z-index: 999;
+  top: 20%;
+  left: 105%;
+  font-size: 10px;
 }
-li {
-  list-style: none;
-  margin-right: 3%;
-=======
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of 0e8f7db... chinh-sua-header
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-=======
->>>>>>> parent of dfd7bad... Merge pull request #14 from btoann/baonpg
-}
+
 .menu-link {
   text-decoration: none;
   color: #c5c3c4;
@@ -260,12 +170,12 @@ li {
   display: flex;
 }
 .banner-left {
-  width: 20%;
+  width: calc(((980px / 12) * 2) + 20px);
   background-color: #f8f6f7;
-  margin-right: 2%;
+  margin-right: 10px;
 }
 .banner-right {
-  width: 78%;
+  width: calc(((980px / 12) * 10) + 190px);
   background-color: #f8f6f7;
 }
 .footer-item {
