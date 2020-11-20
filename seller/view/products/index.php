@@ -1,0 +1,36 @@
+
+<p></p>
+<table border="1">
+    <thead>
+        <td><strong>#</strong></td>
+        <td><strong>Tên sản phẩm</strong></td>
+        <td><strong>Danh mục</strong></td>
+        <td><strong>Phân loại</strong></td>
+        <td><strong>Giá cũ</strong></td>
+        <td><strong>Giá mới</strong></td>
+        <td><strong>Ngày đăng</strong></td>
+        <td><strong>Lượt mua</strong></td>
+    </thead>
+    <tbody>
+
+        <?php
+
+            foreach($basic_products as $product)
+            {
+                echo
+                    '<tr>
+                        <td>'.$product['id'].'</td>
+                        <td>'.$product['product_name'].'</td>
+                        <td>'.$product['category_name'].'</td>
+                        <td>#</td>
+                        <td>'.$product['old_price'].'</td>
+                        <td>%</td>
+                        <td>'.$product['date'].'</td>
+                        <td>?</td>
+                    </tr>';
+            }
+
+        ?>
+
+    </tbody>
+</table>

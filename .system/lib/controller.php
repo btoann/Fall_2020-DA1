@@ -1,8 +1,8 @@
 <?php
 
-    include_once '../core/connect.php';
+    include_once '.system/core/connect.php';
 
-    class controller
+    class database
     {
         public function query($sql)
         {
