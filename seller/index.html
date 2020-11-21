@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/main.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 </head>
 
 <body>
@@ -196,8 +197,14 @@
                     </div>
 
                     <div class="info__bell">
-                        <i class='far fa-bell'></i>
-                        <div class="dot"></div>
+                        <i class='far fa-bell'> <div class="dot">2</div></i>
+                    </div>
+                    <div class="info__bell mt">
+                        <i style="font-size: 21px;" class='far fa-comment'> <div class="dot">        1</div></i>
+
+                    </div>
+                    <div class="button__hidden">
+
                     </div>
 
                     <div class="right__hover">
@@ -213,8 +220,19 @@
 
             </div>
             <style>
+                .right .button__hidden {
+                    width: 100%;
+                    background-color: aquamarine;
+                    height: 100px;
+                    float: left;
+                    bottom: 0px;
+                }
+                
+                .mt {
+                    margin-top: 20px;
+                }
+                
                 .right .info__bell {
-                    margin: 0 auto;
                     padding: 5px 5px;
                     text-align: center;
                     float: left;
@@ -228,17 +246,31 @@
                     background-color: rgb(148, 153, 151);
                 }
                 
+                .right .info__bell:hover .dot {
+                    top: 40px;
+                    display: none;
+                    z-index: -9;
+                    transition: 1s;
+                }
+                
                 .right .info__bell .dot {
                     position: relative;
                     float: right;
-                    width: 7px;
-                    background-color: rgb(204, 52, 52);
-                    height: 7px;
-                    border-radius: 7px;
+                    right: 7px;
+                    top: 0px;
+                    width: 12px;
+                    z-index: 9;
+                    padding: 1px 2px;
+                    background-color: #f04c36;
+                    height: 12px;
+                    font-size: 10px;
+                    color: white;
+                    border-radius: 10px;
                 }
                 
                 .right .info__bell i {
                     font-size: 24px;
+                    color: #0a4f70;
                     text-align: center;
                 }
                 
@@ -258,6 +290,10 @@
                     width: 100%;
                     float: left;
                     margin-top: 10px;
+                }
+                
+                .right__hover {
+                    background-color: #a4a5a6a8;
                 }
             </style>
         </div>

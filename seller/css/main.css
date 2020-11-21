@@ -1077,7 +1077,6 @@ body {
     cursor: pointer;
     opacity: 0;
     right: 155px;
-    background-color: rgba(202, 202, 202, 0.815);
 }
 
 .right:hover .right__hover {
