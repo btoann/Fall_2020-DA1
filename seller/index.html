@@ -7,6 +7,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/main.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body>
@@ -193,14 +194,72 @@
                             </div>
                         </div>
                     </div>
-                    <p class="right__name">Fly Together</p>
 
+                    <div class="info__bell">
+                        <i class='far fa-bell'></i>
+                        <div class="dot"></div>
+                    </div>
 
-                    <div class="right__hover"></div>
+                    <div class="right__hover">
+                        <div class="info__top">
+                            <li>Nguyen Duc Sy</li>
+                            <li>SDT : 0702434097</li>
+                            <li>Name Mart : ........ </li>
+
+                        </div>
+                        <hr>
+                    </div>
                 </div>
 
             </div>
-
+            <style>
+                .right .info__bell {
+                    margin: 0 auto;
+                    padding: 5px 5px;
+                    text-align: center;
+                    float: left;
+                    margin-left: 17px;
+                }
+                
+                .right .info__bell:hover {
+                    border-radius: 3px;
+                    margin-left: 17px;
+                    transition: 0.4s;
+                    background-color: rgb(148, 153, 151);
+                }
+                
+                .right .info__bell .dot {
+                    position: relative;
+                    float: right;
+                    width: 7px;
+                    background-color: rgb(204, 52, 52);
+                    height: 7px;
+                    border-radius: 7px;
+                }
+                
+                .right .info__bell i {
+                    font-size: 24px;
+                    text-align: center;
+                }
+                
+                .right__hover .info__top {
+                    width: 100%;
+                    float: left;
+                    top: 0px;
+                    padding: 5px 5px;
+                    position: absolute;
+                    font-size: 11pt;
+                    text-align: center;
+                    background-color: rgba(168, 168, 168, 0.521);
+                }
+                
+                .right__hover .info__top li {
+                    list-style: none;
+                    width: 100%;
+                    float: left;
+                    margin-top: 10px;
+                }
+            </style>
         </div>
     </div>
     </div>

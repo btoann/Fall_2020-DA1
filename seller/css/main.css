@@ -1051,18 +1051,6 @@ body {
     transition: all 0.4s ease;
 }
 
-.right__name {
-    width: 100%;
-    float: left;
-    background-color: #0A4F70;
-    font-size: 10pt;
-    display: block;
-    transition: 1s;
-    padding: 2px 4px;
-    color: #f7f6f6;
-    text-align: center;
-}
-
 .right__image img {
     width: 100%;
     position: relative;
@@ -1089,7 +1077,7 @@ body {
     cursor: pointer;
     opacity: 0;
     right: 155px;
-    background-color: rgba(36, 74, 90, 0.521);
+    background-color: rgba(202, 202, 202, 0.815);
 }
 
 .right:hover .right__hover {
@@ -1111,6 +1099,22 @@ body {
 
 .right__image:hover {
     box-shadow: 0px -5px 80px #E2DFF2;
+}
+
+.right__hover .info__top {
+    width: 100%;
+    float: left;
+    font-size: 11pt;
+    border: 1px black solid;
+    text-align: left;
+    background-color: #0E1731;
+}
+
+.right__hover .info__top li {
+    list-style: none;
+    width: 100%;
+    height: 20px;
+    float: right;
 }
 
 
