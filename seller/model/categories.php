@@ -1,5 +1,7 @@
 <?php
 
+    include_once '.system/lib/controller.php';
+
     function getall_categories()
     {
         $sql =

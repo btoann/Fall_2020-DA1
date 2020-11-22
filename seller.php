@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sidebyside.seller</title>
+    <script src=".public/js/jquery_3.5.1.js" defer></script>
 </head>
 
     <h3>Trang người bán</h3>
