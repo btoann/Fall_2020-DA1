@@ -1,9 +1,11 @@
 <?php
     ob_start();
     include 'seller/model/products.php';
+    include 'seller/model/categories.php';
 
     /*  Get dữ liệu Products  */
     $basic_products = basic_products_show($_SESSION['sbs_id']);
+    $categories = getall_categories();
 
     if(isset($_GET['act']) && $_GET['act'])
     {

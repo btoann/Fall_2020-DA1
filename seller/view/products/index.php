@@ -1,4 +1,11 @@
-
+<p></p>
+<p>
+    <a href="seller.php?ctrl=products&act=insert">Thêm</a>
+    &ensp;
+    <a href="seller.php?ctrl=products&act=edit">Sửa</a>
+    &ensp;
+    <a href="seller.php?ctrl=products&act=del">Xoá</a>
+</p>
 <p></p>
 <table border="1">
     <thead>
