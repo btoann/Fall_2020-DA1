@@ -7,6 +7,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/main.css">
+
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
@@ -203,10 +204,24 @@
                         <i style="font-size: 21px;" class='far fa-comment'> <div class="dot">        1</div></i>
 
                     </div>
+                    <hr class="line">
                     <div class="button__hidden">
-
+                        <div class="container__button">
+                            <div class="toggle__btn " onclick="this.classList.toggle('active')">
+                                <i class="fa fa-circle-o"></i>
+                            </div>
+                        </div>
                     </div>
-
+                    <hr class="line">
+                    <div class="qr__code mt edit">
+                        <i class="fa fa-qrcode"></i>
+                    </div>
+                    <div class="info mt edit">
+                        <i class="fa fa-info-circle "></i>
+                    </div>
+                    <div class="info__set mt edit">
+                        <i class="fa fa-gear"></i>
+                    </div>
                     <div class="right__hover">
                         <div class="info__top">
                             <li>Nguyen Duc Sy</li>
@@ -219,17 +234,80 @@
                 </div>
 
             </div>
+
             <style>
+                .right .line {
+                    width: 100%;
+                    float: left;
+                    margin-top: 10px;
+                    height: 1px;
+                    border: none;
+                    opacity: 0.5;
+                    border-radius: 50%;
+                    background-color: white;
+                }
+                
+                .edit i {
+                    padding: 5px 5px;
+                }
+                
+                .edit i:hover {
+                    background-color: gray;
+                    transition: 0.4s;
+                    border-radius: 5px;
+                }
+                
+                .edit {
+                    width: 100%;
+                    float: left;
+                    text-align: center;
+                    color: #0a4f70;
+                    font-size: 21px;
+                    padding: 10px 10px;
+                }
+                
+                .container__button {
+                    position: relative;
+                    top: 50%;
+                    float: left;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                
+                .toggle__btn {
+                    width: 40px;
+                    height: 20px;
+                    background-color: gray;
+                    border-radius: 30px;
+                    padding: 1px 5px;
+                }
+                
+                .toggle__btn i {
+                    width: 14px;
+                    height: 14px;
+                    transition: 0.4s;
+                    background-color: #ffffff;
+                    border-radius: 100%;
+                }
+                
+                .active {
+                    background-color: #00acee;
+                }
+                
+                .active i {
+                    margin-left: 16px;
+                }
+                
                 .right .button__hidden {
                     width: 100%;
-                    background-color: rgb(30, 167, 130);
-                    height: 100px;
+                    margin-top: 280px;
+                    height: 50px;
                     float: left;
                     bottom: 0px;
                 }
                 
                 .mt {
-                    margin-top: 20px;
+                    margin-top: 15px;
                 }
                 
                 .right .info__bell {
@@ -296,6 +374,7 @@
                     background-color: #a4a5a6a8;
                 }
             </style>
+
         </div>
     </div>
     </div>
