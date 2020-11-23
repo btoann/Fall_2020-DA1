@@ -1,6 +1,6 @@
 <?php
 
-    include_once '.system/core/connect.php';
+    include_once '../../.system/core/connect.php';
 
     class database
     {
