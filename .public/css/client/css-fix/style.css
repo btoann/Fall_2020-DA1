@@ -325,3 +325,34 @@ h2 {
   text-decoration: none;
   color: #0a4f70;
 }
+.container-product {
+  max-width: 1200px !important;
+  margin: 0 auto;
+}
+.title-sale {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: antiquewhite;
+}
+.row-sale {
+  margin-top: 20px;
+}
+.row-container-product {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #0a4f70;
+}
+.col-bg-dark {
+  display: flex;
+  width: 96%;
+  margin: 0 auto;
+}
+.box-product {
+  width: 19%;
+  margin-right: 1%;
+  background-color: #f8f6f7;
+  height: 100px;
+}
+.box-product:last-child {
+  margin: 0;
+}
