@@ -24,12 +24,15 @@
 
             foreach($basic_products as $product)
             {
+                $categories_hashtag = ($product['categories_hashtag'] != NULL)
+                                    ? catHashtag_byProduct($product['categories_hashtag'])
+                                    : NULL;
                 echo
                     '<tr>
                         <td>'.$product['id'].'</td>
                         <td>'.$product['product_name'].'</td>
                         <td>'.$product['category_name'].'</td>
-                        <td>#</td>
+                        <td>'.implode('&ensp;', $categories_hashtag['name']).'</td>
                         <td>'.$product['old_price'].'</td>
                         <td>%</td>
                         <td>'.$product['date'].'</td>
