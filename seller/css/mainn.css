@@ -175,7 +175,9 @@ body {
 }
 
 .left__menuItem.open .left__text {
-    height: 70px;
+    width: 95%;
+    height: 110px;
+    background-color: #f7f7f7;
     padding-top: 10px;
 }
 
@@ -233,11 +235,15 @@ body {
     transition: all 0.4s ease;
 }
 
+.left__text:hover {
+    background-color: #f7f6f6;
+}
+
 .left__link {
     margin-bottom: 14px;
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 10px;
 }
 
 .left__link:hover {
