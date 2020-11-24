@@ -16,7 +16,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="dashboard">
-                <div class="left">
+                <div id="dark" class="left">
                     <span class="left__icon">
                         <span></span>
                     <span></span>
@@ -188,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="right">
+                <div id="dark2" class="right">
 
                     <div class="right__profile">
                         <div class="right__image">
@@ -210,7 +210,7 @@
                     <div class="button__hidden">
                         <div class="container__button">
                             <div class="toggle__btn " onclick="this.classList.toggle('active')">
-                                <i class="fa fa-circle-o"></i>
+                                <i id="click__me" class="fa fa-circle-o"></i>
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,15 @@
         </div>
     </div>
     </div>
+    <script>
+        document.getElementById("click__me").onclick = click__dark;
 
+        function click__dark() {
+            document.getElementById('dark').style.backgroundColor = "#1e1e2d";
+            document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
+
+        }
+    </script>
     <script src="js/main.js"></script>
 </body>
 
