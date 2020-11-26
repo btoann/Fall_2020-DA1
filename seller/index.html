@@ -208,8 +208,25 @@
                     <div class="button__hidden">
                         <div class="container__button">
                             <div class="toggle__btn " onclick="this.classList.toggle('active')">
-                                <i id="click__me" class="fa fa-circle-o"></i>
+                                <button id="click" onclick="click__dark()"><i  class="fa fa-circle-o"></i></button>
                             </div>
+                            <script>
+                                $clickk = document.getElementById('click').innerHTML;
+                                if ($(clickk).click(
+                                        function click__dark() {
+                                            document.getElementById('dark').style.backgroundColor = "#1e1e2d";
+                                            document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
+
+                                        }
+                                    ));
+                                else {
+                                    function click__dark() {
+                                        document.getElementById('dark').style.backgroundColor = "white";
+                                        document.getElementById('dark2').style.backgroundColor = "white";
+
+                                    }
+                                }
+                            </script>
                         </div>
                     </div>
                     <hr class="line">
@@ -236,15 +253,7 @@
         </div>
     </div>
     </div>
-    <script>
-        document.getElementById("click__me").onclick = click__dark;
 
-        function click__dark() {
-            document.getElementById('dark').style.backgroundColor = "#1e1e2d";
-            document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
-
-        }
-    </script>
     <script src="js/main.js"></script>
 </body>
 
