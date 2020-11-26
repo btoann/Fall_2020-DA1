@@ -16,7 +16,7 @@ window.addEventListener("load", event => {
 
     var menuItem = document.querySelectorAll('.left__menuItem');
 
-    menuItem.forEach(function (el) {
+    menuItem.forEach(function(el) {
         el.addEventListener("click", openMenu);
     });
 

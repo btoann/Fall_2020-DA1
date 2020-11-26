@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/mainn.css">
-
+    <link rel="stylesheet" href="css/mainn.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
@@ -16,7 +15,7 @@
     <div class="wrapper">
         <div class="container">
             <div class="dashboard">
-                <div class="left">
+                <div id="dark" class="left">
                     <span class="left__icon">
                         <span></span>
                     <span></span>
@@ -26,7 +25,6 @@
                         <div class="left__logo">
                             <img src="../layout-photoshop/logo.png" alt="">
                             <span>SELLER</span>
-
                         </div>
 
                         <ul class="left__menu">
@@ -188,7 +186,7 @@
                     </div>
                 </div>
 
-                <div class="right">
+                <div id="dark2" class="right">
 
                     <div class="right__profile">
                         <div class="right__image">
@@ -210,8 +208,25 @@
                     <div class="button__hidden">
                         <div class="container__button">
                             <div class="toggle__btn " onclick="this.classList.toggle('active')">
-                                <i class="fa fa-circle-o"></i>
+                                <button id="click" onclick="click__dark()"><i  class="fa fa-circle-o"></i></button>
                             </div>
+                            <script>
+                                $clickk = document.getElementById('click').innerHTML;
+                                if ($(clickk).click(
+                                        function click__dark() {
+                                            document.getElementById('dark').style.backgroundColor = "#1e1e2d";
+                                            document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
+
+                                        }
+                                    ));
+                                else {
+                                    function click__dark() {
+                                        document.getElementById('dark').style.backgroundColor = "white";
+                                        document.getElementById('dark2').style.backgroundColor = "white";
+
+                                    }
+                                }
+                            </script>
                         </div>
                     </div>
                     <hr class="line">
