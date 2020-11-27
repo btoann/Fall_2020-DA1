@@ -176,7 +176,6 @@ body {
 .left__menuItem.open .left__text {
     width: 95%;
     height: 110px;
-    background-color: #f7f7f7;
     padding-top: 10px;
 }
 
@@ -201,16 +200,13 @@ body {
 .left__title:hover {
     opacity: 1;
     color: rgb(10, 80, 112);
+    background-color: #c6c4c4b7;
 }
 
 .left__title img {
     width: 25px;
     padding: 2px 2px;
     margin-right: 10px;
-}
-
-.left__title:hover {
-    background-color: #c6c4c446;
 }
 
 .left__title span {
@@ -227,26 +223,24 @@ body {
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    color: #10182F;
+    color: rgb(10, 80, 112);
     height: 0px;
     overflow: hidden;
     padding: 0 25px;
     transition: all 0.4s ease;
 }
 
-.left__text:hover {
-    background-color: #f7f6f6;
-}
-
 .left__link {
     margin-bottom: 14px;
     display: flex;
     align-items: center;
+    border-radius: 4px;
     padding: 10px 10px;
 }
 
 .left__link:hover {
     opacity: 0.5;
+    background-color: whitesmoke;
 }
 
 .left.show {
@@ -713,7 +707,7 @@ body {
 }
 
 .center__title {
-    color: #10182F;
+    color: rgb(10, 80, 112);
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
@@ -727,7 +721,7 @@ body {
     position: absolute;
     width: 60px;
     height: 2px;
-    background-color: #10182F;
+    background-color: rgb(182, 186, 197);
     bottom: 0;
 }
 
@@ -1252,4 +1246,65 @@ body {
 
 .active i {
     margin-left: 16px;
+}
+
+.toggle {
+    background-color: #051d29;
+}
+
+.label {
+    width: 40px;
+    height: 20px;
+    border-radius: 50px;
+    padding: 4px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+    background-color: #0c445e;
+}
+
+.checkbox:checked+.label .ball {
+    transform: translateX(17px);
+}
+
+.checkbox {
+    opacity: 0;
+    width: 13px;
+    height: 13px;
+    position: absolute;
+}
+
+.fa-moon {
+    color: #f1c40f;
+    font-size: 13px;
+}
+
+.fa-sun {
+    color: #f39c12;
+    font-size: 13px;
+}
+
+.ball {
+    width: 17px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    transition: all 0.4s 0.2s ease;
+    border-radius: 50%;
+    background-color: #f7f6f6;
+}
+
+.color__light {
+    color: white;
+}
+
+.white__font {
+    opacity: 0;
+    width: 44px;
+    left: 11%;
+    height: 30px;
+    z-index: 9;
+    position: absolute;
 }

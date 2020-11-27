@@ -29,12 +29,29 @@ window.addEventListener("load", event => {
             currentmenuItem.classList.add('open');
         }
     };
-})
+});
 
-document.getElementById('click__me') = click__dark;
+const checkbox = document.getElementById('checkbox');
 
-function click__dark() {
-    document.getElementById('dark').style.backgroundColor = "#1e1e2d";
-    document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
+checkbox.addEventListener('change', () => {
+    // document.body.classList.toggle('dark');
 
-}
+    var element = document.getElementById("dark");
+    element.classList.toggle("toggle");
+    var element = document.getElementById("dark2");
+    element.classList.toggle("toggle");
+
+
+});
+
+const icon__down = document.getElementById('tt__left');
+
+icon__down.addEventListener('change', () => {
+
+    var element = document.getElementById("light");
+    element.classList.toggle("color__light");
+
+});
+
+
+var element = document.getElementById("tt__left").style.backgroundColor = "white";
