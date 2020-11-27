@@ -346,23 +346,42 @@ h2 {
   margin: 0 auto;
 }
 .title-sale {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: antiquewhite;
-}
-.row-sale {
-  margin-top: 20px;
+  padding: 20px;
+  color: #f04c36;
 }
 .row-container-product {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #0a4f70;
+  background-color: white;
 }
 .col-bg-dark {
   display: flex;
+  width: 1160px;
+  margin: 0 auto;
 }
 .box-product {
   width: 18%;
-  background-color: #f8f6f7;
   height: 40vh;
+  box-shadow: #c6c4c4 0px 3px 5px;
+}
+.container-px-0 {
+  background-color: #f8f6f7;
+  padding: 20px;
+}
+.product {
+  width: 90%;
+  margin: 0 auto;
+}
+.product-image {
+  height: 200px;
+  background-color: #f8f6f7;
+}
+.product-price {
+  color: red;
+  text-align: center;
+}
+.product-link {
+  color: black;
+  font-size: 12px;
+  text-decoration: none;
 }
