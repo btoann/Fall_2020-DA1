@@ -30,3 +30,11 @@ window.addEventListener("load", event => {
         }
     };
 })
+
+document.getElementById('click__me') = click__dark;
+
+function click__dark() {
+    document.getElementById('dark').style.backgroundColor = "#1e1e2d";
+    document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
+
+}
