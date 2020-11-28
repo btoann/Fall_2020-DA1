@@ -354,6 +354,9 @@ h2 {
   margin: 0 auto;
   background-color: white;
 }
+.row-sale {
+  display: flex;
+}
 .col-bg-dark {
   display: flex;
   width: 1160px;
@@ -371,9 +374,11 @@ h2 {
 .product {
   width: 90%;
   margin: 0 auto;
+  position: relative;
 }
 .product-image {
-  height: 200px;
+  margin-top: 10px;
+  height: 190px;
   background-color: #f8f6f7;
 }
 .product-price {
@@ -384,4 +389,40 @@ h2 {
   color: black;
   font-size: 12px;
   text-decoration: none;
+}
+.sale {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 8pt;
+  width: 26px;
+  height: 20px;
+}
+.sale-item {
+  text-align: center;
+  background-color: #f24c64;
+  color: white;
+  height: 70%;
+}
+.triangle {
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 8px solid #f24c64;
+}
+.button-more {
+  text-align: center;
+}
+.more {
+  width: 10%;
+  margin-top: 3%;
+  text-align: center;
+  color: #51c5de;
+  background-color: white;
+  border: solid 1px #51c5de;
+}
+.time {
+  padding: 20px;
+  color: #0a4f70;
+  margin-left: 71%;
+  font-size: 18px;
 }

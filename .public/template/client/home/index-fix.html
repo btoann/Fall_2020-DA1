@@ -9,6 +9,30 @@
     <link rel="stylesheet" href="../../../css/client/css-fix/style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="../../../icons/css/fontello.css">
+    <script>
+      var dh = null;
+
+      function tg() {
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+      }
+    </script>
+    <script>
+      dh = setInterval("tg()", 1000);
+    </script>
+    <script>
+      function starstopdh() {
+        if (dh == null) {
+          dh = setInterval("tg()", 1000);
+        } else {
+          clearInterval(dh);
+          dh = null;
+        }
+      }
+    </script>
 </head>
 
 <body>
@@ -139,6 +163,9 @@
             <div class="title-sale">
               <span><strong>GIÁ SỐC TRONG NGÀY<i class="icon-fire-2"></i></strong></span>
             </div>
+            <div class="time">
+              <p id="dongho"></p>
+            </div>
           </div>
           <div class="col-bg-dark">
             <div class="box-product">
@@ -148,7 +175,12 @@
                   <p><a class="product-link" href="#"><strong>Giày thời trang Nike ft. Side by Side</strong></a></p>
                   <p class="product-price">900.000đ</p>
                 </div>
-            </div></div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </div>
             <div class="box-product">
               <div class="product">
                 <div class="product-image"></div>
@@ -156,7 +188,12 @@
                   <p><a class="product-link" href="#"><strong>Giày thời trang Nike ft. Side by Side</strong></a></p>
                   <p class="product-price">900.000đ</p>
                 </div>
-            </div></div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </div>
             <div class="box-product">
               <div class="product">
                 <div class="product-image"></div>
@@ -164,7 +201,12 @@
                   <p><a class="product-link" href="#"><strong>Giày thời trang Nike ft. Side by Side</strong></a></p>
                   <p class="product-price">900.000đ</p>
                 </div>
-            </div></div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </div>
             <div class="box-product">
               <div class="product">
                 <div class="product-image"></div>
@@ -172,7 +214,12 @@
                   <p><a class="product-link" href="#"><strong>Giày thời trang Nike ft. Side by Side</strong></a></p>
                   <p class="product-price">900.000đ</p>
                 </div>
-            </div></div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+           </div>
             <div class="box-product">
               <div class="product">
                 <div class="product-image"></div>
@@ -180,7 +227,12 @@
                   <p><a class="product-link" href="#"><strong>Giày thời trang Nike ft. Side by Side</strong></a></p>
                   <p class="product-price">900.000đ</p>
                 </div>
-            </div></div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+           </div>
             <div class="box-product">
               <div class="product">
                 <div class="product-image"></div>
@@ -188,8 +240,14 @@
                   <p><a class="product-link" href="#"><strong>Giày thời trang Nike ft. Side by Side</strong></a></p>
                   <p class="product-price">900.000đ</p>
                 </div>
-            </div></div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="button-more"><button class="more">Xem thêm</button></div>
         </div>
       </div>
 </body>
