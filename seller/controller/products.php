@@ -7,7 +7,7 @@
     $bool = new boolean();
 
     /*  Get dữ liệu Products  */
-    $basic_products = basic_products_show($_SESSION['sbs_id']);
+    $basic_products = basic_products_show($_SESSION['sbs_seller_id']);
     $categories = getall_categories();
 
     if(isset($_GET['act']) && $_GET['act'])
@@ -23,7 +23,7 @@
                     $name = $_POST['name'];
                     $category = $_POST['category'];
                     $hashtag = (isset($_POST['hashtag']) && $_POST['hashtag'] != NULL) ? implode(", ", $_POST['hashtag']) : NULL;
-                    $id_seller = $_SESSION['sbs_id'];
+                    $id_seller = $_SESSION['sbs_seller_id'];
                     $price = $_POST['price'];
                     $description = $_POST['description'];
 
@@ -44,17 +44,23 @@
                             $images = $_FILES['image'];
                             for($i = 0; $i <= sizeof($images); $i++)
                             {
-                                $target_file = $target_folder.basename($images['name'][$i]);
+                                $filename = md5($images['name'][$i]).'-'.time(); // ex: 5dab1961e93a7-1571494241
+                                $extension = pathinfo($images['name'][$i], PATHINFO_EXTENSION); // ex: jpg
+                                $basename = $filename.'.'.$extension; // ex: 5dab1961e93a7_1571494241.jpg
+
+                                $target_file = $target_folder.$basename;
                                 if(move_uploaded_file($images["tmp_name"][$i], $target_file))
                                 {
                                     // Upload thành công
-                                    echo 'successfully!';
+                                    $img_name = $name.' - #'.$i;
+                                    insert_img_product($img_name, $last_id, $basename);
                                 }
                             }
                         }
                         header('location: seller.php?ctrl=products');
                     }
                 }
+                $hashtags = category_hashtag(21);  // Mặc định khi hiển thị hashtag
                 include 'seller/view/products/'.$act.'.php';
                 break;
             
@@ -93,17 +99,18 @@
                 include 'seller/view/products/'.$act.'.php';
                 break;
 
-            case 'del':
+            case 'delete':
                 /*  Xoá sản phẩm  */
-                if(isset($_POST['del_choice']) && $_POST['del_choice'] > 0)
+                if(isset($_POST['delete']) && $_POST['delete'])
                 {
-                    delete_product($_POST['del_choice']);
+                    $choices = (isset($_POST['choices']) && $_POST['choices'] != NULL) ? implode(", ", $_POST['choices']) : NULL;
+                    delete_product($choices);
                 }
-                header('location: seller.php?page=product');
+                include 'seller/view/products/'.$act.'.php';
                 break;
 
             default:
-                header('location: seller.php?page=product');
+                header('location: seller.php?ctrl=products');
                 break;
         }
     }

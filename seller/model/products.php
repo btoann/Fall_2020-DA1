@@ -38,4 +38,20 @@
         return $dtb->getExec($sql);
     }
 
+    function insert_img_product($name, $id_product, $basename)
+    {
+        $sql =
+            'INSERT INTO product_images (name, id_product, basename)
+            VALUES ("'.$name.'", "'.$id_product.'", "'.$basename.'")';
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
+    function delete_product($id)
+    {
+        $sql = 'DELETE FROM products WHERE id IN ('.$id.')';
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
 ?>
