@@ -249,14 +249,8 @@ h2 {
   min-height: 400px;
 }
 
-.footer-license {
-  background-color: #0A4F70;
-  width: 100%;
-  margin: 0 auto;
-  min-height: 50px;
-}
-
-.gioi-thieu {
-  padding-bottom: 0px;
+.footer-menu-item ul {
+  list-style: none;
+  margin-left: 0 !important;
 }
 
