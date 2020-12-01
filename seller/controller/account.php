@@ -1,6 +1,6 @@
 <?php
     ob_start();
-    include 'client/model/account.php';
+    include 'seller/model/account.php';
 
     if(isset($_GET['act']) && $_GET['act'])
     {
@@ -13,32 +13,30 @@
                 {
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
-                    $this_acc = signin($user);
-                    if(is_array($this_acc))
+                    $this_seller = signin($user);
+                    if(is_array($this_seller))
                     {
-                        if(password_verify($pass, $this_acc['pass']))
+                        if(password_verify($pass, $this_seller['pass']))
                         {
-                            $_SESSION['sbs_id'] = $this_acc['id'];
-                            $_SESSION['sbs_name'] = $this_acc['name'];
-                            $_SESSION['sbs_email'] = $this_acc['email'];
-                            $_SESSION['sbs_tel'] = $this_acc['tel'];
-                            $_SESSION['sbs_role'] = $this_acc['role'];
+                            $_SESSION['sbs_seller_id'] = $this_seller['id'];
+                            $_SESSION['sbs_seller_name'] = $this_seller['name'];
+                            $_SESSION['sbs_seller_email'] = $this_seller['email'];
+                            $_SESSION['sbs_seller_tel'] = $this_seller['tel'];
+                            $_SESSION['sbs_seller_role'] = $this_seller['role'];
 
-                            $url = ($_SESSION['sbs_role'] >= 30) ? 'admin.php' :
-                                    (($_SESSION['sbs_role'] < 30) ? 'index.php?ctrl=account&act=user&id='.$_SESSION['sbs_id'] : 'index.php');
-                            header('location: '.$url);
+                            header('location: seller.php');
                         }
                     }
                 }
-                if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0)
-                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_id']);
-                include 'client/view/account/'.$act.'.php';
+                if(isset($_SESSION['sbs_seller_id']) && $_SESSION['sbs_seller_id'] > 0)
+                    header('location: seller.php?ctrl=account&act=user&id='.$_SESSION['sbs_seller_id']);
+                include 'seller/view/account/'.$act.'.php';
                 break;
 
             case 'signup':
                 if(isset($_POST['signup']) && isset($_POST['signup']))
                 {
-                    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['tel']) && !empty($_POST['pass']))
+                    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['tel']) && !empty($_POST['address']) && !empty($_POST['pass']) && !empty($_POST['role']))
                     {
                         $email = $_POST['email'];
                         $tel = $_POST['tel'];
@@ -50,51 +48,52 @@
                             {
                                 $name = $_POST['name'];
                                 $pass = $_POST['pass'];
+                                $address = $_POST['address'];
+                                $role = $_POST['role'];
                                 // Mã hoá mật khẩu
                                 $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
-                                signup($name, $email, $tel, $hashed_password);
+                                signup($name, $email, $tel, $address, $hashed_password, $role);
 
-                                $acc = signin($email);
-                                $_SESSION['sbs_id'] = $acc['id'];
-                                $_SESSION['sbs_name'] = $acc['name'];
-                                $_SESSION['sbs_email'] = $acc['email'];
-                                $_SESSION['sbs_tel'] = $acc['tel'];
-                                $_SESSION['sbs_role'] = $acc['role'];
+                                $seller = signin($email);
+                                $_SESSION['sbs_seller_id'] = $seller['id'];
+                                $_SESSION['sbs_seller_name'] = $seller['name'];
+                                $_SESSION['sbs_seller_email'] = $seller['email'];
+                                $_SESSION['sbs_seller_tel'] = $seller['tel'];
+                                $_SESSION['sbs_seller_address'] = $seller['address'];
+                                $_SESSION['sbs_seller_role'] = $seller['role'];
 
                                 // Tạo mã xác thực
-                                $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
+                                $activation = create_activation($_SESSION['sbs_seller_id'], $_SESSION['sbs_seller_email']);
 
                                 // Gửi mail xác thực
-                                verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_id'], $activation);
+                                verify_mail($_SESSION['sbs_seller_email'], $_SESSION['sbs_seller_id'], $activation);
 
-
-                                $url = ($acc['role'] >= 30) ? 'admin.php' :
-                                        (($acc['role'] < 30 ) ? 'index.php?ctrl=account&act=user&id='.$acc['id'] : 'index.php');
-                                header('location: '.$url);
+                                header('location: seller.php');
                             }
                         }
                     }
                 }
-                include 'client/view/account/'.$act.'.php';
+                include 'seller/view/account/'.$act.'.php';
                 break;
 
             case 'logout':
-                unset($_SESSION['sbs_id']);
-                unset($_SESSION['sbs_name']);
-                unset($_SESSION['sbs_email']);
-                unset($_SESSION['sbs_tel']);
-                unset($_SESSION['sbs_role']);
-                header('location: index.php');
+                unset($_SESSION['sbs_seller_id']);
+                unset($_SESSION['sbs_seller_name']);
+                unset($_SESSION['sbs_seller_email']);
+                unset($_SESSION['sbs_seller_tel']);
+                unset($_SESSION['sbs_seller_address']);
+                unset($_SESSION['sbs_seller_role']);
+                header('location: seller.php?ctrl=account&act=signin');
                 break;
             
             case 'user':
                 if(isset($_GET['id']) && $_GET['id'])
                 {
-                    if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0)
+                    if(isset($_SESSION['sbs_seller_id']) && $_SESSION['sbs_seller_id'] > 0)
                     {
-                        if(($_SESSION['sbs_id'] == $_GET['id']))
+                        if(($_SESSION['sbs_seller_id'] == $_GET['id']))
                         {
-                            if($_SESSION['sbs_role'] == 0)
+                            if($_SESSION['sbs_seller_role'] == 0)
                             {
                                 if(isset($_GET['verify']) && $_GET['verify'])
                                 {
@@ -110,16 +109,16 @@
                                     header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
                                 }
                             }
-                            if($_SESSION['sbs_role'] > 0)
+                            if($_SESSION['sbs_seller_role'] > 0)
                             {
-                                header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
+                                header('location: seller.php?ctrl=account&act=user&id='.$_GET['id']);
                             }
                         }
                     }
                 }
                 else
-                    header('location: index.php');
-                include 'client/view/account/'.$act.'.php';
+                    header('location: seller.php');
+                include 'seller/view/account/'.$act.'.php';
                 break;
 
             case 'verify':
@@ -152,14 +151,14 @@
                 break;
 
             default:
-                if(isset($_SESSION['sbs_id']))
-                    include 'client/view/account/home.php';
+                if(isset($_SESSION['sbs_seller_id']))
+                    include 'seller/view/account/home.php';
                 else
-                    include 'client/view/account/signin.php';
+                    include 'seller/view/account/signin.php';
                 break;
         }
     }
     else
-        header('location: index.php');
+        header('location: seller.php');
     ob_end_flush();
 ?>

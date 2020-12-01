@@ -36,7 +36,9 @@
         else
         {
             echo
-                '<a href="index.php?ctrl=account&act=signin">[ Đăng nhập ]</a>';
+                '<a href="index.php?ctrl=account&act=signin">[ Đăng nhập ]</a>
+                &ensp;
+                <a href="seller.php">[ Trang người bán ]</a>';
         }
     ?>
 

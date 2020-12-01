@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/mainn.css">
+    <link rel="stylesheet" href="./css/home.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
@@ -32,35 +32,40 @@
                                 <a href="index.html" class="left__title"><img src="assets/icon-dashboard.svg" alt=""><span> Dashboard</span></a>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="assets/icon-tag.svg" alt=""><span>Sản Phẩm</span> <i class="fas fa-chevron-right left__iconDown"></i></div>
+                                <div class="left__title"><img src="assets/icon-tag.svg" alt=""><span>Sản Phẩm</span><input type="checkbox" class="white__font" id="tt__left">
+                                    <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
                                     <a class="left__link" href="insert_product.html">Thêm sản phẩm</a>
                                     <a class="left__link" href="view_product.html">Xem Sản Phẩm</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="assets/icon-edit.svg" alt=""><span>Danh Mục SP</span> <i class="fas fa-chevron-right left__iconDown"></i></div>
+                                <div class="left__title"><img src="assets/icon-edit.svg" alt=""><span>Danh Mục SP</span> <input type="checkbox" class="white__font" id="tt__left">
+                                    <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
                                     <a class="left__link" href="insert_p_category.html">Chèn Danh Mục</a>
                                     <a class="left__link" href="view_p_category.html">Xem Danh Mục</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="assets/icon-book.svg" alt=""><span>Thể Loại</span> <i class="fas fa-chevron-right left__iconDown"></i></div>
+                                <div class="left__title"><img src="assets/icon-book.svg" alt=""><span>Thể Loại</span> <input type="checkbox" class="white__font" id="tt__left">
+                                    <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
                                     <a class="left__link" href="insert_category.html">Chèn Thể Loại</a>
                                     <a class="left__link" href="view_category.html">Xem Thể Loại</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="assets/icon-settings.svg" alt=""><span>Slide</span><i class="fas fa-chevron-right left__iconDown"></i></div>
+                                <div class="left__title"><img src="assets/icon-settings.svg" alt=""><span>Slide</span><input type="checkbox" class="white__font" id="tt__left">
+                                    <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
                                     <a class="left__link" href="insert_slide.html">Chèn Slide</a>
                                     <a class="left__link" href="view_slides.html">Xem Slide</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="assets/icon-book.svg" alt=""><span>Coupons</span> <i class="fas fa-chevron-right left__iconDown"></i></div>
+                                <div class="left__title"><img src="assets/icon-book.svg" alt=""><span>Coupons</span> <input type="checkbox" class="white__font" id="tt__left">
+                                    <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
 
                                 <div class="left__text">
                                     <a class="left__link" href="insert_coupon.html">Chèn Coupon</a>
@@ -78,7 +83,8 @@
                                 <a href="edit_css.html" class="left__title"><img src="assets/icon-pencil.svg" alt="">Chỉnh CSS</a>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="assets/icon-user.svg" alt=""><span>Admin</span><i class="fas fa-chevron-right left__iconDown"></i></div>
+                                <div class="left__title"><img src="assets/icon-user.svg" alt=""><span>Admin</span><input type="checkbox" class="white__font" id="tt__left">
+                                    <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
                                     <a class="left__link" href="insert_admin.html">Chèn Admin</a>
                                     <a class="left__link" href="view_admins.html">Xem Admins</a>
@@ -207,26 +213,19 @@
                     <hr class="line">
                     <div class="button__hidden">
                         <div class="container__button">
-                            <div class="toggle__btn " onclick="this.classList.toggle('active')">
-                                <button id="click" onclick="click__dark()"><i  class="fa fa-circle-o"></i></button>
-                            </div>
-                            <script>
-                                $clickk = document.getElementById('click').innerHTML;
-                                if ($(clickk).click(
-                                        function click__dark() {
-                                            document.getElementById('dark').style.backgroundColor = "#1e1e2d";
-                                            document.getElementById('dark2').style.backgroundColor = "#1e1e2d";
+                            <!-- <div class="toggle__btn " onclick="this.classList.toggle('active')"> -->
+                            <!-- <i id="click__me" class="fa fa-circle-o"></i> -->
 
-                                        }
-                                    ));
-                                else {
-                                    function click__dark() {
-                                        document.getElementById('dark').style.backgroundColor = "white";
-                                        document.getElementById('dark2').style.backgroundColor = "white";
+                            <input type="checkbox" class="checkbox" id="checkbox">
+                            <label for="checkbox" class="label">
+                                            <i class="far fa-moon"></i>
+                                            <i class="fas fa-sun"></i>
+                                            <div class="ball"></div>
+                                        </label>
 
-                                    }
-                                }
-                            </script>
+                            <!-- 
+                            </div> -->
+
                         </div>
                     </div>
                     <hr class="line">
@@ -254,7 +253,9 @@
     </div>
     </div>
 
+
     <script src="js/main.js"></script>
 </body>
+
 
 </html>

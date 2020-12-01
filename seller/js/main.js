@@ -29,4 +29,29 @@ window.addEventListener("load", event => {
             currentmenuItem.classList.add('open');
         }
     };
-})
+});
+
+const checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change', () => {
+    // document.body.classList.toggle('dark');
+
+    var element = document.getElementById("dark");
+    element.classList.toggle("toggle");
+    var element = document.getElementById("dark2");
+    element.classList.toggle("toggle");
+
+
+});
+
+const icon__down = document.getElementById('tt__left');
+
+icon__down.addEventListener('change', () => {
+
+    var element = document.getElementById("light");
+    element.classList.toggle("color__light");
+
+});
+
+
+var element = document.getElementById("tt__left").style.backgroundColor = "white";

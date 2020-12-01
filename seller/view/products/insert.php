@@ -1,3 +1,12 @@
+<p></p>
+<p>
+    <a href="seller.php?ctrl=products&act=insert">Thêm</a>
+    &ensp;
+    <a href="seller.php?ctrl=products&act=edit">Sửa</a>
+    &ensp;
+    <a href="seller.php?ctrl=products&act=delete">Xoá</a>
+</p>
+<p></p>
 <script src=".public/js/seller/products.js" defer></script>
 <form action="seller.php?ctrl=products&act=insert" method="post" enctype="multipart/form-data">
     <table>
@@ -35,7 +44,18 @@
         <tr>
             <td><p>Phân loại: </p></td>
             <td>
-                <div id="category_hashtag"></div>
+                <div id="category_hashtag">
+                <?php
+                    $output = '';
+                    foreach ($hashtags as $hashtag)
+                    {
+                        $output .=
+                        '<input type="checkbox" id="" name="hashtag[]" value="'.$hashtag['id'].'">
+                        <label for="">'.$hashtag['name'].'</label>&ensp;';
+                    }
+                    echo $output;
+                ?>
+                </div>
             </td>
         </tr>
         <tr>

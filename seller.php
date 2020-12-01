@@ -1,11 +1,8 @@
 <?php
     ob_start();
     session_start();
-    if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0)
-    {
-        if($_SESSION['sbs_role'] >= 20)
-        {
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,28 +15,14 @@
     <h3>Trang người bán</h3>
 
     <?php
-        if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0)
-        {
-            if($_SESSION['sbs_role'] >= 30) 
-                echo
-                    '<a href="admin.php">[ admin: '.$_SESSION['sbs_name'].' ]</a>
-                    &ensp;
-                    <a href="index.php">[ Trang chủ ]</a>
-                    &ensp;
-                    <a href="index.php?ctrl=account&act=logout">[ Đăng xuất ]</a>';
-            else
-                echo
-                    '<a href="seller.php?ctrl=account&act=user&id='.$_SESSION['sbs_id'].'">[ '.$_SESSION['sbs_name'].' ]</a>
-                    &ensp;
-                    <a href="index.php">[ Trang chủ ]</a>
-                    &ensp;
-                    <a href="index.php?ctrl=account&act=logout">[ Đăng xuất ]</a>';
-        }
-        else
+        if(isset($_SESSION['sbs_seller_id']) && $_SESSION['sbs_seller_id'] > 0)
         {
             echo
-                '<a href="index.php?ctrl=account&act=signin">[ Đăng nhập ]</a>';
-        }
+                '<a href="seller.php?ctrl=account&act=user&id='.$_SESSION['sbs_seller_id'].'">[ '.$_SESSION['sbs_seller_name'].' ]</a>
+                &ensp;
+                <a href="index.php">[ Trang chủ ]</a>
+                &ensp;
+                <a href="index.php?ctrl=account&act=logout">[ Đăng xuất ]</a>';
     ?>
     
     <ul>
@@ -48,6 +31,10 @@
         <li><a href="seller.php?ctrl=comments">Bình luận</a></li>
         <li><a href="seller.php?ctrl=statistics">Thống kê</a></li>
     </ul>
+
+    <?php
+        }
+    ?>
     
     <?php
 
@@ -64,12 +51,7 @@
 
     </body>
 </html>
+
 <?php
-        }
-        else
-        {
-            header('location: seller.php?ctrl=account&act=signup');
-        }
-    }
     ob_end_flush();
 ?>

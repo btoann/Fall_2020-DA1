@@ -9,6 +9,9 @@
 <p></p>
 <table border="1">
     <thead>
+        <td>
+            <strong><em>Chọn</em></strong>
+        </td>
         <td><strong>#</strong></td>
         <td><strong>Tên sản phẩm</strong></td>
         <td><strong>Danh mục</strong></td>
@@ -30,6 +33,7 @@
                 $name_ofHashtags = ($categories_hashtag != NULL) ? implode(' | ', array_column($categories_hashtag, 'name')) : '';
                 echo
                     '<tr>
+                        <td><input type="checkbox" id="" name="choices[]" value="'.$product['id'].'" form="delete_form"></td>
                         <td>'.$product['id'].'</td>
                         <td>'.$product['product_name'].'</td>
                         <td>'.$product['category_name'].'</td>
@@ -45,3 +49,6 @@
 
     </tbody>
 </table>
+<form action="seller.php?ctrl=products&act=delete" method="post" id="delete_form">
+    <input type="submit" name="delete" value="Xoá">
+</form>
