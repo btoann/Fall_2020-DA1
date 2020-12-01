@@ -243,14 +243,39 @@ h2 {
 }
 
 .footer-menu-content {
-  background-color: brown;
   width: 1200px;
   margin: 0 auto;
   min-height: 400px;
 }
 
-.footer-menu-item ul {
-  list-style: none;
-  margin-left: 0 !important;
+/* .bg-title {
+  background-color: chartreuse; */
+/* } */
+.bg-title h4 {
+  font-size: 18px;
+  padding: 5px 0px;
+}
+
+.bg-title-2 {
+  min-height: 200px;
+}
+
+.footer-item-ul {
+  display: inline-block;
+}
+
+.li-menu li  {
+  display: inline-block;
+  width: auto;
+  height: 10px;
+  padding: 10px;
+}
+.footer-item-ul li {
+  padding-bottom: 6px ;
+}
+
+.footer-map {
+  width: 50px;
+  height: 100px;
 }
 
