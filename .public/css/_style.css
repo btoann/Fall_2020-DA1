@@ -4,13 +4,15 @@
     box-sizing: border-box;
     word-wrap: break-word;
 }
-    /* */
-    ul {
-        display: flex;
-      }
-      li {
-        list-style: none;
-      }
+/* */
+ul
+{
+    display: flex;
+}
+li
+{
+    list-style: none;
+}
 
     /*  Box's background color  */
 .main-bg

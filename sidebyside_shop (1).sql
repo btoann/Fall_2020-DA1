@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2020 lúc 02:12 AM
+-- Thời gian đã tạo: Th12 02, 2020 lúc 03:26 AM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.4.7
 
@@ -154,11 +154,11 @@ INSERT INTO `category_hashtag` (`id`, `name`, `id_category`) VALUES
 --
 
 CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `id_product` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `content` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp()
+  `id` int(11) NOT NULL COMMENT 'id Bình luận',
+  `id_product` int(11) NOT NULL COMMENT 'id Sản phẩm',
+  `id_user` int(11) NOT NULL COMMENT 'id Người dùng',
+  `content` varchar(254) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nội dung bình luận',
+  `time` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Thời gian đăng bình luận'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -177,6 +177,21 @@ CREATE TABLE `delivery_address` (
   `specific_address` varchar(150) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Địa chỉ cụ thể',
   `id_user` int(11) NOT NULL COMMENT 'id Người dùng'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL COMMENT 'id Tin nhắn',
+  `id_user` int(11) NOT NULL COMMENT 'id Người dùng',
+  `id_seller` int(11) NOT NULL COMMENT 'id Người bán',
+  `content` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nội dung tin nhắn',
+  `time` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Thời gian gửi',
+  `status` tinyint(2) NOT NULL DEFAULT 1 COMMENT 'Trạng thái (gửi: 1X; nhận: 2X / ẩn: X0; hiện: X1)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -340,7 +355,8 @@ ALTER TABLE `category_hashtag`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product_comment` (`id_product`);
+  ADD KEY `product_comment` (`id_product`),
+  ADD KEY `user_comment` (`id_user`);
 
 --
 -- Chỉ mục cho bảng `delivery_address`
@@ -348,6 +364,14 @@ ALTER TABLE `comments`
 ALTER TABLE `delivery_address`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_DeliveryAddress` (`id_user`);
+
+--
+-- Chỉ mục cho bảng `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_message` (`id_user`),
+  ADD KEY `seller_message` (`id_seller`);
 
 --
 -- Chỉ mục cho bảng `order_detail`
@@ -428,7 +452,13 @@ ALTER TABLE `category_hashtag`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Bình luận';
+
+--
+-- AUTO_INCREMENT cho bảng `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Tin nhắn';
 
 --
 -- AUTO_INCREMENT cho bảng `order_detail`
@@ -492,13 +522,21 @@ ALTER TABLE `category_hashtag`
 -- Các ràng buộc cho bảng `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `product_comment` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_comment` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_comment` FOREIGN KEY (`id_user`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `delivery_address`
 --
 ALTER TABLE `delivery_address`
   ADD CONSTRAINT `user_DeliveryAddress` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `message`
+--
+ALTER TABLE `message`
+  ADD CONSTRAINT `seller_message` FOREIGN KEY (`id_seller`) REFERENCES `sellers` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_message` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `order_detail`

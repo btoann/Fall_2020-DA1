@@ -7,21 +7,21 @@
 <div class="az-header">
     <div class="container">
       <div class="az-header-left">
-        <a href="index.php" class="az-logo"><span></span> sbs's admin</a>
+        <a href="index.php" class="az-logo bside-txt"><span></span> sbs's admin</a>
         <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
       </div><!-- az-header-left -->
       <div class="az-header-menu">
         <div class="az-header-menu-header">
-          <a href="index.html" class="az-logo"><span></span> sbs's admin</a>
+          <a href="index.html" class="az-logo bside-txt"><span></span> sbs's admin</a>
           <a href="" class="close">&times;</a>
         </div><!-- az-header-menu-header -->
         <ul class="nav">
           <li class="nav-item active show">
-            <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Thống kê</a>
+            <a href="index.html" class="nav-link bside-txt"><i class="typcn typcn-chart-area-outline"></i> Thống kê</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link with-sub"><i class="typcn typcn-document"></i> Danh mục</a>
-            <nav class="az-menu-sub">
+            <a href="#" class="nav-link with-sub bside-txt"><i class="typcn typcn-document"></i> Danh mục</a>
+            <nav class="az-menu-sub bside-txt">
               <a href="admin.php?ctrl=categories&act=insert" class="nav-link">Thêm</a>
               <a href="admin.php?ctrl=categories&act=edit" class="nav-link">Sửa</a>
               <a href="admin.php?ctrl=categories&act=delete" class="nav-link">Xoá</a>

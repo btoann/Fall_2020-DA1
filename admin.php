@@ -31,6 +31,7 @@
 
         <!-- global CSS -->
         <link rel="stylesheet" href=".public/css/admin/style.css">
+        <link rel="stylesheet" href=".public/css/_style.css">
 
     </head>
     
