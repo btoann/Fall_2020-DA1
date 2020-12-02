@@ -1,6 +1,6 @@
 <?php
   
-    include_once 'connect.php';
+    include_once '.system/lib/controller.php';
 
     function getall_category()
     {
@@ -11,14 +11,7 @@
             WHERE node.lft BETWEEN parent.lft AND parent.rgt
             GROUP BY node.name
             ORDER BY node.lft';
-        return query($sql);
+        return $dtb->query($sql);
     }
-
-    $categories = getall_category();
-    foreach ($categories as $category)
-    {
-        echo $category['name'];
-    }
-    echo '123';
 
 ?>
