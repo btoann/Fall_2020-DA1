@@ -176,7 +176,6 @@ img {
   width: 80%;
   background-color: #f8f6f7;
 }
-
 .category {
   width: 948.61px;
   z-index: 1;
@@ -198,7 +197,7 @@ img {
   display: block;
 }
 .category-hover .block-1 {
-  width: 25%;
+  width: 35%;
   margin-right: 10%;
   font-size: 11pt;
   background-color: white;
@@ -258,17 +257,17 @@ img {
 }
 
 .category-hover .block-2 {
-  width: 10%;
+  width: 20%;
   float: left;
   margin-top: 20px;
-  height: 80px;
+  height: 140px;
   background-color: rgb(255, 255, 255);
 }
 
 .category-hover .block-2 strong {
   width: 100%;
   float: left;
-  height: 20px;
+  height: 30px;
 }
 
 .category-hover .block-2 li {
@@ -276,7 +275,7 @@ img {
   font-size: 11pt;
   float: left;
   color: gray;
-  height: 20px;
+  height: 30px;
   list-style: none;
 }
 
@@ -438,4 +437,12 @@ h2 {
 
 .next-arrow-carousel::before {
   color: red;
+}
+.word-pp {
+  padding: 10px;
+  margin: 10px;
+  border: solid 1px #c6c4c4;
+  background-color: rgb(149, 194, 97);
+  border-radius: 5px;
+  text-align: center;
 }
