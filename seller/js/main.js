@@ -1,7 +1,7 @@
 window.addEventListener("load", event => {
 
     // Expand Left Side
-    var icon = document.querySelector('.left__icon'),
+    var icon = document.querySelector('.left__menuItem'),
         left = document.querySelector('.left');
 
     icon.addEventListener('click', expand);
@@ -46,6 +46,7 @@ checkbox.addEventListener('change', () => {
 
 const icon__down = document.getElementById('tt__left');
 
+
 icon__down.addEventListener('change', () => {
 
     var element = document.getElementById("light");
@@ -54,4 +55,59 @@ icon__down.addEventListener('change', () => {
 });
 
 
+
+// var queryAll = document.getElementById.querySelectorAll(' #div '); // query to selector innerHTML
 var element = document.getElementById("tt__left").style.backgroundColor = "white";
+
+
+const icon__down__2 = document.getElementById('tt__left__2');
+
+icon__down__2.addEventListener('change', () => {
+
+    var element = document.getElementById("light__2");
+    element.classList.toggle("color__light");
+
+});
+
+
+
+const icon__down__3 = document.getElementById('tt__left__3');
+
+icon__down__3.addEventListener('change', () => {
+
+    var element = document.getElementById("light__3");
+    element.classList.toggle("color__light");
+
+});
+
+
+const icon__down__4 = document.getElementById('tt__left__4');
+
+icon__down__4.addEventListener('change', () => {
+
+    var element = document.getElementById("light__4");
+    element.classList.toggle("color__light");
+
+});
+
+
+const icon__down__5 = document.getElementById('tt__left__5');
+
+icon__down__5.addEventListener('change', () => {
+
+    var element = document.getElementById("light__5");
+    element.classList.toggle("color__light");
+
+});
+
+const icon__down__6 = document.getElementById('tt__left__6');
+
+icon__down__6.addEventListener('change', () => {
+
+    var element = document.getElementById("light__6");
+    element.classList.toggle("color__light");
+
+});
+
+
+// var element = document.getElementById("tt__leftt").style.backgroundColor = "white";

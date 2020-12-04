@@ -1,9 +1,16 @@
 <?php
-    ob_start();
-    session_start();
+// include
+    include_once 'seller/controller/index.php';
+
+
+
+?>
+<?php
+    // ob_start();
+    // session_start();
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -15,14 +22,14 @@
     <h3>Trang người bán</h3>
 
     <?php
-        if(isset($_SESSION['sbs_seller_id']) && $_SESSION['sbs_seller_id'] > 0)
-        {
-            echo
-                '<a href="seller.php?ctrl=account&act=user&id='.$_SESSION['sbs_seller_id'].'">[ '.$_SESSION['sbs_seller_name'].' ]</a>
-                &ensp;
-                <a href="index.php">[ Trang chủ ]</a>
-                &ensp;
-                <a href="index.php?ctrl=account&act=logout">[ Đăng xuất ]</a>';
+        // if(isset($_SESSION['sbs_seller_id']) && $_SESSION['sbs_seller_id'] > 0)
+        // {
+        //     echo
+        //         '<a href="seller.php?ctrl=account&act=user&id='.$_SESSION['sbs_seller_id'].'">[ '.$_SESSION['sbs_seller_name'].' ]</a>
+        //         &ensp;
+        //         <a href="index.php">[ Trang chủ ]</a>
+        //         &ensp;
+        //         <a href="index.php?ctrl=account&act=logout">[ Đăng xuất ]</a>';
     ?>
     
     <ul>
@@ -33,25 +40,25 @@
     </ul>
 
     <?php
-        }
+        // }
     ?>
     
     <?php
 
-        $index_file = 'seller/controller/home.php';
-        if(isset($_GET['ctrl']) && $_GET['ctrl'])
-        {
-            $filename = 'seller/controller/'.$_GET['ctrl'].'.php';
-            include (file_exists($filename)) ? $filename : $index_file;
-        }
-        else
-            include $index_file;
+        // $index_file = 'seller/controller/home.php';
+        // if(isset($_GET['ctrl']) && $_GET['ctrl'])   
+        // {
+        //     $filename = 'seller/controller/'.$_GET['ctrl'].'.php';
+        //     include (file_exists($filename)) ? $filename : $index_file;
+        // }
+        // else
+        //     include $index_file;
 
     ?>
 
     </body>
-</html>
+</html> -->
 
 <?php
-    ob_end_flush();
+    // ob_end_flush();
 ?>
