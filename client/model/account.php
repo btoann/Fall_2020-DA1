@@ -2,7 +2,7 @@
 
     include_once '.system/lib/controller.php';
     
-    function login($user)
+    function signin($user)
     {
         $sql = 'SELECT * FROM users WHERE email = "'.$user.'" OR tel = "'.$user.'"';
         $dtb = new database();

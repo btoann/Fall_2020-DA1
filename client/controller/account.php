@@ -13,7 +13,7 @@
                 {
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
-                    $this_acc = login($user);
+                    $this_acc = signin($user);
                     if(is_array($this_acc))
                     {
                         if(password_verify($pass, $this_acc['pass']))
@@ -24,8 +24,8 @@
                             $_SESSION['sbs_tel'] = $this_acc['tel'];
                             $_SESSION['sbs_role'] = $this_acc['role'];
 
-                            $url = ($this_acc['role'] >= 30) ? 'admin.php' :
-                                    (($this_acc['role'] < 30) ? 'index.php?ctrl=account&act=user&id='.$this_acc['id'] : 'index.php');
+                            $url = ($_SESSION['sbs_role'] >= 30) ? 'admin.php' :
+                                    (($_SESSION['sbs_role'] < 30) ? 'index.php?ctrl=account&act=user&id='.$_SESSION['sbs_id'] : 'index.php');
                             header('location: '.$url);
                         }
                     }
@@ -46,7 +46,7 @@
                         $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/';
                         if(preg_match($regex, $email))
                         {
-                            if(!is_array(login($email)) && !is_array(login($tel)))
+                            if(!is_array(signin($email)) && !is_array(signin($tel)))
                             {
                                 $name = $_POST['name'];
                                 $pass = $_POST['pass'];
@@ -54,8 +54,7 @@
                                 $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
                                 signup($name, $email, $tel, $hashed_password);
 
-
-                                $acc = login($email);
+                                $acc = signin($email);
                                 $_SESSION['sbs_id'] = $acc['id'];
                                 $_SESSION['sbs_name'] = $acc['name'];
                                 $_SESSION['sbs_email'] = $acc['email'];
@@ -148,15 +147,15 @@
                 //             });
                 //         </script>';
                 // }
-                // else header('location: index.php?ctrl=acc&act=login');
+                // else header('location: index.php?ctrl=acc&act=signin');
                 // include 'view/client/acc/'.$act.'.php';
                 break;
 
             default:
-                if(isset($_SESSION['ft_id']))
-                include 'client/view/account/home.php';
+                if(isset($_SESSION['sbs_id']))
+                    include 'client/view/account/home.php';
                 else
-                    include 'client/view/account/login.php';
+                    include 'client/view/account/signin.php';
                 break;
         }
     }

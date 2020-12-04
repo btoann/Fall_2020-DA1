@@ -31,6 +31,14 @@
             $conn = connect();
             $conn->exec($sql);
         }
+        
+        public function getExec($sql)
+        {
+            $conn = connect();
+            $conn->exec($sql);
+            return $conn;
+        }
+
     }
 
 ?>
