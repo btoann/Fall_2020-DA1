@@ -1,160 +1,28 @@
-<!-- vendor css -->
-<link href=".system/lib/admin/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link href=".system/lib/admin/ionicons/css/ionicons.min.css" rel="stylesheet">
-<link href=".system/lib/admin/typicons.font/typicons.css" rel="stylesheet">
-<link href=".system/lib/admin/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
 
-<div class="az-header">
+<script defer src=".public/js/admin/home.js"></script>
+
+  <div class="sbs-content sbs-content-dashboard">
     <div class="container">
-      <div class="az-header-left">
-        <a href="index.php" class="az-logo bside-txt"><span></span> sbs's admin</a>
-        <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
-      </div><!-- az-header-left -->
-      <div class="az-header-menu">
-        <div class="az-header-menu-header">
-          <a href="index.html" class="az-logo bside-txt"><span></span> sbs's admin</a>
-          <a href="" class="close">&times;</a>
-        </div><!-- az-header-menu-header -->
-        <ul class="nav">
-          <li class="nav-item active show">
-            <a href="index.html" class="nav-link bside-txt"><i class="typcn typcn-chart-area-outline"></i> Thống kê</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link with-sub bside-txt"><i class="typcn typcn-document"></i> Danh mục</a>
-            <nav class="az-menu-sub bside-txt">
-              <a href="admin.php?ctrl=categories&act=insert" class="nav-link">Thêm</a>
-              <a href="admin.php?ctrl=categories&act=edit" class="nav-link">Sửa</a>
-              <a href="admin.php?ctrl=categories&act=delete" class="nav-link">Xoá</a>
-            </nav>
-          </li>
-          <li class="nav-item">
-            <a href="admin.php?ctrl=account" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Người dùng</a>
-          </li>
-          <li class="nav-item">
-            <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>
-            <div class="az-menu-sub">
-              <div class="container">
-                <div>
-                  <nav class="nav">
-                    <a href="elem-buttons.html" class="nav-link">Buttons</a>
-                    <a href="elem-dropdown.html" class="nav-link">Dropdown</a>
-                    <a href="elem-icons.html" class="nav-link">Icons</a>
-                    <a href="table-basic.html" class="nav-link">Table</a>
-                  </nav>
-                </div>
-              </div><!-- container -->
-            </div>
-          </li>
-        </ul>
-      </div><!-- az-header-menu -->
-      <div class="az-header-right">
-        <a href="https://www.bootstrapdash.com/demo/azia-free/docs/documentation.html" target="_blank"
-          class="az-header-search-link"><i class="far fa-file-alt"></i></a>
-        <a href="" class="az-header-search-link"><i class="fas fa-search"></i></a>
-        <div class="az-header-message">
-          <a href="#"><i class="typcn typcn-messages"></i></a>
-        </div><!-- az-header-message -->
-        <div class="dropdown az-header-notification">
-          <a href="" class="new"><i class="typcn typcn-bell"></i></a>
-          <div class="dropdown-menu">
-            <div class="az-dropdown-header mg-b-20 d-sm-none">
-              <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
-            </div>
-            <h6 class="az-notification-title">Notifications</h6>
-            <p class="az-notification-text">You have 2 unread notification</p>
-            <div class="az-notification-list">
-              <div class="media new">
-                <div class="az-img-user"><img src="../img/faces/face2.jpg" alt=""></div>
-                <div class="media-body">
-                  <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
-                  <span>Mar 15 12:32pm</span>
-                </div><!-- media-body -->
-              </div><!-- media -->
-              <div class="media new">
-                <div class="az-img-user online"><img src="../img/faces/face3.jpg" alt=""></div>
-                <div class="media-body">
-                  <p><strong>Joyce Chua</strong> just created a new blog post</p>
-                  <span>Mar 13 04:16am</span>
-                </div><!-- media-body -->
-              </div><!-- media -->
-              <div class="media">
-                <div class="az-img-user"><img src="../img/faces/face4.jpg" alt=""></div>
-                <div class="media-body">
-                  <p><strong>Althea Cabardo</strong> just created a new blog post</p>
-                  <span>Mar 13 02:56am</span>
-                </div><!-- media-body -->
-              </div><!-- media -->
-              <div class="media">
-                <div class="az-img-user"><img src="../img/faces/face5.jpg" alt=""></div>
-                <div class="media-body">
-                  <p><strong>Adrian Monino</strong> added new comment on your photo</p>
-                  <span>Mar 12 10:40pm</span>
-                </div><!-- media-body -->
-              </div><!-- media -->
-            </div><!-- az-notification-list -->
-            <div class="dropdown-footer"><a href="">View All Notifications</a></div>
-          </div><!-- dropdown-menu -->
-        </div><!-- az-header-notification -->
-        <div class="dropdown az-profile-menu">
-          <a href="" class="az-img-user"><img src="../img/faces/face1.jpg" alt=""></a>
-          <div class="dropdown-menu">
-            <div class="az-dropdown-header d-sm-none">
-              <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
-            </div>
-            <div class="az-header-profile">
-              <div class="az-img-user">
-                <img src="../img/faces/face1.jpg" alt="">
-              </div><!-- az-img-user -->
-              <h6>Aziana Pechon</h6>
-              <span>Premium Member</span>
-            </div><!-- az-header-profile -->
-
-            <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-            <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-            <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-            <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
-            <a href="page-signin.html" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
-          </div><!-- dropdown-menu -->
-        </div>
-      </div><!-- az-header-right -->
-    </div><!-- container -->
-  </div><!-- az-header -->
-
-  <div class="az-content az-content-dashboard">
-    <div class="container">
-      <div class="az-content-body">
-        <div class="az-dashboard-one-title">
+      <div class="sbs-content-body">
+        <div class="sbs-dashboard-one-title">
           <div>
-            <h2 class="az-dashboard-title">Hi, welcome back!</h2>
-            <p class="az-dashboard-text">Your web analytics dashboard template.</p>
+            <h2 class="sbs-dashboard-title">Chào mừng trở lại!</h2>
+            <p class="sbs-dashboard-text">
+              <?= $_SESSION['sbs_name'] ?>, công việc hôm nay đã sẵn sàng!
+            </p>
           </div>
-          <div class="az-content-header-right">
+          <div class="sbs-content-header-right">
             <div class="media">
               <div class="media-body">
-                <label>Start Date</label>
-                <h6>Oct 10, 2018</h6>
+                <label>Date</label>
+                <h6 id="date">Oct 10, 2018</h6>
               </div><!-- media-body -->
             </div><!-- media -->
-            <div class="media">
-              <div class="media-body">
-                <label>End Date</label>
-                <h6>Oct 23, 2018</h6>
-              </div><!-- media-body -->
-            </div><!-- media -->
-            <div class="media">
-              <div class="media-body">
-                <label>Event Category</label>
-                <h6>All Categories</h6>
-              </div><!-- media-body -->
-            </div><!-- media -->
-            <a href="" class="btn btn-purple">Export</a>
+            <a href="" class="btn btn-main">Export</a>
           </div>
-        </div><!-- az-dashboard-one-title -->
+        </div><!-- sbs-dashboard-one-title -->
 
-        <div class="az-dashboard-nav">
+        <div class="sbs-dashboard-nav">
           <nav class="nav">
             <a class="nav-link active" data-toggle="tab" href="#">Overview</a>
             <a class="nav-link" data-toggle="tab" href="#">Audiences</a>
@@ -263,7 +131,7 @@
                 <p class="card-text">This report is based on 100% of sessions.</p>
               </div><!-- card-header -->
               <div class="card-body">
-                <div class="az-list-item">
+                <div class="sbs-list-item">
                   <div>
                     <h6>Admin Home</h6>
                     <span>/demo/admin/index.html</span>
@@ -273,7 +141,7 @@
                     <span>31.74% (-100.00%)</span>
                   </div>
                 </div><!-- list-group-item -->
-                <div class="az-list-item">
+                <div class="sbs-list-item">
                   <div>
                     <h6>Form Elements</h6>
                     <span>/demo/admin/forms.html</span>
@@ -283,7 +151,7 @@
                     <span>28.53% (-100.00%)</span>
                   </div>
                 </div><!-- list-group-item -->
-                <div class="az-list-item">
+                <div class="sbs-list-item">
                   <div>
                     <h6>Utilities</h6>
                     <span>/demo/admin/util.html</span>
@@ -293,7 +161,7 @@
                     <span>25.35% (-100.00%)</span>
                   </div>
                 </div><!-- list-group-item -->
-                <div class="az-list-item">
+                <div class="sbs-list-item">
                   <div>
                     <h6>Form Validation</h6>
                     <span>/demo/admin/validation.html</span>
@@ -303,7 +171,7 @@
                     <span>23.17% (-100.00%)</span>
                   </div>
                 </div><!-- list-group-item -->
-                <div class="az-list-item">
+                <div class="sbs-list-item">
                   <div>
                     <h6>Modals</h6>
                     <span>/demo/admin/modals.html</span>
@@ -327,7 +195,7 @@
                   <div class="chart"><canvas id="chartDonut"></canvas></div>
                 </div><!-- col -->
                 <div class="col-md-6 col-lg-5 mg-lg-l-auto mg-t-20 mg-md-t-0">
-                  <div class="az-traffic-detail-item">
+                  <div class="sbs-traffic-detail-item">
                     <div>
                       <span>Organic Search</span>
                       <span>1,320 <span>(25%)</span></span>
@@ -337,7 +205,7 @@
                         aria-valuemax="100"></div>
                     </div><!-- progress -->
                   </div>
-                  <div class="az-traffic-detail-item">
+                  <div class="sbs-traffic-detail-item">
                     <div>
                       <span>Email</span>
                       <span>987 <span>(20%)</span></span>
@@ -347,7 +215,7 @@
                         aria-valuemin="0" aria-valuemax="100"></div>
                     </div><!-- progress -->
                   </div>
-                  <div class="az-traffic-detail-item">
+                  <div class="sbs-traffic-detail-item">
                     <div>
                       <span>Referral</span>
                       <span>2,010 <span>(30%)</span></span>
@@ -357,7 +225,7 @@
                         aria-valuemax="100"></div>
                     </div><!-- progress -->
                   </div>
-                  <div class="az-traffic-detail-item">
+                  <div class="sbs-traffic-detail-item">
                     <div>
                       <span>Social</span>
                       <span>654 <span>(15%)</span></span>
@@ -367,7 +235,7 @@
                         aria-valuemax="100"></div>
                     </div><!-- progress -->
                   </div>
-                  <div class="az-traffic-detail-item">
+                  <div class="sbs-traffic-detail-item">
                     <div>
                       <span>Other</span>
                       <span>400 <span>(10%)</span></span>
@@ -453,7 +321,7 @@
           <div class="col-lg-7 col-xl-8 mg-t-20 mg-lg-t-0">
             <div class="card card-table-one">
               <h6 class="card-title">What pages do your users visit</h6>
-              <p class="az-content-text mg-b-20">Part of this date range occurs before the new users metric had been
+              <p class="sbs-content-text mg-b-20">Part of this date range occurs before the new users metric had been
                 calculated, so the old users metric is displayed.</p>
               <div class="table-responsive">
                 <table class="table">
@@ -516,6 +384,6 @@
           </div><!-- col-lg -->
 
         </div><!-- row -->
-      </div><!-- az-content-body -->
+      </div><!-- sbs-content-body -->
     </div>
-  </div><!-- az-content -->
+  </div><!-- sbs-content -->
