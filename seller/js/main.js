@@ -108,6 +108,3 @@ icon__down__6.addEventListener('change', () => {
     element.classList.toggle("color__light");
 
 });
-
-
-// var element = document.getElementById("tt__leftt").style.backgroundColor = "white";

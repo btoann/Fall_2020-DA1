@@ -1,3 +1,4 @@
+
 <div class="center">
                     <div class="center__content">
                         <div class="center__title">Bảng điều khiển</div>
@@ -29,10 +30,10 @@
                                             <td data-label="Từ khoá">dress, vay</td>
                                             <td data-label="Thời gian">2020-07-13 21:31:05</td>
                                             <td data-label="Sửa" class="center__iconTable">
-                                                <a href="seller.php?ctrl=product?act=edit"><img src="seller/assets/icon-edit.svg" alt=""></a>
+                                                <a href="seller.php?ctrl=product&act=edit"><img src="seller/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="center__iconTable">
-                                                <a href="seller.php?ctrl=product?act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href="seller.php?ctrl=product&act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -44,10 +45,10 @@
                                             <td data-label="Từ khoá">top skirt</td>
                                             <td data-label="Thời gian">2020-07-13 22:19:01</td>
                                             <td data-label="Sửa" class="center__iconTable">
-                                                <a href="seller.php?ctrl=product?act=edit"><img src="seller/assets/icon-edit.svg" alt=""></a>
+                                                <a href=""><img src="seller/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="center__iconTable">
-                                                <a href="seller.php?ctrl=product?act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href=""><img src="seller/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -71,3 +72,4 @@
                         </div>
                     </div>
                 </div>
+       

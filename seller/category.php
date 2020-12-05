@@ -21,10 +21,10 @@
                                             <td data-label="Tiêu đề">Dress</td>
                                             <td data-label="Mô tả">Thiết kế nhẹ nhàng, trẻ trung và lãng đãng!</td>
                                             <td data-label="Sửa" class="center__iconTable">
-                                                <a href="seller.php?ctrl=category?act=edit"><img src="seller/assets/icon-edit.svg" alt=""></a>
+                                                <a href=""><img src="seller/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="center__iconTable">
-                                                <a href="seller.php?ctrl=category?act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href=""><img src="seller/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -32,10 +32,10 @@
                                             <td data-label="Tiêu đề">Top + Skirt</td>
                                             <td data-label="Mô tả">Thiết kế nhẹ nhàng, trẻ trung và lãng đãng!</td>
                                             <td data-label="Sửa" class="center__iconTable">
-                                                <a href="seller.php?ctrl=category?act=edit"><img src="seller/assets/icon-edit.svg" alt=""></a>
+                                                <a href="seller.php?ctrl=category&act=edit"><img src="seller/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="center__iconTable">
-                                                <a href="seller.php?ctrl=category?act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href="seller.php?ctrl=category&act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
                                     </tbody>

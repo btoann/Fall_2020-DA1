@@ -1,7 +1,7 @@
 <div class="center">
                     <div class="center__content">
                         <div class="center__title">Bảng điều khiển</div>
-                        <p class="center__desc">Chèn thể loại</p>
+                        <p class="center__desc">Chèn danh mục</p>
                         <div class="center__formWrapper">
                             <form action="" method="post">
                                 <div class="center__inputWrapper">
