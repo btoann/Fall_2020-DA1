@@ -7295,6 +7295,32 @@ a.text-dark:hover, a.text-dark:focus {
     .show > .btn-main.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(81, 198, 221, 0.5); }
 
+.btn-hl {
+  color: #fff;
+  background-color: #F04C63;
+  border-color: #da4659; }
+  .btn-hl:hover {
+    color: #fff;
+    background-color: #F04C63;
+    border-color: #da4659; }
+  .btn-hl:focus, .btn-hl.focus {
+    color: #fff;
+    background-color: #F04C63;
+    border-color: #da4659;
+    box-shadow: 0 0 0 0.2rem rgba(240, 76, 98, 0.5); }
+  .btn-hl.disabled, .btn-hl:disabled {
+    color: #fff;
+    background-color: #F04C63;
+    border-color: #da4659; }
+  .btn-hl:not(:disabled):not(.disabled):active, .btn-hl:not(:disabled):not(.disabled).active,
+  .show > .btn-hl.dropdown-toggle {
+    color: #fff;
+    background-color: #F04C63;
+    border-color: #da4659; }
+    .btn-hl:not(:disabled):not(.disabled):active:focus, .btn-hl:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-hl.dropdown-toggle:focus {
+      box-shadow: 0 0 0 0.2rem rgba(240, 76, 98, 0.5); }
+
 .btn-light {
   color: #1c273c;
   background-color: #cdd4e0;
@@ -7323,8 +7349,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .btn-indigo {
   color: #fff;
-  background-color: #F04C63;
-  border-color: #51C5DD; }
+  background-color: #3a22fa;
+  border-color: #1f05f0; }
   .btn-indigo:hover {
     color: #fff;
     background-color: #3a22fa;
@@ -7978,7 +8004,7 @@ a.text-dark:hover, a.text-dark:focus {
       letter-spacing: .5px;
       text-transform: uppercase;
       color: #fff;
-      top: 2px;
+      top: 4px;
       line-height: 1.38; }
     .sbs-toggle span::before {
       content: 'on';

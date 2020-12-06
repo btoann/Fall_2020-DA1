@@ -19,6 +19,7 @@
             gtag('config', 'UA-90680653-2');
         </script>
         <script async src=".system/lib/admin/jquery/jquery.min.js"></script>
+        <script async src=".public/js/sweetalert.min.js"></script>
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -53,29 +54,23 @@
             </div><!-- sbs-header-left -->
             <div class="sbs-header-menu">
             <div class="sbs-header-menu-header">
-                <a href="index.html" class="sbs-logo bside-txt">
+                <a href="admin.php" class="sbs-logo bside-txt">
                 <span></span>s<span class="gray-txt">b</span><span class="hl-txt">b</span>'s admin
                 </a>
                 <a href="" class="close">&times;</a>
             </div><!-- sbs-header-menu-header -->
             <ul class="nav">
-                <li class="nav-item active show">
-                <a href="index.html" class="nav-link bside-txt"><i class="icon-chart-bar"></i>&ensp;Thống kê</a>
+                <li class="nav-item <?= (!isset($_GET['ctrl'])) ? 'active show' : '' ?>">
+                    <a href="admin.php" class="nav-link bside-txt"><i class="icon-chart-bar"></i>&ensp;Thống kê</a>
+                </li>
+                <li class="nav-item <?= (isset($_GET['ctrl']) && $_GET['ctrl'] == 'categories') ? 'active show' : '' ?>">
+                    <a href="admin.php?ctrl=categories" class="nav-link bside-txt"><i class="icon-list-nested"></i>&ensp;Danh mục</a>
+                </li>
+                <li class="nav-item <?= (isset($_GET['ctrl']) && $_GET['ctrl'] == 'account') ? 'active show' : '' ?>">
+                    <a href="admin.php?ctrl=account" class="nav-link"><i class="icon-user-outline"></i>&ensp;Người dùng</a>
                 </li>
                 <li class="nav-item">
-                <a href="#" class="nav-link with-sub bside-txt"><i class="icon-list-nested"></i>&ensp;Danh mục</a>
-                <nav class="sbs-menu-sub bside-txt">
-                    <a href="admin.php?ctrl=categories" class="nav-link">Quản lí</a>
-                    <a href="admin.php?ctrl=categories&act=insert" class="nav-link">Thêm</a>
-                    <a href="admin.php?ctrl=categories&act=edit" class="nav-link">Sửa</a>
-                    <a href="admin.php?ctrl=categories&act=delete" class="nav-link">Xoá</a>
-                </nav>
-                </li>
-                <li class="nav-item">
-                <a href="admin.php?ctrl=account" class="nav-link"><i class="icon-user-outline"></i>&ensp;Người dùng</a>
-                </li>
-                <li class="nav-item">
-                <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
+                    <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
                 </li>
                 <li class="nav-item">
                 <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>

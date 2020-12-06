@@ -16,7 +16,7 @@
 
             case 'detail':
                 /*  Chi tiết danh mục  */
-                if(isset($_GET['id']) && $_GET['id'] > 0)
+                if(isset($_GET['id']) && $_GET['id'])
                 {
                     $parent = get_category($_GET['id']);
                     $childrens = getChildren_categories($_GET['id']);
@@ -28,71 +28,126 @@
                 /*  Thêm danh mục  */
                 if(isset($_POST['insert']) && $_POST['insert'])
                 {
-                    $name = $_POST['name'];
-                    $parent = $_POST['parent'];
-                    $hashtags = $_POST['hashtags'];
-
+                    $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
+                    $parent = (isset($_POST['parent'])) ? $_POST['parent'] : NULL;
                     $last_id = 0;
-                    if($bool->checkNull($name) == true)
+                    if($bool->checkNull($name, $parent))
                     {
-                        $last_id = insert_category($name, $parent);
-                        $last_id = $last_id->lastInsertId();
-
-                        for($i = 0; $i <= sizeof($hashtags); $i++)
+                        $last_id = insert_category($name, $parent, $_SESSION['sbs_id']);
+                        if($parent > 0)
                         {
-                            insert_category_hastag($name, $last_id);
+                            $last_id = $last_id->lastInsertId();
+                            if(isset($_POST['check_hashtag']) && $_POST['check_hashtag'])
+                            {
+                                $hashtags = $bool->array_removeNull($_POST['hashtags']);
+                                if($hashtags != NULL)
+                                    insert_category_hashtags($hashtags, $last_id);
+                            }
                         }
-                        header('location: admin.php?ctrl=categories');
+                        echo
+                            '<script>
+                                swal("Thành công!", "Bạn đã thêm danh mục \"'.$name.'\"", "success").then(() => {
+                                    window.location.replace("admin.php?ctrl=categories");
+                                  });
+                            </script>';
+                        //header('location: admin.php?ctrl=categories');
                     }
                 }
                 include 'admin/view/categories/'.$act.'.php';
                 break;
             
-            case 'edit':
-                /*  Chỉnh sửa danh mục  */
-                if(isset($_POST['edit']) && $_POST['edit'])
+            case 'update':
+                /*  Cập nhật danh mục  */
+                if(isset($_POST['update']) && $_POST['update'])
                 {
-                    $check_null = true;
-
-                    $id = $_POST['id'];
-                    if(!empty($_POST['name']))
-                        $name = $_POST['name'];
-                    else $check_null = false;
-                    $category = $_POST['category'];
-                    $category_hashtag = $_POST['category_hashtag'];
-                    $price = $_POST['price'];
-                    /*
-                    $image = $_FILES['image']['name'];
-                    $target_file = '.public/products/p_'.$id.'/'.basename($image);
-                    if(move_uploaded_file($_FILES["image"]["tmp_name"], $target_file))
+                    // Danh mục cha
+                    $id = (isset($_POST['id']) && $_POST['id']) ? $_POST['id'] : NULL;
+                    $parent = get_category($id);
+                    if(!is_array($parent))
                     {
-                        // Upload thành công
+                        break;
                     }
-                    else
-                        // Lỗi khi upload
-                        $check_null = false;
-                    */
-                    $description = $_POST['description'];
-
-                    if($check_null == true)
+                    $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
+                    $active = (isset($_POST['active']) && $_POST['active']) ? $_POST['active'] : NULL;
+                    if($bool->checkNull($id, $name, $active))
                     {
-                        update_product($name, $category, $category_hashtag, $price, $description);
-                        header('location: seller.php?page=product');
+                        update_category($id, $name, $_SESSION['sbs_id'], $active);
+                    }
+                    $parent_width = get_widthCategory($id);
+
+                    // Danh mục con
+                    if($parent_width['width'] > 1)
+                    {
+                        $ids = (isset($_POST['ids']) && $_POST['ids']) ? $_POST['ids'] : NULL;
+                        $names = (isset($_POST['names']) && $_POST['names']) ? $_POST['names'] : NULL;
+                        $parents = (isset($_POST['parents'])) ? $_POST['parents'] : NULL;
+                        $actives = (isset($_POST['actives'])) ? $_POST['actives'] : NULL;
+                        if($bool->checkNull($ids, $names, $parents))
+                        {
+                            $success = false;
+                            for($i = 0; $i < sizeof($ids); $i++)
+                            {
+                                $child_width = get_widthCategory($ids[$i]);
+                                if(($child_width['lft'] > $parent_width['lft']) && ($child_width['rgt'] < $parent_width['rgt']))
+                                {
+                                    if($bool->checkNull($ids[$i], $names[$i], $parents[$i], $actives[$i]))
+                                    {
+                                        $success = true;
+                                        if($parents[$i] == $id)
+                                            update_category($ids[$i], $names[$i], $_SESSION['sbs_id'], $actives[$i]);
+                                        else
+                                            updateChildren_category($ids[$i], $names[$i], $_SESSION['sbs_id'], $parents[$i], $child_width['rgt'], $actives[$i]);
+                                        
+                                    }
+                                }
+                            }
+                            //if($success == true) break;
+                        }
                     }
                 }
-                include 'seller/view/products/'.$act.'.php';
+                if(isset($_GET['id']) && $_GET['id'] > 0)
+                {
+                    $parent = get_category($_GET['id']);
+                    if(!is_array($parent))
+                    {
+                        header('location: admin.php?ctrl=categories');
+                    }
+                    else
+                    {
+                        $childrens = getChildren_categories($_GET['id']);
+                    }
+                }
+                else
+                    header('location: admin.php?ctrl=categories');
+                include 'admin/view/categories/'.$act.'.php';
                 break;
 
             case 'delete':
                 /*  Xoá sản phẩm  */
                 if(isset($_POST['delete']) && $_POST['delete'])
                 {
-                    $choices = (isset($_POST['choices']) && $_POST['choices'] != NULL) ? implode(", ", $_POST['choices']) : NULL;
-                    delete_product($choices);
+                    $choices = (isset($_POST['choices']) && $_POST['choices'] != NULL) ? $_POST['choices'] : NULL;
+                    if($choices != NULL)
+                    {
+                        delete_categories($choices);
+                        break;
+                    }
                 }
-                include 'seller/view/products/'.$act.'.php';
+                if(isset($_GET['id']) && $_GET['id'] > 0)
+                {
+                    $parent = get_widthCategory($_GET['id']);
+                    if(!is_array($parent) || $parent['width'] <= 1)
+                    {
+                        header('location: admin.php?ctrl=categories&act=delete');
+                    }
+                    else
+                    {
+                        $childrens = getChildren_categories($_GET['id']);
+                    }
+                }
+                include 'admin/view/categories/'.$act.'.php';
                 break;
-
+                
             default:
                 header('location: admin.php?ctrl=categories');
                 break;
@@ -103,3 +158,5 @@
 
     ob_flush();
 ?>
+
+<!--  -->
