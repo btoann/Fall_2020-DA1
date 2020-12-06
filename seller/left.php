@@ -19,44 +19,44 @@
                             
                             <li class="left__menuItem">
 
-                                <div class="left__title"><img src="seller/assets/icon-tag.svg" alt=""><span> Sản Phẩm </span> <input type="checkbox" class="white__font" id="tt__left">
+                                <div class="left__title"><img src="seller/assets/icon-tag.svg" alt=""><span> <a href="seller.php?ctrl=product" >Sản Phẩm</a>  </span> <input type="checkbox" class="white__font" id="tt__left">
                                     <i id="light" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="seller.php?ctrl=product">Xem sản phẩm </a>
-                                    <a class="left__link" href="seller.php?ctrl=product?act=add">Thêm sản phẩm </a>
+                                    <a class="left__link" href="seller.php?ctrl=product&act=view">Xem sản phẩm </a>
+                                    <a class="left__link" href="seller.php?ctrl=product&act=add">Thêm sản phẩm </a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="seller/assets/icon-edit.svg" alt=""><span>Danh Mục SP</span> <input type="checkbox" class="white__font" id="tt__left__2">
+                                <div class="left__title"><img src="seller/assets/icon-edit.svg" alt=""><span><a href="seller.php?ctrl=category" >Danh Mục SP</a></span> <input type="checkbox" class="white__font" id="tt__left__2">
                                     <i id="light__2" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="seller.php?ctrl=category?act=view">Xem Danh Mục</a>
-                                    <a class="left__link" href="seller.php?ctrl=category?act=add">Thêm Danh Mục</a>
+                                    <a class="left__link" href="seller.php?ctrl=category&act=view">Xem Danh Mục</a>
+                                    <a class="left__link" href="seller.php?ctrl=category&act=add">Thêm Danh Mục</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="seller/assets/icon-book.svg" alt=""><span>Thể loại</span> <input type="checkbox" class="white__font" id="tt__left__3">
+                                <div class="left__title"><img src="seller/assets/icon-book.svg" alt=""><span> <a href="seller.php?ctrl=kind" > Thể loại </a></span> <input type="checkbox" class="white__font" id="tt__left__3">
                                     <i id="light__3" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="seller.php?ctrl=kind?act=view">Xem Thể Loại</a>
-                                    <a class="left__link" href="seller.php?ctrl=kind?act=add">Chèn Thể Loại</a>
+                                    <a class="left__link" href="seller.php?ctrl=kind&act=view">Xem Thể Loại</a>
+                                    <a class="left__link" href="seller.php?ctrl=kind&act=add">Chèn Thể Loại</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="seller/assets/icon-settings.svg" alt=""><span>Slide</span></span><input type="checkbox" class="white__font" id="tt__left__4">
+                                <div class="left__title"><img src="seller/assets/icon-settings.svg" alt=""><span> <a href="seller.php?ctrl=slide" > Slide </a></span></span><input type="checkbox" class="white__font" id="tt__left__4">
                                     <i id="light__4" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="seller.php?ctrl=slide?act=view">Xem Slide</a>
-                                    <a class="left__link" href="seller.php?ctrl=slide?act=add">Chèn Slide</a>
+                                    <a class="left__link" href="seller.php?ctrl=slide&act=view">Xem Slide</a>
+                                    <a class="left__link" href="seller.php?ctrl=slide&act=add">Chèn Slide</a>
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="seller/assets/icon-book.svg" alt=""><span>Coupons</span> <input type="checkbox" class="white__font" id="tt__left__5">
+                                <div class="left__title"><img src="seller/assets/icon-book.svg" alt=""><span> <a href="seller.php?ctrl=coupons" >Coupons </a></span> <input type="checkbox" class="white__font" id="tt__left__5">
                                     <i id="light__5" class="fas fa-chevron-right left__iconDown"></i></div>
 
                                 <div class="left__text">
-                                    <a class="left__link" href="seller.php?ctrl=slide?act=view">Xem Coupon</a>
-                                    <a class="left__link" href="seller.php?ctrl=slide?act=add"> Chèn Coupons</a>
+                                    <a class="left__link" href="seller.php?ctrl=coupons&act=view">Xem Coupon</a>
+                                    <a class="left__link" href="seller.php?ctrl=coupons&act=add"> Chèn Coupons</a>
                                 </div>
 
                             </li>
@@ -70,7 +70,7 @@
                                 <a href="seller.php?ctrl=editcss" class="left__title"><img src="seller/assets/icon-pencil.svg" alt="">Chỉnh CSS</a>
                             </li>
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="seller/assets/icon-user.svg" alt=""><span>Admin </span><input type="checkbox" class="white__font" id="tt__left__6">
+                                <div class="left__title"><img src="seller/assets/icon-user.svg" alt=""><span>  <a href="seller.php?ctrl=coupons" >Admin</a> </span><input type="checkbox" class="white__font" id="tt__left__6">
                                     <i id="light__6" class="fas fa-chevron-right left__iconDown"></i></div>
                                 <div class="left__text">
                                     <a class="left__link" href="seller.php?ctrl=admin?act=view"> Xem Admin</a>
@@ -83,4 +83,4 @@
                         </ul>
                     </div>
                 </div>
-         
+       

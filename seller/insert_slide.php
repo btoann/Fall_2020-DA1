@@ -4,9 +4,9 @@
                         <p class="center__desc">Chèn slide</p>
                         <div class="center__formWrapper">
                             <form action="" method="post">
-                                <div class="center__inputWrapperr">
+                                <div class="center__inputWrapper">
                                     <label for="name">Tên slide</label>
-                                    <input type="text" placeholder="Tên slide">
+                                    <input type="text" placeholder="">
                                 </div>
                                 <div class="center__inputWrapper">
                                     <label for="url">Url</label>
