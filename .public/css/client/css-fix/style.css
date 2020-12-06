@@ -181,14 +181,18 @@ img {
   width: 948.61px;
   z-index: 1;
   margin: 0 auto;
-  position: absolute;
-  top: 70px;
   display: none;
+  background-color: white;
+}
+.hover {
+  position: absolute;
+  padding-top: 50px;
 }
 .menu-bottom-category:hover .category {
   display: block;
 }
 .category-hover {
+  margin-left: 5px;
   height: 407.27px;
   z-index: -99;
   display: flex;
