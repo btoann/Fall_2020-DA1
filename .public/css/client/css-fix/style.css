@@ -93,6 +93,7 @@ a:hover {
   font-weight: 700;
   position: relative;
   font-size: 21px;
+  z-index: 9999;
 }
 
 .menu-bottom-category .fa-align-right {
@@ -608,18 +609,13 @@ li {
 .shop-container {
   background-color: #eff0f3;
 }
-.shop-container .container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
 .shop-container .content-row {
   background-color: #fff;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 .shop-container #product-sidebar {
-  padding-top: 20px ;
+  padding-top: 20px;
   border-left: 0;
 }
 .shop-container .product-main {
@@ -627,12 +623,80 @@ li {
 }
 .shop-container .product-img-slide {
   width: 100%;
-  min-height: 100px;
+  min-height: 400px;
   background-color: burlywood;
 }
 
 .header-container {
   background-color: #51C5DD;
+}
+
+.shop-container .container-amount-added {
+  position: relative;
+  background-color: chartreuse;
+  z-index: 1000;
+}
+
+.shop-container .sreen-reader-text {
+  clip: rect(1px,1px,1px,1px);
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.shop-container .amount-input-display {
+  position: absolute;
+  width: 50px;
+  left: 18px;
+  text-align: center;
+  z-index: 998;
+}
+.shop-container input.amount-input-display {
+  padding: 5px;
+}
+.shop-container input,input:focus,input:active {
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+}
+.shop-container .amount-added-minus {
+  position: absolute;
+  z-index: 999;
+  width: 23px;
+  text-align: center;
+  transition: 0.75s all;
+}
+.shop-container input.amount-added-minus {
+  padding: 5px;
+}
+.shop-container .amount-added-plus {
+  position: absolute;
+  left: 50px;
+  z-index: 999;
+  width: 24px;
+}.shop-container input.amount-added-plus {
+  padding: 5px;
+}
+
+.shop-container .container-button-addcart {
+  display: flex;
+}
+.shop-container input.product-cart {
+  width: 200px;
+  padding: 7px 10px;
+  border: 0!important;
+  background-color:  #F04C63;
+  border-radius: 4px;
+  transition: 0.25s all;
+  color: #f9f9f9;
+  font-size: 15.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.shop-container input.product-cart:hover {
+  background-color: #8a3a44; 
+  opacity: 1;
 }
 
 
