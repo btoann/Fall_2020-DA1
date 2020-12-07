@@ -65,7 +65,7 @@
                                 $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
 
                                 // Gửi mail xác thực
-                                verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_id'], $activation);
+                                verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_name'], $_SESSION['sbs_id'], $activation);
 
 
                                 $url = ($acc['role'] >= 30) ? 'admin.php' :
@@ -100,19 +100,20 @@
                                 {
                                     if(is_array(get_verify($_GET['id'], $_GET['verify'])))
                                     {
-                                        verify_account($_GET['id'], $_GET['verify']);
+                                        $new_role = verify_account($_GET['id'], $_GET['verify']);
+                                        $_SESSION['sbs_role'] = $new_role;
                                     }
                                 }
                                 if(isset($_POST['resend_verify']) && $_POST['resend_verify'])
                                 {
                                     $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
-                                    verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_id'], $activation);
+                                    verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_name'], $_SESSION['sbs_id'], $activation);
                                     header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
                                 }
-                            }
-                            if($_SESSION['sbs_role'] > 0)
-                            {
-                                header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
+                                if($_SESSION['sbs_role'] > 0)
+                                {
+                                    header('location: index.php');
+                                }
                             }
                         }
                     }

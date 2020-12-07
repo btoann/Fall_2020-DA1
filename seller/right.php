@@ -102,29 +102,3 @@ $(document).ready(function(){
 
 
 
-<style> 
-.info__page {
-    float: left;
-    top: 550px;
-    right: 60px;
-    width: 200px;
-    position: absolute;
-    font-size: 11pt;
-    display: none;
-    text-align: left;
-    background-color: #c7c6c6;
-}
-
- .info__page li {
-    list-style: none;
-    line-height: 20pt;
-    margin-top: 5px;
-    padding: 0px 10px;
-    margin-bottom: 5px;
-    width: 100%;
-}
-.info__page li:hover {
-    color: white;
-    transition: all 0.2s ease;
-}
-</style>

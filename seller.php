@@ -1,13 +1,6 @@
 <?php
-// include
-    include_once 'seller/controller/index.php';
-
-
-
-?>
-<?php
-    // ob_start();
-    // session_start();
+    ob_start();
+    session_start();
 ?>
 
 <!-- <!DOCTYPE html>
@@ -45,14 +38,14 @@
     
     <?php
 
-        // $index_file = 'seller/controller/home.php';
-        // if(isset($_GET['ctrl']) && $_GET['ctrl'])   
-        // {
-        //     $filename = 'seller/controller/'.$_GET['ctrl'].'.php';
-        //     include (file_exists($filename)) ? $filename : $index_file;
-        // }
-        // else
-        //     include $index_file;
+        $index_file = 'seller/controller/home.php';
+        if(isset($_GET['ctrl']) && $_GET['ctrl'])   
+        {
+            $filename = 'seller/controller/'.$_GET['ctrl'].'.php';
+            include (file_exists($filename)) ? $filename : $index_file;
+        }
+        else
+            include $index_file;
 
     ?>
 
@@ -60,5 +53,5 @@
 </html> -->
 
 <?php
-    // ob_end_flush();
+    ob_end_flush();
 ?>

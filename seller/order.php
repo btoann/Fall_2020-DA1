@@ -36,8 +36,8 @@
                                                 <a href="seller.php?ctrl=order?act=delete"><img src="seller/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                             <td data-label="Thanh toán" class="center__confirm">
-                                                <a href="seller.php?ctrl=order?act=check" class="center__iconTable"><img src="seller/assets/icon-check.svg" alt=""></a>
-                                                <a href="seller.php?ctrl=order?act=exit" class="center__iconTable"><img src="seller/assets/icon-x.svg" alt=""></a>
+                                                <a href="seller.php?ctrl=order&act=check" class="center__iconTable"><img src="seller/assets/icon-check.svg" alt=""></a>
+                                                <a href="seller.php?ctrl=order&act=exit" class="center__iconTable"><img src="seller/assets/icon-x.svg" alt=""></a>
                                             </td>
                                         </tr>
                                         <tr>

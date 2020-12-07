@@ -53,7 +53,7 @@
                                 {
                                     // Upload thành công
                                     $img_name = $name.' - #'.$i;
-                                    insert_img_product($img_name, $last_id, $basename);
+                                    insert_product_image($img_name, $last_id, $basename);
                                 }
                             }
                         }

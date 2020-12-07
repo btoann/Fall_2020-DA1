@@ -38,7 +38,7 @@
         return $dtb->getExec($sql);
     }
 
-    function insert_img_product($name, $id_product, $basename)
+    function insert_product_image($name, $id_product, $basename)
     {
         $sql =
             'INSERT INTO product_images (name, id_product, basename)
