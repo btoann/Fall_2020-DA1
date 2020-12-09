@@ -18,10 +18,15 @@
         <div class="sbs-content-body pd-lg-l-40 d-flex flex-column">
             <div class="sbs-content-breadcrumb">
                 <span><a href="admin.php">Admin</a></span>
-                <span><a href="admin.php?ctrl=categories">Danh mục</a></span>
+                <span><a href="admin.php?ctrl=hashtags">Phân loại</a></span>
                 <span><?= $parent['name'] ?></span>
             </div>
-            <h2 class="sbs-content-title">Chi tiết danh mục</h2>
+            <h2 class="sbs-content-title mg-b-20">Chi tiết danh mục</h2>
+            <p class="mg-b-5">
+                <?= 
+                    ($parent['active'] > 1) ? '<span class="tx-success"><em>Hoạt động</em></span>' : '<span class="hl-txt"><em>Tạm ẩn</em></span>'
+                ?>
+            </p>
             <div class="sbs-content-label mg-b-5">#<?= $parent['id'] ?> - <?= $parent['name'] ?></div>
             <p class="mg-b-15"><?= $parent['date'] ?> - <?= $parent['creator'] ?></p>
 
@@ -33,6 +38,7 @@
                             <th>Tên</th>
                             <th>Cập nhật lần cuối</th>
                             <th>Số sản phẩm</th>
+                            <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +48,9 @@
                         $output = '';
                         foreach($childrens as $child)
                         {
+                            $active = ($child['active'] > 1)
+                                    ? '<sub class="tx-success"><em>Hoạt động</em></sub>'
+                                    : '<sub class="hl-txt"><em>Tạm ẩn</em></sub>';
                             $among = count_product($child['id']);
                             $output .=
                                 '<tr>
@@ -49,6 +58,7 @@
                                     <td>'.$child['name'].'</td>
                                     <td>'.$child['date'].' - '.$child['creator'].'</td>
                                     <td>'.$among['among'].'</td>
+                                    <td>'.$active.'</td>
                                 </tr>';
                         }
                         echo $output;

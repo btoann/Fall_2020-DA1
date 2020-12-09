@@ -1,12 +1,12 @@
 <?php
     ob_start();
-    include_once 'admin/model/categories.php';
+    include_once 'admin/model/promotions.php';
     include_once '.system/lib/boolean.php';
 
     $bool = new boolean();
 
     /*  Get dữ liệu Danh mục  */
-    $getParent_categories = getParent_categories();
+    $get_promotions = get_promotions();
 
     if(isset($_GET['act']) && $_GET['act'])
     {
@@ -15,17 +15,57 @@
         {
 
             case 'detail':
-                /*  Chi tiết danh mục  */
+                /*  Chi tiết phân loại  */
                 if(isset($_GET['id']) && $_GET['id'])
                 {
                     $parent = get_category($_GET['id']);
                     $childrens = getChildren_categories($_GET['id']);
                 }
-                include 'admin/view/categories/'.$act.'.php';
+                include 'admin/view/promotions/'.$act.'.php';
+                break;
+
+            case 'manage':
+                /*  Quản lí phân loại  */
+                if(isset($_GET['id']) && $_GET['id'])
+                {
+                    $category = get_category($_GET['id']);
+                    $promotions = get_promotions($_GET['id']);
+                }
+                if(isset($_POST['update']) && $_POST['update'])
+                {
+                    $ids = (isset($_POST['ids']) && $_POST['ids']) ? $_POST['ids'] : NULL;
+                    $names = (isset($_POST['names']) && $_POST['names']) ? $_POST['names'] : NULL;
+
+                    $new_promotions = (isset($_POST['promotions']) && $_POST['promotions']) ? $_POST['promotions'] : NULL;
+                    insert_category_promotions($new_promotions, $category['id']);
+
+                    // Well: not done yet :((
+
+                    if($bool->checkNull($ids, $names))
+                    {
+                        $current_promotions = get_promotions($_POST['category']);
+                        foreach($ids as $id)
+                        {
+                            if(!in_array($id, $current_promotions['id']))
+                            {
+                                delete_hashtag($id);
+                            }
+                        }
+                    }
+
+                    echo
+                        '<script>
+                            swal("Thành công!", "Bạn đã thêm danh mục \"'.$name.'\"", "success").then(() => {
+                                window.location.replace("admin.php?ctrl=promotions");
+                                });
+                        </script>';
+                    //header('location: admin.php?ctrl=promotions');
+                }
+                include 'admin/view/promotions/'.$act.'.php';
                 break;
 
             case 'insert':
-                /*  Thêm danh mục  */
+                /*  Thêm phân loại  */
                 if(isset($_POST['insert']) && $_POST['insert'])
                 {
                     $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
@@ -39,21 +79,21 @@
                             $last_id = $last_id->lastInsertId();
                             if(isset($_POST['check_hashtag']) && $_POST['check_hashtag'])
                             {
-                                $hashtags = $bool->array_removeNull($_POST['hashtags']);
-                                if($hashtags != NULL)
-                                    insert_category_hashtags($hashtags, $last_id);
+                                $promotions = $bool->array_removeNull($_POST['promotions']);
+                                if($promotions != NULL)
+                                    insert_category_promotions($promotions, $last_id);
                             }
                         }
                         echo
                             '<script>
                                 swal("Thành công!", "Bạn đã thêm danh mục \"'.$name.'\"", "success").then(() => {
-                                    window.location.replace("admin.php?ctrl=categories");
+                                    window.location.replace("admin.php?ctrl=promotions");
                                   });
                             </script>';
-                        //header('location: admin.php?ctrl=categories');
+                        //header('location: admin.php?ctrl=promotions');
                     }
                 }
-                include 'admin/view/categories/'.$act.'.php';
+                include 'admin/view/promotions/'.$act.'.php';
                 break;
             
             case 'update':
@@ -110,16 +150,16 @@
                     $parent = get_category($_GET['id']);
                     if(!is_array($parent))
                     {
-                        header('location: admin.php?ctrl=categories');
+                        header('location: admin.php?ctrl=promotions');
                     }
                     else
                     {
-                        $childrens = getChildren_categories($_GET['id']);
+                        $childrens = getChildren_promotions($_GET['id']);
                     }
                 }
                 else
-                    header('location: admin.php?ctrl=categories');
-                include 'admin/view/categories/'.$act.'.php';
+                    header('location: admin.php?ctrl=promotions');
+                include 'admin/view/promotions/'.$act.'.php';
                 break;
 
             case 'delete':
@@ -129,7 +169,7 @@
                     $choices = (isset($_POST['choices']) && $_POST['choices'] != NULL) ? $_POST['choices'] : NULL;
                     if($choices != NULL)
                     {
-                        delete_categories($choices);
+                        delete_promotions($choices);
                         break;
                     }
                 }
@@ -138,23 +178,23 @@
                     $parent = get_widthCategory($_GET['id']);
                     if(!is_array($parent) || $parent['width'] <= 1)
                     {
-                        header('location: admin.php?ctrl=categories&act=delete');
+                        header('location: admin.php?ctrl=promotions&act=delete');
                     }
                     else
                     {
-                        $childrens = getChildren_categories($_GET['id']);
+                        $childrens = getChildren_promotions($_GET['id']);
                     }
                 }
-                include 'admin/view/categories/'.$act.'.php';
+                include 'admin/view/promotions/'.$act.'.php';
                 break;
 
             default:
-                header('location: admin.php?ctrl=categories');
+                header('location: admin.php?ctrl=promotions');
                 break;
         }
     }
     else
-        include 'admin/view/categories/index.php';
+        include 'admin/view/promotions/index.php';
 
     ob_flush();
 ?>

@@ -67,21 +67,21 @@
                     <a href="admin.php?ctrl=categories" class="nav-link bside-txt"><i class="icon-list-nested"></i>&ensp;Danh mục</a>
                 </li>
                 <li class="nav-item <?= (isset($_GET['ctrl']) && $_GET['ctrl'] == 'account') ? 'active show' : '' ?>">
+                    <a href="admin.php?ctrl=promotions" class="nav-link"><i class="icon-percent"></i>&ensp;Khuyến mãi</a>
+                </li>
+                <li class="nav-item <?= (isset($_GET['ctrl']) && $_GET['ctrl'] == 'account') ? 'active show' : '' ?>">
                     <a href="admin.php?ctrl=account" class="nav-link"><i class="icon-user-outline"></i>&ensp;Người dùng</a>
                 </li>
                 <li class="nav-item">
-                    <a href="form-elements.html" class="nav-link"><i class="typcn typcn-chart-bar-outline"></i> Forms</a>
-                </li>
-                <li class="nav-item">
-                <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>
+                <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Other</a>
                 <div class="sbs-menu-sub">
                     <div class="container">
                     <div>
                         <nav class="nav">
-                        <a href="elem-buttons.html" class="nav-link">Buttons</a>
-                        <a href="elem-dropdown.html" class="nav-link">Dropdown</a>
-                        <a href="elem-icons.html" class="nav-link">Icons</a>
-                        <a href="table-basic.html" class="nav-link">Table</a>
+                        <a href="#" class="nav-link">Buttons</a>
+                        <a href="#" class="nav-link">Dropdown</a>
+                        <a href="#" class="nav-link">Icons</a>
+                        <a href="#" class="nav-link">Table</a>
                         </nav>
                     </div>
                     </div><!-- container -->

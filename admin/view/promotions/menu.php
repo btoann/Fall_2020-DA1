@@ -1,17 +1,17 @@
 <div class="sbs-content-left sbs-content-left-components">
     <div class="component-item">
-        <label>Danh mục</label>
+        <label>Khuyến mãi</label>
         <nav class="nav flex-column">
-            <a href="admin.php?ctrl=categories" class="nav-link">Quản lí</a>
-            <a href="admin.php?ctrl=categories&act=insert" class="nav-link">Thêm</a>
-            <a href="admin.php?ctrl=categories&act=delete" class="nav-link">Xoá</a>
+            <a href="admin.php?ctrl=promotions" class="nav-link">Quản lí</a>
+            <a href="admin.php?ctrl=promotions&act=insert" class="nav-link">Thêm</a>
+            <a href="admin.php?ctrl=promotions&act=delete" class="nav-link">Xoá</a>
         </nav>
-        <label>Phân loại</label>
+        <!-- <label>Phân loại</label>
         <nav class="nav flex-column">
             <a href="admin.php?ctrl=hashtags" class="nav-link">Quản lí</a>
             <a href="admin.php?ctrl=hashtags&act=hts_insert" class="nav-link">Thêm</a>
             <a href="admin.php?ctrl=hashtags&act=hts_delete" class="nav-link">Xoá</a>
-        </nav>
+        </nav> -->
 
         <!-- <label>Active</label>
         <nav class="nav flex-column">
