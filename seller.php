@@ -99,7 +99,7 @@
                                 </div>
                             </li>
                             <li class="left__menuItem">
-                                <a href="" class="left__title"><img src="seller/assets/icon-logout.svg" alt="">Đăng Xuất</a>
+                                <a href="seller.php?ctrl=account&act=logout" class="left__title"><img src="seller/assets/icon-logout.svg" alt="">Đăng Xuất</a>
                             </li>
                         </ul>
                     </div>

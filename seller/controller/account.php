@@ -82,6 +82,7 @@
             case 'logout':
                 unset($_SESSION['sbs_id_seller']);
                 unset($_SESSION['sbs_name_seller']);
+                unset($_SESSION['sbs_mart_seller']);
                 unset($_SESSION['sbs_email_seller']);
                 unset($_SESSION['sbs_tel_seller']);
                 unset($_SESSION['sbs_role_seller']);
