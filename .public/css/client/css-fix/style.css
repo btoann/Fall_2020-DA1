@@ -685,7 +685,7 @@ li {
   width: 200px;
   padding: 7px 10px;
   border: 0!important;
-  background-color:  #F04C63;
+  background-color:  #51C5DD;
   border-radius: 4px;
   transition: 0.25s all;
   color: #f9f9f9;
@@ -695,9 +695,101 @@ li {
   text-transform: none;
 }
 .shop-container input.product-cart:hover {
-  background-color: #8a3a44; 
+  background-color: #75bfce; 
   opacity: 1;
 }
+
+a.buy-now {
+  margin: 0 0 0;
+}
+a.buy-now {
+  display: inline-block;
+  overflow: hidden;
+  clear: both;
+  padding: 15px 25px;
+  margin: 8px 10px 0px 0px;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #fff!important;
+  text-align: center;
+  background:  #F04C63;
+  background: -webkit-linear-gradient(top, #ee7988, #F04C63);
+  text-decoration: none;
+  border-bottom: 0!important;
+  max-width: 350px;
+  width: 100%;
+  transition: 0.5s all;
+}
+a.buy-now:hover {
+  background: -webkit-linear-gradient(top,  #F04C63,#ee7988);
+}
+a.buy-now strong {
+  font-weight: 500;
+}
+a.buy-now span {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  max-width: 350px;
+  text-transform: none;
+  margin: 2px 0 0;
+}
+
+.thong-tin-shop {
+  width: 100%;
+  display: inline-block;
+  background: #fffbf4;
+  padding: 10px;
+  border: 1px dashed #51C5DD;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.thong-tin-shop .left {
+  display: inline-block;
+  width: 20%;
+  float: left;
+}
+.left {
+  left: 0;
+}
+.thong-tin-shop .left img {
+  width: 100%;
+  border-radius: 99%;
+  border: 2px solid white;
+}
+
+.thong-tin-shop .right {
+  display: inline-block;
+  width: 80%;
+  float: left;
+  padding-left: 10px;
+}
+.right {
+  right: 0;
+}
+
+.thong-tin-shop .des {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+p {
+  margin-top: 0;
+}
+.thong-tin-shop h3 {
+  margin-bottom: 0;
+  color: #0a0a0a;
+  font-weight: 500;
+  font-size: 1.25em;
+}
+.thong-tin-shop .mo-ta-shop {
+  font-size: 12px;
+  color: #464646;
+  margin-bottom: 5px;
+}
+
 
 
 
