@@ -147,7 +147,7 @@
                 }
                 include 'admin/view/categories/'.$act.'.php';
                 break;
-                
+
             default:
                 header('location: admin.php?ctrl=categories');
                 break;

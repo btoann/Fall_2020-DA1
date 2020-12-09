@@ -8,9 +8,9 @@
         </nav>
         <label>Phân loại</label>
         <nav class="nav flex-column">
-            <a href="admin.php?ctrl=categories&act=hashtags" class="nav-link">Quản lí</a>
-            <a href="admin.php?ctrl=categories&act=hts_insert" class="nav-link">Thêm</a>
-            <a href="admin.php?ctrl=categories&act=hts_delete" class="nav-link">Xoá</a>
+            <a href="admin.php?ctrl=hashtags" class="nav-link">Quản lí</a>
+            <a href="admin.php?ctrl=hashtags&act=hts_insert" class="nav-link">Thêm</a>
+            <a href="admin.php?ctrl=hashtags&act=hts_delete" class="nav-link">Xoá</a>
         </nav>
 
         <!-- <label>Active</label>

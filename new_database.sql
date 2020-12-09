@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 07, 2020 lúc 12:56 AM
+-- Thời gian đã tạo: Th12 09, 2020 lúc 02:31 AM
 -- Phiên bản máy phục vụ: 10.4.13-MariaDB
 -- Phiên bản PHP: 7.4.7
 
@@ -42,7 +42,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `id_admin`, `date`, `lft`, `rgt`, `active`) VALUES
-(1, 'Thiết bị di động', 2, '2020-12-06 14:13:40', 1, 6, 2),
+(1, 'Thiết bị di động', 2, '2020-12-08 17:55:01', 1, 6, 2),
 (2, 'Điện tử - Điện lạnh', 2, '2020-11-17 01:14:21', 7, 8, 2),
 (3, 'Phụ kiện - Thiết bị số', 2, '2020-11-11 01:14:21', 9, 10, 2),
 (4, 'Laptop - Thiết bị IT', 2, '2020-11-15 01:14:21', 11, 12, 2),
@@ -57,12 +57,12 @@ INSERT INTO `categories` (`id`, `name`, `id_admin`, `date`, `lft`, `rgt`, `activ
 (13, 'Giao thông - Di chuyển', 2, '2020-12-01 01:14:21', 29, 30, 2),
 (14, 'Truyền thông - Giải trí', 2, '2020-12-06 14:22:12', 31, 32, 2),
 (15, 'Voucher - Dịch vụ', 2, '2020-12-03 01:14:21', 33, 34, 2),
-(90, 'Android', 2, '2020-12-05 19:41:22', 4, 5, 1),
-(91, 'iOS', 2, '2020-12-05 19:41:46', 2, 3, 1),
-(92, 'demo somuchtime', 2, '2020-12-06 14:51:32', 35, 42, 2),
-(93, 'abcdef', 2, '2020-12-06 14:51:32', 38, 39, 1),
-(94, 'demo somuchtime 1', 2, '2020-12-06 14:51:32', 36, 37, 1),
-(95, 'demo somuchtime a', 2, '2020-12-06 10:34:08', 43, 44, 1);
+(90, 'Android', 2, '2020-12-08 17:55:01', 4, 5, 2),
+(91, 'iOS', 2, '2020-12-08 17:55:01', 2, 3, 2),
+(92, 'demo somuchtime', 2, '2020-12-08 16:32:31', 35, 40, 1),
+(93, 'abcdef', 2, '2020-12-08 16:32:31', 38, 39, 1),
+(94, 'demo somuchtime 1', 2, '2020-12-08 16:32:31', 36, 37, 1),
+(96, 'demo somuchtime 2', 2, '2020-12-08 17:17:50', 41, 42, 1);
 
 -- --------------------------------------------------------
 
@@ -75,6 +75,18 @@ CREATE TABLE `category_hashtag` (
   `name` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên phân nhánh danh mục',
   `id_category` smallint(5) NOT NULL COMMENT 'id Danh mục'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `category_hashtag`
+--
+
+INSERT INTO `category_hashtag` (`id`, `name`, `id_category`) VALUES
+(76, 'iPhone', 91),
+(77, 'iPad', 91),
+(100, '', 90),
+(101, '', 90),
+(102, '', 90),
+(103, '', 90);
 
 -- --------------------------------------------------------
 
@@ -149,21 +161,31 @@ CREATE TABLE `products` (
   `id_seller` int(11) NOT NULL COMMENT 'id Người bán',
   `date` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Ngày thêm sản phẩm',
   `price` int(10) NOT NULL COMMENT 'Giá sản phẩm',
+  `promotion` int(11) NOT NULL COMMENT 'id Khuyến mãi',
   `purchase` int(10) NOT NULL DEFAULT 0 COMMENT 'Lượt mua',
+  `card_img` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Ảnh bìa',
   `description` mediumtext COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Mô tả',
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Trạng thái\r\n(0: banned, 1: inactive, 2: active)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `id_category`, `categories_hashtag`, `id_seller`, `date`, `price`, `promotion`, `purchase`, `card_img`, `description`, `status`) VALUES
+(18, 'Sản phẩm 5', 91, '76, 77', 1, '2020-12-09 00:13:09', 10000000, 2, 0, '', 'Đây là sản phẩm 5', 1);
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_classify_bycat`
+-- Cấu trúc bảng cho bảng `product_classify`
 --
 
-CREATE TABLE `product_classify_bycat` (
+CREATE TABLE `product_classify` (
   `id` int(11) NOT NULL COMMENT 'id Phân loại sp',
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Tên phân loại',
-  `id_category` smallint(5) NOT NULL COMMENT 'id Danh mục'
+  `id_product` int(11) NOT NULL COMMENT 'id Sản phẩm',
+  `value` varchar(254) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Giá trị'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -178,6 +200,38 @@ CREATE TABLE `product_images` (
   `id_product` int(11) NOT NULL COMMENT 'id Sản phẩm',
   `basename` varchar(254) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Tên file hình ảnh'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `name`, `id_product`, `basename`) VALUES
+(26, 'Sản phẩm 5 - #0', 18, 'b2b9aad7896a022a86d1a44d22510428-1607472789.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `promotions`
+--
+
+CREATE TABLE `promotions` (
+  `id` int(11) NOT NULL COMMENT 'id Khuyến mãi',
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên khuyến mãi',
+  `discount` float NOT NULL COMMENT 'Giảm giá (%)',
+  `begin` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Ngày bắt đầu',
+  `end` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Ngày kết thúc',
+  `description` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mô tả',
+  `card_image` varchar(254) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ảnh bìa',
+  `active` tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Trạng thái (1: Tạm ẩn: > 2: hoạt động)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `promotions`
+--
+
+INSERT INTO `promotions` (`id`, `name`, `discount`, `begin`, `end`, `description`, `card_image`, `active`) VALUES
+(1, 'Khuyến mãi Tết Tây', 30, '2020-12-28 10:00:00', '2021-01-02 09:59:59', '', NULL, 1),
+(2, 'Merry Chrismart', 20, '2020-12-22 10:00:00', '2020-12-25 09:59:59', '', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -201,6 +255,7 @@ CREATE TABLE `rate` (
 CREATE TABLE `sellers` (
   `id` int(11) NOT NULL COMMENT 'id Người bán',
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên gian hàng',
+  `name_mart` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên gian hàng',
   `email` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Email người bán',
   `tel` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Số điện thoại',
   `address` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Việt Nam' COMMENT 'Địa chỉ kho (Quốc gia)',
@@ -216,8 +271,8 @@ CREATE TABLE `sellers` (
 -- Đang đổ dữ liệu cho bảng `sellers`
 --
 
-INSERT INTO `sellers` (`id`, `name`, `email`, `tel`, `address`, `pass`, `activation`, `avatar`, `cardimage`, `date`, `role`) VALUES
-(1, 'Nguyễn Bảo Toàn', 'nguyenbaotoan2001@gmail.com', '0921469828', 'Việt Nam', '$2y$10$NFgJQ3k0Lr4MND5aEMadaOV7ysSTwSlMHSZNvpg3vqcevqZBvUnV2', 'e7702c37117d4566a80d829f47d5108d', NULL, NULL, '2020-11-29 21:24:42', 10);
+INSERT INTO `sellers` (`id`, `name`, `name_mart`, `email`, `tel`, `address`, `pass`, `activation`, `avatar`, `cardimage`, `date`, `role`) VALUES
+(1, 'Nguyễn Bảo Toàn', 'Gian hàng 1', 'nguyenbaotoan2001@gmail.com', '0921469828', 'Việt Nam', '$2y$10$NFgJQ3k0Lr4MND5aEMadaOV7ysSTwSlMHSZNvpg3vqcevqZBvUnV2', 'e7702c37117d4566a80d829f47d5108d', NULL, NULL, '2020-11-29 21:24:42', 10);
 
 -- --------------------------------------------------------
 
@@ -319,14 +374,15 @@ ALTER TABLE `order_detail`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD KEY `seller_product` (`id_seller`) USING BTREE,
-  ADD KEY `category_product` (`id_category`) USING BTREE;
+  ADD KEY `category_product` (`id_category`) USING BTREE,
+  ADD KEY `promotion_product` (`promotion`);
 
 --
--- Chỉ mục cho bảng `product_classify_bycat`
+-- Chỉ mục cho bảng `product_classify`
 --
-ALTER TABLE `product_classify_bycat`
+ALTER TABLE `product_classify`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `category_productClassify` (`id_category`);
+  ADD KEY `product_classify` (`id_product`);
 
 --
 -- Chỉ mục cho bảng `product_images`
@@ -334,6 +390,12 @@ ALTER TABLE `product_classify_bycat`
 ALTER TABLE `product_images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_image` (`id_product`);
+
+--
+-- Chỉ mục cho bảng `promotions`
+--
+ALTER TABLE `promotions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `rate`
@@ -372,13 +434,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT COMMENT 'id Danh mục', AUTO_INCREMENT=96;
+  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT COMMENT 'id Danh mục', AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT cho bảng `category_hashtag`
 --
 ALTER TABLE `category_hashtag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Hastag sản phẩm', AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Hastag sản phẩm', AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT cho bảng `comments`
@@ -402,19 +464,25 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Sản phẩm', AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Sản phẩm', AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `product_classify_bycat`
+-- AUTO_INCREMENT cho bảng `product_classify`
 --
-ALTER TABLE `product_classify_bycat`
+ALTER TABLE `product_classify`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Phân loại sp';
 
 --
 -- AUTO_INCREMENT cho bảng `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Hình ảnh sản phẩm', AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Hình ảnh sản phẩm', AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT cho bảng `promotions`
+--
+ALTER TABLE `promotions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id Khuyến mãi', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `rate`
@@ -488,13 +556,14 @@ ALTER TABLE `order_detail`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `category_product` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `promotion_product` FOREIGN KEY (`promotion`) REFERENCES `promotions` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `seller_product` FOREIGN KEY (`id_seller`) REFERENCES `sellers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `product_classify_bycat`
+-- Các ràng buộc cho bảng `product_classify`
 --
-ALTER TABLE `product_classify_bycat`
-  ADD CONSTRAINT `category_productClassify` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `product_classify`
+  ADD CONSTRAINT `product_classify` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `product_images`

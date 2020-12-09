@@ -139,7 +139,4 @@
 ?>
 
 
-<!-- <script src="seller/js/main.js"></script> -->
-
-
 <script src="seller/js/main.js"></script> 
