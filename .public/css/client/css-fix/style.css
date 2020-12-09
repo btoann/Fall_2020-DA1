@@ -761,7 +761,6 @@ img {
 
 li {
   list-style: none;
-
 }
 
 /*Product-details*/
@@ -785,9 +784,38 @@ li {
   min-height: 400px;
   background-color: burlywood;
 }
+.product-img-slide img {
+  width: 332.5px;
+  height: 400px;
+}
 
 .header-container {
   background-color: #51C5DD;
+}
+
+.product-detail-listed a {
+  color: #0A4F70;
+  font-size: 14px;
+  line-height: 2;
+  padding: 1;
+}
+
+.product-detail-name span {
+  font-size: 24px;
+  color: #0570E6;
+  text-transform: uppercase;
+  line-height: 2;
+  letter-spacing: 0.5px;
+}
+
+.product-detail-price span {
+  font-size: 22px;
+  color:  #F04C63;
+  font-weight: 700;
+}
+.product-detail-describe p {
+  font-size: 14px;
+  color: #0a0a0a;
 }
 
 .shop-container .container-amount-added {
@@ -897,7 +925,8 @@ a.buy-now span {
 }
 
 .thong-tin-shop {
-  width: 100%;
+  width: 450px;
+  min-height: 135px;
   display: inline-block;
   background: #fffbf4;
   padding: 10px;
@@ -907,8 +936,8 @@ a.buy-now span {
 }
 .thong-tin-shop .left {
   display: inline-block;
-  width: 20%;
   float: left;
+  width: 20%;
 }
 .left {
   left: 0;
