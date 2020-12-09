@@ -606,3 +606,142 @@ img {
 .song:hover {
   transform: scale(1.2);
 }
+
+/*footer*/
+.footer-banner {
+  background-color: black;
+  width: 100%;
+  min-height: 124px;
+  margin: 0 auto;
+}
+
+.footer-menu-content {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 400px;
+}
+
+/* .bg-title {
+  background-color: chartreuse; */
+/* } */
+.bg-title h4 {
+  font-size: 18px;
+  padding: 5px 0px;
+}
+
+.bg-title-2 {
+  min-height: 200px;
+}
+
+.footer-item-ul {
+  display: inline-block;
+}
+
+.li-menu li {
+  display: inline-block;
+  width: auto;
+  height: 10px;
+  padding: 10px;
+}
+.li-menu a {
+  font-size: 14px;
+  line-height: 2;
+  color: #51c5dd;
+  transition: 0.25s all;
+}
+.li-menu a:hover {
+  color: #f04c63;
+}
+.footer-item-ul li {
+  padding-bottom: 4px;
+}
+
+.footer-map {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-hotline {
+  width: 277.5px;
+  min-height: 64px;
+}
+
+.footer-hotline .footer-hotline-img {
+  float: left;
+  width: 30%;
+  height: 64px;
+}
+.footer-hotline .footer-hotline-img img {
+  width: 80%;
+  object-fit: cover;
+}
+
+.footer-hotline .footer-hotline-tel {
+  float: right;
+  width: 70%;
+  height: 64px;
+}
+.footer-hotline .footer-hotline-tel p {
+  color: #f04c63;
+  font-size: 14px;
+  padding: 2px;
+  margin-bottom: 0 !important;
+}
+.footer-hotline .footer-hotline-tel span {
+  color: #c6c4c4;
+  font-size: 14px;
+}
+
+.footer-link {
+  width: 277.5px;
+  min-height: 64px;
+}
+.footer-link-title {
+  width: 100%;
+  min-height: 50%;
+}
+.footer-link-title h4 {
+  font-size: 18px;
+}
+
+.footer-link-item {
+  width: 100%;
+  min-height: 32px;
+}
+.footer-link-item-box {
+  float: left;
+  width: 30px;
+  min-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  margin: 2px;
+  padding: 2px;
+}
+.footer-link-item-box i {
+  line-height: 30px;
+}
+.footer-link-item-box .footer-link-fb {
+  background-color: #0570e6;
+}
+
+.footer-license {
+  background-color: black;
+  margin: 0 auto;
+  min-height: 50px;
+}
+.footer-license-box {
+  margin: 0 auto;
+  width: 1200px;
+  min-height: 50px;
+}
+.footer-license-box-span {
+  width: 100%;
+  text-align: center;
+  height: 40px;
+}
+
+.footer-pay {
+  width: 1200px;
+  min-height: 80px;
+  margin: 0 auto;
+}
