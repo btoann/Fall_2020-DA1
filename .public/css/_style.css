@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +13,16 @@ ul
 li
 {
     list-style: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bold-txt
+{
+    font-weight: bold !important;
 }
 
     /*  Box's background color  */
@@ -35,6 +46,56 @@ li
 {
     background-color: #c6c4c4;
 }
+
+.main-bg-i
+{
+    background-color: #51C5DD !important;
+}
+.bside-bg-i
+{
+    background-color: #0A4F70 !important;
+}
+.hl-bg-i
+{
+    background-color: #F04C63 !important;
+}
+.lightgray-bg-i
+{
+    background-color: #f8f6f7 !important;
+}
+.gray-bg-i
+{
+    background-color: #c6c4c4 !important;
+}
+
+
+    /*  Box's background color  */
+.main-bg-hv:hover
+{
+    background-color: #51C5DD !important;
+    transition: all 0.15s;
+}
+.bside-bg-hv:hover
+{
+    background-color: #0A4F70 !important;
+    transition: all 0.15s;
+}
+.hl-bg-hv:hover
+{
+    background-color: #F04C63 !important;
+    transition: all 0.15s;
+}
+.lightgray-bg-hv:hover
+{
+    background-color: #f8f6f7 !important;
+    transition: all 0.15s;
+}
+.gray-bg-hv:hover
+{
+    background-color: #c6c4c4 !important;
+    transition: all 0.15s;
+}
+
 
     /*  Button hover  */
 .btn-hv
@@ -67,6 +128,27 @@ li
 .gray-txt
 {
     color: #c6c4c4;
+}
+
+.main-txt-i
+{
+    color: #51C5DD !important;
+}
+.bside-txt-i
+{
+    color: #0A4F70 !important;
+}
+.hl-txt-i
+{
+    color: #F04C63 !important;
+}
+.lightgray-txt-i
+{
+    color: #f8f6f7 !important;
+}
+.gray-txt-i
+{
+    color: #c6c4c4 !important;
 }
 
 

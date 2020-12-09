@@ -2,13 +2,15 @@
     ob_start();
     include 'seller/model/products.php';
     include 'seller/model/categories.php';
+    include 'seller/model/promotions.php';
     include_once '.system/lib/boolean.php';
 
     $bool = new boolean();
 
     /*  Get dữ liệu Products  */
-    $basic_products = basic_products_show($_SESSION['sbs_seller_id']);
+    $basic_products = basic_products_show($_SESSION['sbs_id_seller']);
     $categories = getall_categories();
+    $promotions = getall_promotions();
 
     if(isset($_GET['act']) && $_GET['act'])
     {
@@ -23,14 +25,15 @@
                     $name = $_POST['name'];
                     $category = $_POST['category'];
                     $hashtag = (isset($_POST['hashtag']) && $_POST['hashtag'] != NULL) ? implode(", ", $_POST['hashtag']) : NULL;
-                    $id_seller = $_SESSION['sbs_seller_id'];
+                    $id_seller = $_SESSION['sbs_id_seller'];
                     $price = $_POST['price'];
+                    $promotion = $_POST['promotion'];
                     $description = $_POST['description'];
 
                     $last_id = 0;
                     if($bool->checkNull($name, $category, $price, $description) == true)
                     {
-                        $last_id = insert_product($name, $category, $hashtag, $id_seller, $price, $description);
+                        $last_id = insert_product($name, $category, $hashtag, $id_seller, $price, $promotion, $description);
                         $last_id = $last_id->lastInsertId();
 
                         if(isset($_FILES['image']))
@@ -53,14 +56,14 @@
                                 {
                                     // Upload thành công
                                     $img_name = $name.' - #'.$i;
-                                    insert_img_product($img_name, $last_id, $basename);
+                                    insert_product_image($img_name, $last_id, $basename);
                                 }
                             }
                         }
                         header('location: seller.php?ctrl=products');
                     }
                 }
-                $hashtags = category_hashtag(21);  // Mặc định khi hiển thị hashtag
+                $hashtags = category_hashtag(91);  // Mặc định khi hiển thị hashtag
                 include 'seller/view/products/'.$act.'.php';
                 break;
             

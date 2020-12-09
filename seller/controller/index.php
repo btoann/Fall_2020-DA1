@@ -14,94 +14,102 @@
 </head>
 
 <?php
-       include 'seller/left.php';
 
+    include 'seller/left.php';
 
     if(isset($_GET['ctrl'])){
         $ctrl = $_GET['ctrl'];
 
         switch ($ctrl) {
-            case 'index':
+
+                case 'index':
                 include 'seller/content.php';
                 break;
-            case 'product':
-                include 'seller/product.php';
-                if(isset($_GET['act'])){
-                    $act = $_GET['act'];
-                    include_once 'seller/insert_product.php';
-                    switch ($act) {
-                        case 'add':
+
+                case 'product':
+                    
+                    if(isset($_GET['act'])){
+                        $act = $_GET['act'];
+                        switch ($act) {
+                            case 'view':
+                                include_once 'seller/product.php';
+                                break;    
+                            case 'add':
+                                include_once 'seller/insert_product.php';
+                                break;    
+                            }                           
+                    }
+                    else  include_once 'seller/product.php';
                  
-                            include_once 'seller/insert_product.php';
-                            break;    
-                        }
-                                
-                }
-            break;
+                break;
+
             case 'category':
-                include 'seller/category.php';
-                if(isset($_GET['act'])){
-                    $act = $_GET['act'];
 
-                    switch ($act) {
-                        case 'view':
-                            include_once 'seller/'.$act.'_category.php';
-                            break;
-                        case 'add':
-                            include_once 'seller/'.$act.'_category.php';
-                            break;                 
-                        
+               if(isset($_GET['act'])){
+                        $act = $_GET['act'];
+                        switch ($act) {
+                            case 'view':
+                                include_once 'seller/category.php';
+                                break;    
+                            case 'add':
+                                include_once 'seller/insert_category.php';
+                                break;    
+                            }                           
                     }
-                }
+                    else  include_once 'seller/category.php';
+             
             break;
+
             case 'kind':
-                include 'seller/kind.php';
+
                 if(isset($_GET['act'])){
                     $act = $_GET['act'];
-
                     switch ($act) {
                         case 'view':
-                            include_once 'seller/'.$act.'_kind.php';
-                            break;
+                            include_once 'seller/kind.php';
+                            break;    
                         case 'add':
-                            include_once 'seller/'.$act.'_kind.php';
-                            break;                 
-                        
-                    }
+                            include_once 'seller/insert_kind.php';
+                            break;    
+                        }                           
                 }
+                else  include_once 'seller/kind.php';
+         
             break;
+
             case 'slide':
-                include 'seller/slide.php';
+                
                 if(isset($_GET['act'])){
                     $act = $_GET['act'];
-
                     switch ($act) {
                         case 'view':
-                            include_once 'seller/'.$act.'_slide.php';
-                            break;
+                            include_once 'seller/slide.php';
+                            break;    
                         case 'add':
-                            include_once 'seller/'.$act.'_slide.php';
-                            break;                 
-                        
-                    }
+                            include_once 'seller/insert_slide.php';
+                            break;    
+                        }                           
                 }
+                else  include_once 'seller/slide.php';
             break;
+            
             case 'coupons':
-                include 'seller/coupons.php';
-                if(isset($_GET['act'])){
-                    $act = $_GET['act'];
 
+                 if(isset($_GET['act'])){
+                    $act = $_GET['act'];
                     switch ($act) {
                         case 'view':
-                            include_once 'seller/'.$act.'_coupons.php';
-                            break;
+                            include_once 'seller/coupons.php';
+                            break;    
                         case 'add':
-                            include_once 'seller/'.$act.'_coupons.php';
-                            break;                 
-                        
-                    }
+                            include_once 'seller/insert_coupon.php';
+                            break;    
+                        }                           
                 }
+                else  include_once 'seller/coupons.php';
+
             break;
+
             case 'buyer':
                 include 'seller/buyer.php';
             break;
@@ -114,9 +122,9 @@
             case 'admin':
                 include '../content.php';
             break;
-            // case 'lgout':
-            //     include '../content.php';
-            // break;
+            case 'lgout':
+                include '../content.php';
+                 break;
    
             default:
            
@@ -129,9 +137,6 @@
 
     include 'seller/right.php';
 ?>
-
-
-<!-- <script src="seller/js/main.js"></script> -->
 
 
 <script src="seller/js/main.js"></script> 
