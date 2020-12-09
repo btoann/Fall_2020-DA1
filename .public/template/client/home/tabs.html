@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .section {
+        padding: 10px;
+        background: yellow;
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
+      .btn.active {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn active" onclick="changeTab(0)">Tab 1</button>
+    <button class="btn" onclick="changeTab(1)">Tab 2</button>
+    <button class="btn" onclick="changeTab(2)">Tab 3</button>
+    <div class="section active">
+      <h1>Section 1</h1>
+    </div>
+    <div class="section">
+      <h1>Section 2</h1>
+    </div>
+    <div class="section">
+      <h1>Section 3</h1>
+    </div>
+    <script>
+      function changeTab(index) {
+        document.querySelector(".section.active").classList.remove("active");
+        document.querySelectorAll(".section")[index].classList.add("active");
+        document.querySelector(".btn.active").classList.remove("active");
+        document.querySelectorAll(".btn")[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>
