@@ -115,7 +115,7 @@ a:hover {
 .menu-bottom-search input {
   color: #c5c3c4;
   font-size: 14px;
-  width: 95%;
+  width: 90%;
   border: 0;
   outline: none;
 }
@@ -134,6 +134,8 @@ a:hover {
   border: none;
   height: 1px;
   background-color: #f04c63;
+  margin-top: 0!important;
+
 }
 
 .menu-bottom-cart {
