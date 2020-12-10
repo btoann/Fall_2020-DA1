@@ -190,15 +190,15 @@ img {
   position: absolute;
   padding-top: 50px;
   z-index: 99;
-  left: 0;
-  top: 50%;
+  left: 2%;
+  top: 40%;
 }
 .menu-bottom-category:hover .category {
   display: block;
 }
 .category-hover {
-  margin-left: 5px;
-  height: 407.27px;
+  top: 0;
+  height: 407.63px;
   z-index: -99;
   display: flex;
   background-color: rgb(235, 235, 235);
@@ -267,7 +267,6 @@ img {
 }
 
 .category-hover .block-2 {
-  width: 20%;
   margin-top: 20px;
   height: 140px;
   background-color: rgb(255, 255, 255);
