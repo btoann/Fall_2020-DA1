@@ -1,754 +1,1111 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-  <link rel="stylesheet" href="../../../css/client/css-fix/style.css">
-  <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../../bootstrap/js/bootstrap.min.js">
-  <link rel="stylesheet" href="../../../icons/css/fontello.css">
-
-    <script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <link rel="stylesheet" href="../../../css/client/css-fix/style.css" />
+    <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../../bootstrap/js/bootstrap.min.js" />
+    <link rel="stylesheet" href="../../../icons/css/fontello.css" />
 
-</head>
+    <script
+      src="https://kit.fontawesome.com/978d2e326d.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
 
-<body>
-  <header>
-    <div class="header">
+  <body>
+    <header>
+      <div class="header">
         <div class="logo">
-            <a href="./index-fix.html"><img src="../../../images/logo.png" alt=""></a>
+          <a href="./index-fix.html"
+            ><img src="../../../images/logo.png" alt=""
+          /></a>
         </div>
         <div class="menu">
-            <div class="menu-top">
-                <div class="menu-top-list">
-                    <ul>
-                        <li><a href="#" class="a">Bán hàng cùng SBS</a></li>
-                        <li><a href="#" class="a">Chăm sóc khách hàng</a></li>
-                        <li><a href="#" class="a">Kiểm tra đơn hàng</a></li>
-                        <li><a href="#" class="a">Chế độ tối</a></li>
-                        <li><a href="#" class="a">Thay đổi ngôn ngữ</a></li>
+          <div class="menu-top">
+            <div class="menu-top-list">
+              <ul>
+                <li><a href="#" class="a">Bán hàng cùng SBS</a></li>
+                <li><a href="#" class="a">Chăm sóc khách hàng</a></li>
+                <li><a href="#" class="a">Kiểm tra đơn hàng</a></li>
+                <li><a href="#" class="a">Chế độ tối</a></li>
+                <li><a href="#" class="a">Thay đổi ngôn ngữ</a></li>
+              </ul>
+            </div>
+            <div class="menu-top-login">
+              <p>
+                <a href="#">Đăng Nhập <i class="icon-user-2"></i></a>
+              </p>
+            </div>
+          </div>
+          <div class="menu-bottom">
+            <div class="menu-bottom-category">
+              <p>
+                <a href="#" class="a1"
+                  ><i class="icon-list-nested"></i> Danh mục</a
+                >
+              </p>
+              <div class="hover">
+                <div class="category">
+                  <div class="category-hover">
+                    <ul class="block-1">
+                      <li>
+                        <strong> Thiết bị di động</strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Điện tử - Điện lạnh </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Phụ kiện - Thiết bị số </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Laptop - Thiết bị IT </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Điện gia dụng </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Tiêu dùng - Thực phẩm </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Mẹ và bé </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Thời trang - Phụ kiện </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Phụ nữ - Làm đẹp </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Học tập </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Thể thao - Dã ngoại </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Y tế - Sức khỏe </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Giao thông - di chuyển </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Truyền thông - Giải trí </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
+                      <li>
+                        <strong>Voucher - Dịch vụ </strong>
+                        <span>
+                          <i
+                            class="fas fa-angle-right"
+                            style="font-size: 18px"
+                          ></i>
+                        </span>
+                      </li>
                     </ul>
+                    <ul class="block-2">
+                      <li><strong>Điện thoại</strong></li>
+                      <li>Android</li>
+                      <li>IOS</li>
+                      <li>Khác</li>
+                    </ul>
+                    <ul style="margin-left: 10%" class="block-2">
+                      <li><strong>Điện thoại</strong></li>
+                      <li>Android</li>
+                      <li>IOS</li>
+                      <li>Khác</li>
+                    </ul>
+                    <ul style="margin-left: 10%" class="block-2">
+                      <li><strong>Điện thoại</strong></li>
+                      <li>Android</li>
+                      <li>IOS</li>
+                      <li>Khác</li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="menu-top-login">
-                    <p><a href="#">Đăng Nhập</a>  <i class=" icon-user-2"></i></p>
-                </div>
+              </div>
             </div>
-            <div class="menu-bottom">
-                <div class="menu-bottom-category">
-                    <p><a href="#" class="a1"><i class="icon-list-nested"></i> Danh mục</a> </p>
-                    <div class="hover">
-                      <div class="category">
-                          <div class="category-hover">
-                            <ul class="block-1">
-                                <li> <strong> Thiết bị di động</strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Điện tử - Điện lạnh </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Phụ kiện - Thiết bị số </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Laptop - Thiết bị IT </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Điện gia dụng </strong> <span> <i class='fas fa-angle-right' style='font-size: 18px'></i> </span></li>
-                                <li> <strong>Tiêu dùng - Thực phẩm </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Mẹ và bé </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Thời trang - Phụ kiện </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Phụ nữ - Làm đẹp </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Học tập </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Thể thao - Dã ngoại </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Y tế - Sức khỏe </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Giao thông - di chuyển </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Truyền thông - Giải trí </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                                <li> <strong>Voucher - Dịch vụ </strong> <span> <i class='fas fa-angle-right' style='font-size:18px'></i> </span></li>
-                            </ul>
-                            <ul class="block-2">
-                                <li><strong>Điện thoại</strong></li>
-                                <li>Android</li>
-                                <li>IOS</li>
-                                <li>Khác </li>
-                            </ul>
-                            <ul style="margin-left: 10%;" class="block-2">
-                                <li><strong>Điện thoại</strong></li>
-                                <li>Android</li>
-                                <li>IOS</li>
-                                <li>Khác </li>
-                            </ul>
-                            <ul style="margin-left: 10%;" class="block-2">
-                                <li><strong>Điện thoại</strong></li>
-                                <li>Android</li>
-                                <li>IOS</li>
-                                <li>Khác </li>
-                            </ul>
-                          </div>
-                      </div>
-                    </div>     
-                    
-                </div>
-                <div class="menu-bottom-search">
-                    <div class="menu-bottom-search-in">
-                        <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..."><a href="#"><i class="fas fa-search"></i></a>
-                        <hr>
-                    </div>
-                </div>
-                <div class="menu-bottom-cart"><i class="fas fa-shopping-cart"></i><span class="shopping-number">0</span></div>
+            <div class="menu-bottom-search">
+              <div class="menu-bottom-search-in">
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..."
+                /><a href="#"><i class="fas fa-search"></i></a>
+                <hr />
+              </div>
             </div>
+            <div class="menu-bottom-cart">
+              <a href="#"
+                ><i class="fas fa-shopping-cart"></i
+                ><span class="shopping-number">0</span></a
+              >
+            </div>
+          </div>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
 
-    
+    >>>>>>> 5d27b44e4492ebf206b66473752f6bb7a6e1864e
+
     <main>
-        <div class="banner">
-            <div class="banner-item">
-                <div class="banner-left">
-                  <img class="song" src="../../../images/akalibanner.jpg" alt="">
-                </div>
-                <div class="banner-right">
-                  <div class="slideshow-container">
+      <div class="banner">
+        <div class="banner-item">
+          <div class="banner-left">
+            <img class="song" src="../../../images/akalibanner.jpg" alt="" />
+          </div>
+          <div class="banner-right">
+            <div class="slideshow-container">
+              <div class="mySlides fade">
+                <img src="../../../images/banner2.jpg" style="width: 100%" />
+              </div>
 
-                  <div class="mySlides fade">
-                    <img src="../../../images/banner2.jpg" style="width:100%">
-                  </div>
+              <div class="mySlides fade">
+                <img src="../../../images/banner3.jpg" style="width: 100%" />
+              </div>
 
-                  <div class="mySlides fade">
-                    <img src="../../../images/banner3.jpg" style="width:100%">
-                  </div>
-
-                  <div class="mySlides fade">
-                    <img src="../../../images/banner4.jpg" style="width:100%">
-                  </div>
-
-                  </div>
-                  <div class="dots" style="text-align:center">
-                    <span class="dot"></span> 
-                    <span class="dot"></span> 
-                    <span class="dot"></span> 
-                  </div>
-                </div>
+              <div class="mySlides fade">
+                <img src="../../../images/banner4.jpg" style="width: 100%" />
+              </div>
             </div>
+            <div class="dots" style="text-align: center">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
+    <div class="footer">
+      <div class="footer-item">
+        <div class="footer-item-highlights">
+          <div class="footer-content">
+            <h2>Tìm kiếm nhiều nhất</h2>
+          </div>
+          <div class="footer-content-menu">
+            <div class="footer-content-menu-item">
+              <div class="item-icon"><i class="fas fa-shopping-bag"></i></div>
+              <div class="item-content">Thời Trang - Phụ Kiện</div>
+            </div>
+            <div class="footer-content-menu-item">
+              <div class="item-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div class="item-content">Thiết bị di động</div>
+            </div>
+            <div class="footer-content-menu-item">
+              <div class="item-icon"><i class="fas fa-laptop"></i></div>
+              <div class="item-content">Laptop - Thiết bị it</div>
+            </div>
+            <div class="footer-content-menu-item">
+              <div class="item-icon"><i class="fas fa-headphones-alt"></i></div>
+              <div class="item-content">Phụ kiện - Thiết bị số</div>
+            </div>
+            <div class="footer-content-menu-item">
+              <div class="item-icon"><i class="fas fa-male"></i></div>
+              <div class="item-content">Mẹ và bé</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-px-0">
+      <div class="row-container-product">
+        <div class="row-sale">
+          <div class="title-sale">
+            <span
+              ><strong>GIÁ SỐC TRONG NGÀY<i class="icon-fire-2"></i></strong
+            ></span>
+          </div>
+          <div class="time">
+            <p id="dongho"></p>
+          </div>
+        </div>
+        <div class="col-bg-dark">
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Điện thoại iphone 12</strong></a
+                    >
+                  </p>
+                  <p class="product-price">900.000đ <del>1.200.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/2.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Sữa Rửa Mặt THE FACE SHOP</strong></a
+                    >
+                  </p>
+                  <p class="product-price">332.000đ <del>474.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/3.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Điện Thoại Di Động GSM ZONO N8110</strong></a
+                    >
+                  </p>
+                  <p class="product-price">197.000đ <del>520.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/4.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Tai nghe có dây nhét tai Q21</strong></a
+                    >
+                  </p>
+                  <p class="product-price">41.000đ <del>65.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/5.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong
+                        >XIAOMI Máy cạo râu mặt Enchen BlackStone 3D...</strong
+                      ></a
+                    >
+                  </p>
+                  <p class="product-price">222.000đ <del>464.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/6.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Mặt Nạ Đen Phục Hồi Dưỡng Ẩm</strong></a
+                    >
+                  </p>
+                  <p class="product-price">76.000đ <del>225 .000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-bg-dark">
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/7.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Combo 8 Đầu Bàn Chải Đánh Răng Điện</strong></a
+                    >
+                  </p>
+                  <p class="product-price">816.000đ <del>1.014.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/8.png"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong>Đồng Hồ Thời Trang Nữ LONGBO</strong></a
+                    >
+                  </p>
+                  <p class="product-price">189.000đ <del>389.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/9.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong
+                        >MINI FOCUS Women Quartz Watch Women's...</strong
+                      ></a
+                    >
+                  </p>
+                  <p class="product-price">330.000đ <del>730.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/10.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong
+                        >Dây Đeo Sunroad Thay Thế Cho Đồng Hồ...</strong
+                      ></a
+                    >
+                  </p>
+                  <p class="product-price">290.000đ <del>480.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/11.png"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong
+                        >Xiaomi Youpin TS Fashion Sunglasses Boys Girls</strong
+                      ></a
+                    >
+                  </p>
+                  <p class="product-price">503.000đ <del>1.190.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img
+                    class="iphone"
+                    src="../../../images/products/p_9/12.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="product-information">
+                  <p>
+                    <a class="product-link" href="#"
+                      ><strong
+                        >imex Women's Easy Reader Leather Strap 30mm
+                        Watch</strong
+                      ></a
+                    >
+                  </p>
+                  <p class="product-price">899.000đ <del>1.600.000đ</del></p>
+                </div>
+                <div class="sale">
+                  <div class="sale-item">45%</div>
+                  <div class="triangle"></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="button-more">
+          <a href="./danhmuc.html"><button class="more">Xem thêm</button></a>
+        </div>
+      </div>
+      <div class="row-container-product">
+        <div class="row-sale">
+          <div class="title-sale">
+            <span class="foryou"><strong>Từ khóa hay tìm kiếm</strong></span>
+          </div>
+          <div class="time">
+            <p id="dongho"></p>
+          </div>
+        </div>
+        <div style="padding: 0 30px">
+          <div class="carousel">
+            <div class="word-pp">Đồng Hồ</div>
+            <div class="word-pp">Tai Nghe</div>
+            <div class="word-pp">Điện Thoại</div>
+            <div class="word-pp">Máy Tính</div>
+            <div class="word-pp">Mắt Kính</div>
+            <div class="word-pp">Ba lô</div>
+            <div class="word-pp">Xe Tăng</div>
+            <div class="word-pp">Máy bay</div>
+            <div class="word-pp">xe đua</div>
+            <div class="word-pp">trò chơi logo</div>
+            <div class="word-pp">Khối arubic</div>
+            <div class="word-pp">Xe Máy</div>
+            <div class="word-pp">Quần áo Nam</div>
+            <div class="word-pp">Ví tiền</div>
+            <div class="word-pp">Túi Sách</div>
+            <div class="word-pp">Sạc dự phòng</div>
+            <div class="word-pp">Xiaomi</div>
+            <div class="word-pp">Thắt Lưng</div>
+          </div>
+        </div>
+      </div>
+      <div class="row-container-product">
+        <div class="row-sale">
+          <div class="title-sale">
+            <span class="foryou"><strong>Dành Riêng Cho Bạn</strong></span>
+          </div>
+        </div>
+        <div class="col-bg-dark">
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img class="iphone" src="../../../images/1.jpg" alt="" />
+                </div>
+                <div class="product-information">
+                  <div class="product-name">
+                    Tai Nghe Nhét Tai Sony MDR-EX155AP...
+                  </div>
+                  <div class="product-price">311.000đ <span>-55%</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img class="iphone" src="../../../images/2.jpg" alt="" />
+                </div>
+                <div class="product-information">
+                  <div class="product-name">
+                    Pin Sạc Dự Phòng Xiaomi Gen 3 Version 2019
+                  </div>
+                  <div class="product-price">319.000đ <span>-29%</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img class="iphone" src="../../../images/3.jpg" alt="" />
+                </div>
+                <div class="product-information">
+                  <div class="product-name">
+                    Tai Nghe Bluetooth TWS F9 Tai Nghe Nhét...
+                  </div>
+                  <div class="product-price">151.000đ <span>-65%</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img class="iphone" src="../../../images/4.jpg" alt="" />
+                </div>
+                <div class="product-information">
+                  <div class="product-name">
+                    Tai Nghe Nhét Tai Sony ExtraBass MDR-XB55AP
+                  </div>
+                  <div class="product-price">682.000đ <span>-29%</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img class="iphone" src="../../../images/5.jpg" alt="" />
+                </div>
+                <div class="product-information">
+                  <div class="product-name">
+                    ĐỒNG HỒ THÔNG MINH SMART WATCH T500
+                  </div>
+                  <div class="product-price">288.000đ <span>-58%</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="box-product">
+            <a href="#">
+              <div class="product">
+                <div class="product-image">
+                  <img class="iphone" src="../../../images/6.jpg" alt="" />
+                </div>
+                <div class="product-information">
+                  <div class="product-name">
+                    Dây Cáp Sạc Lightning Cho iPhone Anker
+                  </div>
+                  <div class="product-price">209.000đ <span>-37%</span></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="row-container-product">
+          <div class="col-bg-dark">
+            <div class="box-product">
+              <a href="#">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="iphone" src="../../../images/7.jpg" alt="" />
+                  </div>
+                  <div class="product-information">
+                    <div class="product-name">
+                      Chuột Không Dây Logitech M221 - Hàng...
+                    </div>
+                    <div class="product-price">205.000đ <span>-35%</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="box-product">
+              <a href="#">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="iphone" src="../../../images/8.jpg" alt="" />
+                  </div>
+                  <div class="product-information">
+                    <div class="product-name">
+                      Miếng Lót Chuột (25 x 21 cm) - Hàng Nhập
+                    </div>
+                    <div class="product-price">18.000đ <span>-84%</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="box-product">
+              <a href="#">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="iphone" src="../../../images/9.jpeg" alt="" />
+                  </div>
+                  <div class="product-information">
+                    <div class="product-name">
+                      Đồng Hồ Thông Minh Apple Watch Series 3 GPS
+                    </div>
+                    <div class="product-price">4.690.000đ<span>-41%</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="box-product">
+              <a href="#">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="iphone" src="../../../images/10.jpg" alt="" />
+                  </div>
+                  <div class="product-information">
+                    <div class="product-name">
+                      Bàn Phím Có Dây Dell KB216 - Đen - Hàng...
+                    </div>
+                    <div class="product-price">153.000đ <span>-39%</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="box-product">
+              <a href="#">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="iphone" src="../../../images/11.jpg" alt="" />
+                  </div>
+                  <div class="product-information">
+                    <div class="product-name">
+                      Chuột Không Dây Logitech M590 Slient - Hàng
+                    </div>
+                    <div class="product-price">649.000đ <span>-7%</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="box-product">
+              <a href="#">
+                <div class="product">
+                  <div class="product-image">
+                    <img class="iphone" src="../../../images/12.jpg" alt="" />
+                  </div>
+                  <div class="product-information">
+                    <div class="product-name">
+                      Tai Nghe True Wireless Sony WF-1000XM3
+                    </div>
+                    <div class="product-price">
+                      3.894.900đ <span>-29%</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="button-more">
+            <button class="more"><a href="./foryou.html">Xem thêm</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer>
-        <div class="footer">
-          <div class="footer-item">
-            <div class="footer-item-highlights">
-              <div class="footer-content">
-                <h2>Tìm kiếm nhiều nhất</h2>
-              </div>
-              <div class="footer-content-menu">
-                <div class="footer-content-menu-item">
-                  <div class="item-icon"><i class="fas fa-shopping-bag"></i></div>
-                  <div class="item-content">Thời Trang - Phụ Kiện</div>
-                </div>
-                <div class="footer-content-menu-item">
-                  <div class="item-icon"><i class="fas fa-mobile-alt"></i></div>
-                  <div class="item-content">Thiết bị di động</div>
-                </div>
-                <div class="footer-content-menu-item">
-                  <div class="item-icon"><i class="fas fa-laptop"></i></div>
-                  <div class="item-content">Laptop - Thiết bị it</div>
-                </div>
-                <div class="footer-content-menu-item">
-                  <div class="item-icon"><i class="fas fa-headphones-alt"></i></div>
-                  <div class="item-content">Phụ kiện - Thiết bị số</div>
-                </div>
-                <div class="footer-content-menu-item">
-                  <div class="item-icon"><i class="fas fa-male"></i></div>
-                  <div class="item-content">Mẹ và bé</div>
-                </div>
-              </div>
-            </div>
+      <div class="container-fluid px-0">
+        <div class="col-xl px-0">
+          <div class="footer-banner">
+            <!-- <img src="" alt=""> -->
+            <span>BANNER-FOOTER</span>
           </div>
-        </div>
-      </footer>
-      <div class="container-px-0">
-        <div class="row-container-product">
-          <div class="row-sale">
-            <div class="title-sale">
-              <span><strong>GIÁ SỐC TRONG NGÀY<i class="icon-fire-2"></i></strong></span>
-            </div>
-            <div class="time">
-              <p id="dongho"></p>
-            </div>
-          </div>
-          <div class="col-bg-dark">
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/1.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Điện thoại iphone 12</strong></a></p>
-                    <p class="product-price">900.000đ <del>1.200.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/2.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Sữa Rửa Mặt THE FACE SHOP</strong></a></p>
-                    <p class="product-price">332.000đ <del>474.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/3.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Điện Thoại Di Động GSM ZONO N8110</strong></a></p>
-                    <p class="product-price">197.000đ <del>520.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/4.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Tai nghe có dây nhét tai Q21</strong></a></p>
-                    <p class="product-price">41.000đ <del>65.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-           </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/5.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>XIAOMI Máy cạo râu mặt Enchen BlackStone 3D...</strong></a></p>
-                    <p class="product-price">222.000đ <del>464.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-           </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/6.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Mặt Nạ Đen Phục Hồi Dưỡng Ẩm</strong></a></p>
-                    <p class="product-price">76.000đ <del>225 .000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-bg-dark">
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/7.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Combo 8 Đầu Bàn Chải Đánh Răng Điện</strong></a></p>
-                    <p class="product-price">816.000đ <del>1.014.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/8.png" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Đồng Hồ Thời Trang Nữ LONGBO</strong></a></p>
-                    <p class="product-price">189.000đ <del>389.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/9.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>MINI FOCUS Women Quartz Watch Women's...</strong></a></p>
-                    <p class="product-price">330.000đ <del>730.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/10.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Dây Đeo Sunroad Thay Thế Cho Đồng Hồ...</strong></a></p>
-                    <p class="product-price">290.000đ <del>480.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-           </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/11.png" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>Xiaomi Youpin TS Fashion Sunglasses Boys Girls</strong></a></p>
-                    <p class="product-price">503.000đ <del>1.190.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-           </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/products/p_9/12.jpg" alt=""></div>
-                  <div class="product-information">
-                    <p><a class="product-link" href="#"><strong>imex Women's Easy Reader Leather Strap 30mm Watch</strong></a></p>
-                    <p class="product-price">899.000đ <del>1.600.000đ</del></p>
-                  </div>
-                  <div class="sale">
-                    <div class="sale-item">45%</div>
-                    <div class="triangle"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-         
-          <div class="button-more"><a href="./danhmuc.html"><button class="more">Xem thêm</button></a></div>
-        </div>
-        <div class="row-container-product">
-          <div class="row-sale">
-            <div class="title-sale">
-              <span class="foryou"><strong>Từ khóa hay tìm kiếm</strong></span>
-            </div>
-            <div class="time">
-              <p id="dongho"></p>
-            </div>
-          </div>
-          <div style="padding: 0 30px;">
-            <div class="carousel">
-              <div class="word-pp">Đồng Hồ</div>
-              <div class="word-pp">Tai Nghe</div>
-              <div class="word-pp">Điện Thoại</div>
-              <div class="word-pp">Máy Tính</div>
-              <div class="word-pp">Mắt Kính</div>
-              <div class="word-pp">Ba lô</div>
-              <div class="word-pp">Xe Tăng</div>
-              <div class="word-pp">Máy bay</div>
-              <div class="word-pp">xe đua</div>
-              <div class="word-pp">trò chơi logo</div>
-              <div class="word-pp">Khối arubic</div>
-              <div class="word-pp">Xe Máy</div>
-              <div class="word-pp">Quần áo Nam</div>
-              <div class="word-pp">Ví tiền</div>
-              <div class="word-pp">Túi Sách</div>
-              <div class="word-pp">Sạc dự phòng</div>
-              <div class="word-pp">Xiaomi</div>
-              <div class="word-pp">Thắt Lưng</div>
-            </div>
-          </div>
-        </div>
-        <div class="row-container-product">
-          <div class="row-sale">
-            <div class="title-sale"><span class="foryou"><strong>Dành Riêng Cho Bạn</strong></span></div>
-          </div>
-          <div class="col-bg-dark">
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/1.jpg" alt=""></div>
-                  <div class="product-information">
-                    <div class="product-name">Tai Nghe Nhét Tai Sony MDR-EX155AP...</div>
-                    <div class="product-price">311.000đ <span>-55%</span></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/2.jpg" alt=""></div>
-                  <div class="product-information">
-                    <div class="product-name">Pin Sạc Dự Phòng Xiaomi Gen 3 Version 2019</div>
-                    <div class="product-price">319.000đ <span>-29%</span></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/3.jpg" alt=""></div>
-                  <div class="product-information">
-                    <div class="product-name">Tai Nghe Bluetooth TWS F9 Tai Nghe Nhét...</div>
-                    <div class="product-price">151.000đ <span>-65%</span></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/4.jpg" alt=""></div>
-                  <div class="product-information">
-                    <div class="product-name">Tai Nghe Nhét Tai Sony ExtraBass MDR-XB55AP</div>
-                    <div class="product-price">682.000đ <span>-29%</span></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/5.jpg" alt=""></div>
-                  <div class="product-information">
-                    <div class="product-name">ĐỒNG HỒ THÔNG MINH SMART WATCH T500</div>
-                    <div class="product-price">288.000đ <span>-58%</span></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="box-product">
-              <a href="#">
-                <div class="product">
-                  <div class="product-image"> <img class="iphone" src="../../../images/6.jpg" alt=""></div>
-                  <div class="product-information">
-                    <div class="product-name">Dây Cáp Sạc Lightning Cho iPhone Anker</div>
-                    <div class="product-price">209.000đ <span>-37%</span></div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="row-container-product">
-            <div class="col-bg-dark">
-              <div class="box-product">
-                <a href="#">
-                  <div class="product">
-                    <div class="product-image"> <img class="iphone" src="../../../images/7.jpg" alt=""></div>
-                    <div class="product-information">
-                      <div class="product-name">Chuột Không Dây Logitech M221 - Hàng...</div>
-                      <div class="product-price">205.000đ <span>-35%</span></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="box-product">
-                <a href="#">
-                  <div class="product">
-                    <div class="product-image"> <img class="iphone" src="../../../images/8.jpg" alt=""></div>
-                    <div class="product-information">
-                      <div class="product-name">Miếng Lót Chuột (25 x 21 cm) - Hàng Nhập</div>
-                      <div class="product-price">18.000đ <span>-84%</span></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="box-product">
-                <a href="#">
-                  <div class="product">
-                    <div class="product-image"> <img class="iphone" src="../../../images/9.jpeg" alt=""></div>
-                    <div class="product-information">
-                      <div class="product-name">Đồng Hồ Thông Minh Apple Watch Series 3 GPS </div>
-                      <div class="product-price">4.690.000đ<span>-41%</span></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="box-product">
-                <a href="#">
-                  <div class="product">
-                    <div class="product-image"> <img class="iphone" src="../../../images/10.jpg" alt=""></div>
-                    <div class="product-information">
-                      <div class="product-name">Bàn Phím Có Dây Dell KB216 - Đen - Hàng...</div>
-                      <div class="product-price">153.000đ <span>-39%</span></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="box-product">
-                <a href="#">
-                  <div class="product">
-                    <div class="product-image"> <img class="iphone" src="../../../images/11.jpg" alt=""></div>
-                    <div class="product-information">
-                      <div class="product-name">Chuột Không Dây Logitech M590 Slient - Hàng</div>
-                      <div class="product-price">649.000đ <span>-7%</span></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="box-product">
-                <a href="#">
-                  <div class="product">
-                    <div class="product-image"> <img class="iphone" src="../../../images/12.jpg" alt=""></div>
-                    <div class="product-information">
-                      <div class="product-name">Tai Nghe True Wireless Sony WF-1000XM3</div>
-                      <div class="product-price">3.894.900đ <span>-29%</span></div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="button-more"><button class="more"><a href="./foryou.html">Xem thêm</a></button></div>
         </div>
       </div>
-      
-
-<footer>
-  <div class="container-fluid px-0">
-    <div class="col-xl px-0">
-      <div class="footer-banner">
-        <!-- <img src="" alt=""> -->
-        <span>BANNER-FOOTER</span>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="col-xl">
-      <div class="footer-menu-content">
-          <div class="row">
-            <div class="col-sm d-flex justify-content-start">
-             <div class="col-12 px-0 bg-title">
-              <h4>Giới thiệu</h4>
-             </div>
-            </div>
-
-            <div class="col-sm d-flex justify-content">
-              <div class="col-12 px-0 bg-title">
-                <h4>Chính sách công ty</h4>
-               </div>
-            </div>
-
-            <div class="col-sm d-flex justify-content">
-              <div class="col-12 px-0 bg-title">
-                <h4>Hotline liên hệ:</h4>
+      <div class="container-fluid">
+        <div class="col-xl">
+          <div class="footer-menu-content">
+            <div class="row">
+              <div class="col-sm d-flex justify-content-start">
+                <div class="col-12 px-0 bg-title">
+                  <h4>Giới thiệu</h4>
+                </div>
               </div>
-            </div>
-            <div class="col-sm d-flex justify-content">
-              <div class="col-12 px-0 bg-title">
-                <h4>Hệ thống cửa hàng</h4>
-              </div>
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="col-sm d-flex justify-content-start">
-              <div class="col-xl px-0 bg-title-2">
-                <ul class="footer-item-ul">
-                  <li class="li-menu"><a href="#">Về SBS</a></li>
-                  <li class="li-menu"><a href="#">Hợp tác với SBS</a></li>
-                  <li class="li-menu"><a href="#">Cơ hội nghề nghiệp</a></li>
-                  <li class="li-menu"><a href="#">Quy chế sàn giao dịch</a></li>
-                  <li class="li-menu"><a href="#">Các khuyến mãi đã bán</a></li>
-                  <li class="li-menu"><a href="#">Blog SBS</a></li>
-                </ul>
+              <div class="col-sm d-flex justify-content">
+                <div class="col-12 px-0 bg-title">
+                  <h4>Chính sách công ty</h4>
+                </div>
+              </div>
+
+              <div class="col-sm d-flex justify-content">
+                <div class="col-12 px-0 bg-title">
+                  <h4>Hotline liên hệ:</h4>
+                </div>
+              </div>
+              <div class="col-sm d-flex justify-content">
+                <div class="col-12 px-0 bg-title">
+                  <h4>Hệ thống cửa hàng</h4>
+                </div>
               </div>
             </div>
 
-            <div class="col-sm d-flex justify-content-start">
-              <div class="col-xl px-0 bg-title-2">
-                <ul class="footer-item-ul">
-                  <li class="li-menu"><a href="#">Hình thức đặt hàng</a></li>
-                  <li class="li-menu"><a href="#">Hình thức thanh toán</a></li>
-                  <li class="li-menu"><a href="#">Sử dụng Voucher/E-voucher</a></li>
-                  <li class="li-menu"><a href="#">Phương thức vận chuyển</a></li>
-                  <li class="li-menu"><a href="#">Chính sách đổi trả hàng</a></li>
-                  <li class="li-menu"><a href="#">Hướng dẫn sử dụng</a></li>
-                </ul>
+            <div class="row">
+              <div class="col-sm d-flex justify-content-start">
+                <div class="col-xl px-0 bg-title-2">
+                  <ul class="footer-item-ul">
+                    <li class="li-menu"><a href="#">Về SBS</a></li>
+                    <li class="li-menu"><a href="#">Hợp tác với SBS</a></li>
+                    <li class="li-menu"><a href="#">Cơ hội nghề nghiệp</a></li>
+                    <li class="li-menu">
+                      <a href="#">Quy chế sàn giao dịch</a>
+                    </li>
+                    <li class="li-menu">
+                      <a href="#">Các khuyến mãi đã bán</a>
+                    </li>
+                    <li class="li-menu"><a href="#">Blog SBS</a></li>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <div class="col-sm d-flex justify-content-start">
-              <div class="col-xl px-0 bg-title-2">
-                <ul class="footer-item-ul">
-                  <div class="col px-0">
-                    <div class="footer-hotline">
-                      <div class="footer-hotline-img">
-                        <img src="../../../images/icon-telephone.png" alt="">
-                      </div>
-                      <div class="footer-hotline-tel">
-                        <p>
-                          0921469828
-                        </p>
-                        <span>(Tất cả các ngày trong tuần)</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col px-0">
-                    <div class="footer-link">
-                      <div class="footer-link-title">
-                        <h4>Kết nối với chúng tôi</h4>
-                      </div>
-                      <div class="footer-link-item">
-                        <div class="footer-link-item-box .footer-link-fb">
-                          <a href="#"><i class="icon-facebook-5"></i></a>
+              <div class="col-sm d-flex justify-content-start">
+                <div class="col-xl px-0 bg-title-2">
+                  <ul class="footer-item-ul">
+                    <li class="li-menu"><a href="#">Hình thức đặt hàng</a></li>
+                    <li class="li-menu">
+                      <a href="#">Hình thức thanh toán</a>
+                    </li>
+                    <li class="li-menu">
+                      <a href="#">Sử dụng Voucher/E-voucher</a>
+                    </li>
+                    <li class="li-menu">
+                      <a href="#">Phương thức vận chuyển</a>
+                    </li>
+                    <li class="li-menu">
+                      <a href="#">Chính sách đổi trả hàng</a>
+                    </li>
+                    <li class="li-menu"><a href="#">Hướng dẫn sử dụng</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-sm d-flex justify-content-start">
+                <div class="col-xl px-0 bg-title-2">
+                  <ul class="footer-item-ul">
+                    <div class="col px-0">
+                      <div class="footer-hotline">
+                        <div class="footer-hotline-img">
+                          <img
+                            src="../../../images/icon-telephone.png"
+                            alt=""
+                          />
                         </div>
-                        <div class="footer-link-item-box .footer-link-ins">
-                          <a href="#"><i class="icon-instagram"></i></a>
+                        <div class="footer-hotline-tel">
+                          <p>0921469828</p>
+                          <span>(Tất cả các ngày trong tuần)</span>
                         </div>
-                        <div class="footer-link-item-box .footer-link-twi">
-                          <a href="#"> <i class="icon-twitter-5"></i></a>
-                        </div>
-                        <div class="footer-link-item-box"></div>
-                        <div class="footer-link-item-box"></div>
-                        <div class="footer-link-item-box"></div>
                       </div>
                     </div>
+                    <div class="col px-0">
+                      <div class="footer-link">
+                        <div class="footer-link-title">
+                          <h4>Kết nối với chúng tôi</h4>
+                        </div>
+                        <div class="footer-link-item">
+                          <div class="footer-link-item-box .footer-link-fb">
+                            <a href="#"><i class="icon-facebook-5"></i></a>
+                          </div>
+                          <div class="footer-link-item-box .footer-link-ins">
+                            <a href="#"><i class="icon-instagram"></i></a>
+                          </div>
+                          <div class="footer-link-item-box .footer-link-twi">
+                            <a href="#"> <i class="icon-twitter-5"></i></a>
+                          </div>
+                          <div class="footer-link-item-box"></div>
+                          <div class="footer-link-item-box"></div>
+                          <div class="footer-link-item-box"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-sm d-flex justify-content-start">
+                <div class="col-xl px-0 bg-title-2">
+                  <div class="footer-map">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4447672552687!2d106.62610801428757!3d10.853736760731062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bee0b0ef9e5%3A0x5b4da59e47aa97a8!2zQ8O0bmcgVmnDqm4gUGjhuqduIE3hu4FtIFF1YW5nIFRydW5n!5e0!3m2!1svi!2s!4v1606846299921!5m2!1svi!2s"
+                      width="250px"
+                      height="200px"
+                      frameborder="0"
+                      style="border: 0"
+                      allowfullscreen=""
+                      aria-hidden="false"
+                      tabindex="0"
+                    ></iframe>
                   </div>
-                  
-                  
-                  
-                </ul>
-              </div>
-            </div>
-
-            <div class="col-sm d-flex justify-content-start">
-              <div class="col-xl px-0 bg-title-2">
-                <div class="footer-map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4447672552687!2d106.62610801428757!3d10.853736760731062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bee0b0ef9e5%3A0x5b4da59e47aa97a8!2zQ8O0bmcgVmnDqm4gUGjhuqduIE3hu4FtIFF1YW5nIFRydW5n!5e0!3m2!1svi!2s!4v1606846299921!5m2!1svi!2s" width="250px" height="200px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-lg d-flex justify-content-start">
-              <div class="footer-pay">
-                <div class="footer-pay-title">
-                  <h4>Các phương thức thanh toán </h4>
+            <div class="row">
+              <div class="col-lg d-flex justify-content-start">
+                <div class="footer-pay">
+                  <div class="footer-pay-title">
+                    <h4>Các phương thức thanh toán</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid px-0">
-    <div class="col-xl px-0">
-      <div class="footer-license">
-        <div class="col px-0">
-          <div class="footer-license-box">
-            <div class="footer-license-box-span">
-              <span>&#169;copyright 2001-2020 by SBS company.</span>
-              <br>
-              <span>Mong kiếp sau vẫn là anh em </span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+      <div class="container-fluid px-0">
+        <div class="col-xl px-0">
+          <div class="footer-license">
+            <div class="col px-0">
+              <div class="footer-license-box">
+                <div class="footer-license-box-span">
+                  <span>&#169;copyright 2001-2020 by SBS company.</span>
+                  <br />
+                  <span>Mong kiếp sau vẫn là anh em </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
-      <script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
-      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-      <script>
-        var dh = null;
-  
-        function tg() {
-          var now = new Date();
-          var h = now.getHours();
-          var m = now.getMinutes();
-          var s = now.getSeconds();
-          document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/978d2e326d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      var dh = null;
+
+      function tg() {
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+      }
+    </script>
+    <script>
+      dh = setInterval("tg()", 1000);
+    </script>
+    <script>
+      function starstopdh() {
+        if (dh == null) {
+          dh = setInterval("tg()", 1000);
+        } else {
+          clearInterval(dh);
+          dh = null;
         }
-      </script>
-      <script>
-        dh = setInterval("tg()", 1000);
-      </script>
-      <script>
-        function starstopdh() {
-          if (dh == null) {
-            dh = setInterval("tg()", 1000);
-          } else {
-            clearInterval(dh);
-            dh = null;
-          }
-        }
-      </script>
-      <script>
-        $(document).ready(function(){
-          $('.carousel').slick({
-            dots: true,
-            infinite: false,
-            speed: 300,
-            slidesToShow:6,
-            slidesToScroll: 6,
-            prevArrow: `<button type="button" class="slick-prev prev-arrow-carousel">Previous</button>`,
-            nextArrow: `<button type="button" class="slick-next next-arrow-carousel">Next</button>`
-          });
+      }
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".carousel").slick({
+          dots: true,
+          infinite: false,
+          speed: 300,
+          slidesToShow: 6,
+          slidesToScroll: 6,
+          prevArrow: `<button type="button" class="slick-prev prev-arrow-carousel">Previous</button>`,
+          nextArrow: `<button type="button" class="slick-next next-arrow-carousel">Next</button>`,
         });
-      </script>
-      <script>
-        var slideIndex = 0;
-        showSlides();
-        
-        function showSlides() {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("dot");
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}    
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " active";
-          setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
-        </script>
-</body>
+      });
+    </script>
+    <script>
+      var slideIndex = 0;
+      showSlides();
 
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+    </script>
+  </body>
 </html>
