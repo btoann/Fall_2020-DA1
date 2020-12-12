@@ -772,9 +772,17 @@ img {
   justify-content: end;
 }
 .product-trading {
-  width: 100%;
-  margin-left: 10px;
-  margin-top: 20px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 14px 0px 10px 20px;
+}
+.product-trading a {
+  color: rgb(36, 36, 36);
+  -webkit-box-align: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 .image-product {
   width: 170px;
@@ -798,6 +806,7 @@ img {
 .detail-product-right {
   width: 230px;
   margin-left: 70px;
+  display: flex;
 }
 .img {
   width: 35px;
@@ -819,8 +828,12 @@ img {
   padding: 15px 10px;
   margin-bottom: 10px;
 }
+.word-item {
+  width: 50%;
+}
 .change {
-  margin-left: 95px;
+  width: 50%;
+  text-align: end;
 }
 .change a {
   color: rgb(13, 92, 182);
@@ -853,10 +866,6 @@ img {
   font-size: 12px;
   font-weight: 500;
 }
-.sale2 {
-  color: rgb(120, 120, 120);
-  margin-left: 55px;
-}
 .icon {
   width: 22x;
 }
@@ -877,6 +886,7 @@ img {
   margin: 15px 0px;
   cursor: pointer;
   margin-left: 20px;
+  outline: none;
 }
 .jFkAwY {
   width: 1270px;
@@ -885,19 +895,19 @@ img {
   margin-right: auto;
   margin-left: auto;
 }
-.jMsQbz .NewsLetter-icon {
-  margin-top: -50px;
+.NewsLetter-icon {
+  margin-top: -40px;
   margin-right: 20px;
 }
-.jMsQbz .NewsLetter-description {
+.NewsLetter-description {
   margin-right: 30px;
   margin-bottom: 0px;
   color: rgb(78, 80, 82);
 }
-.jMsQbz .NewsLetter-form {
+.NewsLetter-form {
   display: flex;
 }
-.jMsQbz .NewsLetter-form input {
+.NewsLetter-form input {
   flex: 1 1 0%;
   width: 345px;
   height: 34px;
@@ -908,7 +918,7 @@ img {
   border-radius: 4px;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
-.jMsQbz .NewsLetter-form button {
+.NewsLetter-form button {
   cursor: pointer;
   height: 34px;
   padding: 6px 12px;
@@ -923,4 +933,118 @@ img {
 button,
 input {
   overflow: visible;
+}
+.Container-itwfbd-0 {
+  color: rgb(78, 80, 82);
+  display: flex;
+}
+.word5 {
+  padding: 5px;
+  display: flex;
+}
+.note {
+  font-weight: 300;
+  font-style: normal;
+  display: block;
+  font-size: 12px;
+  color: rgb(51, 51, 51);
+  margin-top: 3px;
+  text-align: end;
+}
+.detail-product-bottom-item hr {
+  margin: 20px 0;
+}
+.bought:hover {
+  background-color: #ff0f1e;
+}
+/* number */
+.iaIXXn {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 3px;
+}
+.qty-decrease.qty-disable {
+  border-radius: 3px 0px 0px 3px;
+}
+.qty-disable {
+  pointer-events: none;
+  background: rgb(248, 248, 248);
+}
+.iaIXXn .qty-decrease,
+.iaIXXn .qty-increase {
+  display: inline-block;
+  border-right: 1px solid rgb(200, 200, 200);
+  color: rgb(153, 153, 153);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.qty-input {
+  border: none;
+  background: transparent;
+  width: 35px;
+  text-align: center;
+  font-size: 13px;
+  appearance: none;
+  margin: 0px;
+}
+.iaIXXn .qty-increase {
+  border-right: none;
+  border-left: 1px solid rgb(200, 200, 200);
+}
+.iaIXXn .qty-decrease,
+.iaIXXn .qty-increase {
+  display: inline-block;
+  border-right: 1px solid rgb(200, 200, 200);
+  color: rgb(153, 153, 153);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.number {
+  margin-left: 25px;
+}
+/* footer */
+.dZezzK {
+  padding: 40px 0px;
+  border-top: 1px solid rgb(247, 247, 247);
+  border-bottom: 1px solid rgb(247, 247, 247);
+  background-color: rgb(255, 255, 255);
+}
+.hotline {
+  margin-bottom: 10px;
+  color: rgb(196, 1, 26);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+.small-text {
+  display: block;
+  margin-bottom: 11px;
+  color: rgb(51, 51, 51);
+  font-size: 12px;
+  font-weight: normal;
+}
+.security {
+  margin-bottom: 10px;
+  color: rgb(51, 51, 51);
+  font-size: 12px;
+  font-weight: 400;
+}
+p {
+  margin: 0px 0px 10px;
+}
+.block {
+  width: 226px;
+}
+.dZezzK .block .icon {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 7px;
+  vertical-align: middle;
+}
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
 }
