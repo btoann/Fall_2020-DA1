@@ -11,20 +11,27 @@
             case 'signin':
                 if(isset($_POST['signin']) && isset($_POST['signin']))
                 {
-                    $user = $_POST['user'];
-                    $pass = $_POST['pass'];
+                    $user = $_POST['username'];
+                    $pass = $_POST['password'];
                     $this_acc = signin($user);
                     if(is_array($this_acc))
                     {
                         if(password_verify($pass, $this_acc['pass']))
                         {
                             $_SESSION['sbs_user'] = $this_acc;
+                            unset($_SESSION['sbs_user']['pass']);
 
                             $url = ($_SESSION['sbs_user']['role'] >= 30) ? 'admin.php' :
                                     (($_SESSION['sbs_user']['role'] < 30) ? 'index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'] : 'index.php');
                             header('location: '.$url);
                         }
                     }
+                    echo
+                        '<script>
+                            swal("Tài khoản hoặc mật khẩu không chính xác", "Vui lòng thử lại!", "warning").then(() => {
+                                $("#username").val("'.$user.'");
+                            });
+                        </script>';
                 }
                 if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
                     header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
@@ -59,7 +66,9 @@
                         $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/';
                         if(preg_match($regex, $email))
                         {
-                            if(!is_array(signin($email)) && !is_array(signin($tel)))
+                            $test_email = signin($email);
+                            $test_tel = signin($tel);
+                            if(!is_array($test_email) && !is_array($test_tel))
                             {
                                 $name = $_POST['name'];
                                 $pass = $_POST['pass'];
@@ -81,10 +90,42 @@
                                         (($acc['role'] < 30 ) ? 'index.php?ctrl=account&act=user&id='.$acc['id'] : 'index.php');
                                 header('location: '.$url);
                             }
+                            else
+                            {
+                                $value = '';
+                                if(!is_array($test_email) && !is_array($test_tel))
+                                {
+                                    $value = 'email và số điện thoại';
+                                }
+                                else
+                                {
+                                    if(is_array($test_email) && !is_array($test_tel))
+                                    {
+                                        $value = 'số điện thoại';
+                                    }
+                                    if(!is_array($test_email) && is_array($test_tel))
+                                    {
+                                        $value = 'email';
+                                    }
+                                }
+                                echo
+                                    '<script>
+                                        swal("'.ucfirst($value).' đã tồn tại!", "Vui lòng thử nhập '.$value.' khác", "warning").then(() => {
+                                            $(".form-signin").toggleClass("form-signin-left");
+                                            $(".form-signup").toggleClass("form-signup-left");
+                                            $(".frame").toggleClass("frame-long");
+                                            $(".signup-inactive").toggleClass("signup-active");
+                                            $(".signin-active").toggleClass("signin-inactive");
+                                            $(".forgot").toggleClass("forgot-left");
+                                            $(this).removeClass("idle").addClass("active");
+                                            $("#user_login").toggleClass("p-tb-30-i");
+                                        });
+                                    </script>';
+                            }
                         }
                     }
                 }
-                include 'client/view/account/'.$act.'.php';
+                include 'client/view/account/signin.php';
                 break;
 
             case 'signout':
