@@ -1,13 +1,13 @@
 <?php
 
 //Google Code
-require_once ('./google/libraries/Google/autoload.php');
+require_once ('google/libraries/Google/autoload.php');
 
 //Insert your cient ID and secret 
 //You can get it from : https://console.developers.google.com/
 $client_id = '947193584716-bp1d1uu7jsdqokp4c38h7l9oq1855hs5.apps.googleusercontent.com';
 $client_secret = 'WUvzUPMhg8is8jRw8HTSMedR';
-$redirect_uri = 'http://localhost/fall2020/login/lesson-5/login.php';
+$redirect_uri = 'http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=signin&api=google';
 
 //incase of logout request, just unset the session var
 //if (isset($_GET['logout'])) {
@@ -67,7 +67,7 @@ if ($client->isAccessTokenExpired()) {
 if (!isset($authUrl)) {
     $googleUser = $service->userinfo->get(); //get user info 
     if(!empty($googleUser)){
-        include './function.php';
+        include 'function.php';
         loginFromSocialCallBack($googleUser);
     }
 }

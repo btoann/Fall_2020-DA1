@@ -18,20 +18,33 @@
                     {
                         if(password_verify($pass, $this_acc['pass']))
                         {
-                            $_SESSION['sbs_id'] = $this_acc['id'];
-                            $_SESSION['sbs_name'] = $this_acc['name'];
-                            $_SESSION['sbs_email'] = $this_acc['email'];
-                            $_SESSION['sbs_tel'] = $this_acc['tel'];
-                            $_SESSION['sbs_role'] = $this_acc['role'];
+                            $_SESSION['sbs_user'] = $this_acc;
 
-                            $url = ($_SESSION['sbs_role'] >= 30) ? 'admin.php' :
-                                    (($_SESSION['sbs_role'] < 30) ? 'index.php?ctrl=account&act=user&id='.$_SESSION['sbs_id'] : 'index.php');
+                            $url = ($_SESSION['sbs_user']['role'] >= 30) ? 'admin.php' :
+                                    (($_SESSION['sbs_user']['role'] < 30) ? 'index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'] : 'index.php');
                             header('location: '.$url);
                         }
                     }
                 }
-                if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0)
-                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_id']);
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
+                if(isset($_GET['api']) && $_GET['api'])
+                {
+                    $api = $_GET['api'];
+                    switch($api)
+                    {
+                        case 'facebook':
+                            include '.system/lib/facebook-google-API/fb-callback.php';
+                            break;
+                        case 'google':
+                            include '.system/lib/facebook-google-API/google_source.php';
+                            break;
+                        default:
+                            header('location: index.php?ctrl=account&act=signin');
+                            break;
+                    }
+                    break;
+                }
                 include 'client/view/account/'.$act.'.php';
                 break;
 
@@ -55,17 +68,13 @@
                                 signup($name, $email, $tel, $hashed_password);
 
                                 $acc = signin($email);
-                                $_SESSION['sbs_id'] = $acc['id'];
-                                $_SESSION['sbs_name'] = $acc['name'];
-                                $_SESSION['sbs_email'] = $acc['email'];
-                                $_SESSION['sbs_tel'] = $acc['tel'];
-                                $_SESSION['sbs_role'] = $acc['role'];
+                                $_SESSION['sbs_user'] = $acc;
 
                                 // Tạo mã xác thực
-                                $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
+                                $activation = create_activation($_SESSION['sbs_user']['id'], $_SESSION['sbs_user']['email']);
 
                                 // Gửi mail xác thực
-                                verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_name'], $_SESSION['sbs_id'], $activation);
+                                verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
 
 
                                 $url = ($acc['role'] >= 30) ? 'admin.php' :
@@ -78,39 +87,35 @@
                 include 'client/view/account/'.$act.'.php';
                 break;
 
-            case 'logout':
-                unset($_SESSION['sbs_id']);
-                unset($_SESSION['sbs_name']);
-                unset($_SESSION['sbs_email']);
-                unset($_SESSION['sbs_tel']);
-                unset($_SESSION['sbs_role']);
+            case 'signout':
+                unset($_SESSION['sbs_user']);
                 header('location: index.php');
                 break;
             
             case 'user':
                 if(isset($_GET['id']) && $_GET['id'])
                 {
-                    if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0)
+                    if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
                     {
-                        if(($_SESSION['sbs_id'] == $_GET['id']))
+                        if(($_SESSION['sbs_user']['id'] == $_GET['id']))
                         {
-                            if($_SESSION['sbs_role'] == 0)
+                            if($_SESSION['sbs_user']['role'] == 0)
                             {
                                 if(isset($_GET['verify']) && $_GET['verify'])
                                 {
                                     if(is_array(get_verify($_GET['id'], $_GET['verify'])))
                                     {
                                         $new_role = verify_account($_GET['id'], $_GET['verify']);
-                                        $_SESSION['sbs_role'] = $new_role;
+                                        $_SESSION['sbs_user']['role'] = $new_role;
                                     }
                                 }
                                 if(isset($_POST['resend_verify']) && $_POST['resend_verify'])
                                 {
                                     $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
-                                    verify_mail($_SESSION['sbs_email'], $_SESSION['sbs_name'], $_SESSION['sbs_id'], $activation);
+                                    verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
                                     header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
                                 }
-                                if($_SESSION['sbs_role'] > 0)
+                                if($_SESSION['sbs_user']['role'] > 0)
                                 {
                                     header('location: index.php');
                                 }
@@ -153,7 +158,7 @@
                 break;
 
             default:
-                if(isset($_SESSION['sbs_id']))
+                if(isset($_SESSION['sbs_user']))
                     include 'client/view/account/home.php';
                 else
                     include 'client/view/account/signin.php';

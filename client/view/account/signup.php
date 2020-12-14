@@ -1,4 +1,4 @@
-<form action="index.php?ctrl=account&act=signup" method="post">
+<!-- <form action="index.php?ctrl=account&act=signup" method="post">
     <h1>Đăng ký</h1>
     <table>
         <tr>
@@ -59,4 +59,4 @@
             </th>
         </tr>
     </table>
-</form>
+</form> -->

@@ -1,7 +1,7 @@
 <?php
 
-include './Facebook/autoload.php';
-include('./fbconfig.php');
+include 'Facebook/autoload.php';
+include('fbconfig.php');
 $helper = $fb->getRedirectLoginHelper();
 if (isset($_GET['state'])) {
     $helper->getPersistentDataHandler()->set('state', $_GET['state']);
@@ -48,6 +48,6 @@ try {
 $fbUser = $response->getGraphUser();
 
 if (!empty($fbUser)) {
-    include './function.php';
+    include 'function.php';
     loginFromSocialCallBack($fbUser);
 }
