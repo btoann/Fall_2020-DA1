@@ -88,7 +88,10 @@
                 break;
 
             case 'signout':
-                unset($_SESSION['sbs_user']);
+                if(isset($_SESSION['sbs_user']))
+                    unset($_SESSION['sbs_user']);
+                if(isset($_SESSION['access_token']))
+                    unset($_SESSION['access_token']);
                 header('location: index.php');
                 break;
             
