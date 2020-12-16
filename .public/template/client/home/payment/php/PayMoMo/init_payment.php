@@ -88,6 +88,7 @@ if (!empty($_POST)) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"/>
     <link rel="stylesheet"
           href="./statics/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
+          <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -281,7 +282,7 @@ if (!empty($_POST)) {
         <div class="cart">
           GIỎ HÀNG<span class="counting">(1 sản phẩm)</span>
         </div>
-        <div class="content-pay">
+        <div style="height: 90vh" class="content-pay">
           <div class="seperate-left">
             <div class="product-trading">
               <a href="#">
@@ -334,23 +335,15 @@ if (!empty($_POST)) {
             <div class="detail-product-bottom-item">
               <div class="word5">
 
-              <!-- <input type='text' name="partnerCode" value="<?php echo $partnerCode; ?>" class="form-control"/>
+              <input style="display:none" type='text' name="orderId" value="<?php echo $orderId; ?>"  class="form-control"/>
 
-              <input type='text' name="accessKey" value="<?php echo $accessKey;?>"  class="form-control"/> -->
+              <input style="display: none" type='text' type="text" name="extraData" value="<?php echo $extraData?>"    class="form-control"/>
 
-              <input type='text' name="secretKey" value="<?php echo $secretKey; ?>"  class="form-control"/>
+              <input style="display: none" type='text' name="orderInfo" value="<?php echo $orderInfo; ?>"  class="form-control"/>
 
-              <input type='text' name="orderId" value="<?php echo $orderId; ?>"  class="form-control"/>
+              <input style="display: none" type='text' name="notifyUrl" value="<?php echo $notifyurl; ?>"  class="form-control"/>
 
-              <input type='text' type="text" name="extraData" value="<?php echo $extraData?>"    class="form-control"/>
-
-              <input type='text' name="orderInfo" value="<?php echo $orderInfo; ?>"  class="form-control"/>
-
-              <input type='text' name="amount" value="<?php echo $amount; ?>" class="form-control"/>
-
-              <input type='text' name="notifyUrl" value="<?php echo $notifyurl; ?>"  class="form-control"/>
-
-              <input type='text' name="returnUrl" value="<?php echo $returnUrl; ?>" class="form-control"/>
+              <input style="display: none" type='text' name="returnUrl" value="<?php echo $returnUrl; ?>" class="form-control"/>
 
                 <div class="word-item"><strong>Địa chỉ nhận hàng</strong></div>
                 <div class="change"><a href="#">Thay đổi</a></div>
@@ -385,6 +378,65 @@ if (!empty($_POST)) {
                 </p>
               </div>
             </div>
+            <div style="height:100px" class="detail-product-bottom-item">
+              <div class="word5">
+                <div></div>
+                <span style="width: 70%" class="word-item">Phương thức thanh toán</span> 
+              </div>
+              <div  class="word3">
+          
+                    <div class="pay momo"><img src="img/momo_logo.png" alt="">      
+                       
+                          <input style="float: right;margin-top:-27px;margin-left:20px" id="radio-1" name="radio" type="radio" checked>
+                          <label for="radio-1" class="radio-label"></label>
+                       
+                      </div>
+
+                    <div class="pay default"><i style="padding: 0px 5px" class="fas fa-money-bill-wave"></i>Thanh toán khi nhận hàng 
+              
+                      <input style="float:right" id="radio-1" name="radio" type="radio" disabled>
+                      <label for="radio-1" class="radio-label"></label>
+       
+                  </div>
+         
+
+              </div>
+            </div>
+
+            <style>
+                .pay{
+                
+                  float: left;
+                }
+                .momo{
+                  width: 20%;
+                  margin-left: 5%;
+                }
+                .default{
+                  float: left;
+                  margin-left: 20px;
+
+                }
+          
+                .pay img{
+                  width: 70%;
+                  float: left;
+                  margin-top: -10px;
+                }
+                .pay button{
+                  width: 13px;
+                  border-radius: 13px;
+                  float: right;
+                  color: blue;
+                  padding: 5px 5px;
+                  /* box-shadow: #0570e6 0px 0px 5px; */
+                  border: white 2px solid;
+                  margin-right: 5px;
+                  background-color: #f04c63;
+                  height: 13px;
+                }
+
+            </style>
             <div class="detail-product-bottom-item">
               <div class="word5">
                 <div class="word-item">Tạm Tính</div>
@@ -393,18 +445,15 @@ if (!empty($_POST)) {
               <hr />
               <div class="word5">
                 <div class="word-item">Thành Tiền</div>
-                <div class="change" > <input type="text" name="amount" value=""></div>
+                <div class="change" > <input style="border: none;width:100%;text-align:right" type="text" name="amount" value="1000"></div>
+      
               </div>
               <div class="note">
                 <span class="note-item">(Đã bao gồm thuế VAT nếu có)</span>
               </div>
             </div>
             <button type="submit" class="bought btn btn-primary btn-block">Tiến hành đặt hàng</button>
-                      <p>
-                        <div style="margin-top: 1em;">
-                            <button type="submit" class="btn btn-primary btn-block">Start MoMo payment....</button>
-                        </div>
-                        </p>
+        
                 </form>
           </div>
         </div>
