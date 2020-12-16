@@ -24,6 +24,10 @@ input::-webkit-inner-spin-button {
 {
     font-weight: bold !important;
 }
+.upc-txt
+{
+    text-transform: uppercase !important;
+}
 
     /*  Box's background color  */
 .main-bg

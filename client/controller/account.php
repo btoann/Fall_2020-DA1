@@ -195,6 +195,10 @@
                             reset_activation($this_acc['id'], $activation);
                             // Tạo mail xác nhận
                             forgot_mail($this_acc['email'], $this_acc['name'], $activation);
+                            echo
+                                '<script>
+                                    swal("Thành công", "Mã đã được gửi, hết hiệu lực sau 5 phút", "success");
+                                </script>';
                         }
                         else
                             echo
@@ -209,6 +213,12 @@
                                     $("#email").val("'.$email.'");
                                 });
                             </script>';
+                }
+                if(isset($_GET['new']) && $_GET['new'])
+                {
+                    if(isset($_SESSION['forgot_send']))
+                        unset($_SESSION['forgot_send']);
+                    header('location: index.php?ctrl=account&act=forgot');
                 }
                 $sent = false;
                 if(isset($_SESSION['forgot_send']))
@@ -236,6 +246,7 @@
                                             reset_password($_SESSION['forgot_send']['id'], $code, $hashed_password);
                                             // Huỷ sự kiện reset mã xác nhận
                                             drop_resetActivation_event($_SESSION['forgot_send']['id']);
+                                            unset($_SESSION['forgot_send']);
                                         }
                                         else
                                             echo
@@ -249,8 +260,6 @@
                                 header('location: index.php?ctrl=account&act=forgot');
                         }
                     }
-                    else
-                        header('location: index.php?ctrl=account&act=forgot');
                 }
                 include 'client/view/account/'.$act.'.php';
                 break;

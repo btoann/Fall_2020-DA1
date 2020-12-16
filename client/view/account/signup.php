@@ -5,15 +5,16 @@
                 <li class="signin-active signin-inactive"><a class="btn" href="index.php?ctrl=account&act=signin">Đăng nhập</a></li>
                 <li class="signup-inactive signup-active"><a class="btn" href="#">Đăng ký </a></li>     
             </ul>
-            <div class="box_logo"><img src="images/logo.png" alt=""></div>
         </div>
 
-        <div ng-app ng-init="checked = false">
-    
-            <form class="form-signin form-signin-left">
-            </form>
+        <p class="logo-text">
+            <a href="index.php">
+                <span class="bside-txt">SIDE</span><span class="gray-txt between">by</span><span class="hl-txt">SIDE</span>
+            </a>
+        </p>
 
-            <form class="form-signup form-signup-left" action="index.php?ctrl=account&act=signup" method="post" name="form">
+        <div ng-app ng-init="checked = false">
+            <form class="form-signup" action="index.php?ctrl=account&act=signup" method="post" name="form">
                 <label for="name">Tên người dùng</label>
                 <input class="form-styling" type="text" name="name" id="name" required>
                 <label for="email">Email</label>
@@ -24,9 +25,8 @@
                 <input class="form-styling" type="password" name="pass" id="pass" required>
                 <label for="confirm_pass">Xác nhận mật khẩu</label>
                 <input class="form-styling" type="password" name="confirm_pass" id="confirm_pass" required>
-                <input width="100%" type="submit" name="signup" id="submit" value="Đăng ký" class="btn-signup">
+                <input width="100%" type="submit" name="signup" id="submit" value="Đăng ký" class="btn-signup main-bg hl-bg-hv">
             </form>
-        
         </div>
     </div>
 

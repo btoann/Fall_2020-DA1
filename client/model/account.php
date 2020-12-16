@@ -98,23 +98,25 @@
     function reset_password($id, $code, $pass)
     {
         $sql = "UPDATE users SET pass = '$pass', activation = NULL WHERE id = '$id' AND activation = '$code'";
+        $dtb = new database();
         $dtb->execute($sql);
     }
 
     function reset_activation($id, $code)
     {
         $sql =
-            "SET GLOBAL event_scheduler = ON;
-            CREATE EVENT IF NOT EXISTS reset_activation_".$id."
-            ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
+            "CREATE EVENT IF NOT EXISTS reset_activation_".$id."
+            ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 5 MINUTE
             DO
                 UPDATE users SET activation = NULL WHERE activation = '$code' AND id = '$id'";
+        $dtb = new database();
         $dtb->execute($sql);
     }
 
     function drop_resetActivation_event($id)
     {
-        $sql = "DROP EVENT [IF EXIST] reset_activation_".$id;
+        $sql = "DROP EVENT IF EXIST reset_activation_".$id;
+        $dtb = new database();
         $dtb->execute($sql);
     }
 

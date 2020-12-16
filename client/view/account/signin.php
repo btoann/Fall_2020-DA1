@@ -9,19 +9,24 @@
                 <li class="signin-active"><a class="btn" href="#">Đăng nhập</a></li>
                 <li class="signup-inactive"><a class="btn" href="index.php?ctrl=account&act=signup">Đăng ký </a></li>     
             </ul>
-            <div class="box_logo"><img src="images/logo.png" alt=""></div>
         </div>
+
+        <p class="logo-text">
+            <a href="index.php">
+                <span class="bside-txt">SIDE</span><span class="gray-txt between">by</span><span class="hl-txt">SIDE</span>
+            </a>
+        </p>
 
         <div ng-app ng-init="checked = false">
             <form action="index.php?ctrl=account&act=signin" class="form-signin"  method="post" name="form" autocomplete="off">
                 <label for="username">Email / Số điện thoại</label>
-                <input class="form-styling" type="text" name="username" id="username" placeholder="">
+                <input class="form-styling" type="text" name="username" id="username" placeholder="" required>
                 <label for="password">Mật khẩu</label>
-                <input class="form-styling" type="password" name="password" id="username" placeholder="">
+                <input class="form-styling" type="password" name="password" id="username" placeholder="" required>
                 <br>
                 <input type="checkbox" id="checkbox" name="remember">
-                <label for="checkbox"><span class="ui"></span>Nhớ lần đăng nhập này </label>
-                <input width="100%" type="submit" name="signin" value="Đăng nhập" class="btn-signin">
+                <label for="checkbox" class="bside-txt-i"><span class="ui upc-txt"></span><p class="m-t-2-i">Nhớ lần đăng nhập này</p></label>
+                <input width="100%" type="submit" name="signin" value="Đăng nhập" class="btn-signin main-bg hl-bg-hv lightgray-txt-i">
 
                 <a href= "<?= (isset($loginUrl)) ? $loginUrl : '#facebook' ?>">
                     <div id='facebook' class='button'>Facebook
@@ -42,18 +47,12 @@
     
             <form class="form-signup">
             </form>
-        
             <div class="success">
-                <svg width="270" height="270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" id="check" ng-class="checked ? 'checked' : ''">
-                    <path fill="#ffffff" d="M40.61,23.03L26.67,36.97L13.495,23.788c-1.146-1.147-1.359-2.936-0.504-4.314
-                            c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
-                            c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
-                </svg>
             </div>
         </div>
 
         <div class="forgot">
-            <a href="index.php?ctrl=account&act=forgot">Quên mật khẩu?</a>
+            <a href="index.php?ctrl=account&act=forgot" class="bside-txt hl-hv">Quên mật khẩu?</a>
         </div>
 
     </div>
@@ -69,3 +68,11 @@
         </svg>
     </a>
 </div>
+
+
+<?php
+
+    // if(isset($_SESSION['forgot_send']))
+    //     print_r($_SESSION['forgot_send']);
+
+?>
