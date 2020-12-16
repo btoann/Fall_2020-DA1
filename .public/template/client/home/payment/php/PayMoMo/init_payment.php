@@ -95,7 +95,7 @@ if (!empty($_POST)) {
     <header>
         <div class="header">
             <div class="logo">
-                <a href="./index-fix.html"><img src="../../../images/logo.png" alt="" /></a>
+                <a href="./index-fix.html"><img src=".public/images/logo.png" alt="" /></a>
             </div>
             <div class="menu">
                 <div class="menu-top">
