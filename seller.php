@@ -190,7 +190,10 @@
             if(isset($_GET['act']) && ($_GET['act'] == 'signin' || $_GET['act'] == 'signup'))
             {
                 $filename = 'seller/controller/'.$_GET['ctrl'].'.php';
-                include (file_exists($filename)) ? $filename : $index_file;
+                if(file_exists($filename))
+                    include $filename;
+                else
+                    header('location: seller.php?ctrl=account&act=signin');
             }
         }
         else

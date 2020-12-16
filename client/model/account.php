@@ -4,7 +4,7 @@
     
     function signin($user)
     {
-        $sql = 'SELECT * FROM users WHERE email = "'.$user.'" OR tel = "'.$user.'"';
+        $sql = 'SELECT * FROM users WHERE email = "'.$user.'" OR tel = "'.$user.'" AND (role >= 0 AND role < 20)';
         $dtb = new database();
         return $dtb->queryOne($sql);
     }
@@ -13,6 +13,23 @@
     {
         $sql = "INSERT INTO users (name, email, tel, pass)
                         VALUES ('$name', '$email', '$tel', '$pass')";
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
+    function signin_social($user, $role)
+    {
+        $sql = 'SELECT id, name, email, tel, avatar, cardimage, birth, date, role
+                    FROM users WHERE email = "'.$user.'" AND role = "'.$role.'"';
+        $dtb = new database();
+        return $dtb->queryOne($sql);
+    }
+
+    function signup_social($name, $email, $role)
+    {
+        $pass = md5($email);
+        $sql = "INSERT INTO users (name, email, tel, pass, role)
+                        VALUES ('$name', '$email', '0', '$pass', '$role')";
         $dtb = new database();
         $dtb->execute($sql);
     }
