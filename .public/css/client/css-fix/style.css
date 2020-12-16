@@ -819,7 +819,188 @@ p {
   margin-bottom: 5px;
 }
 
+.thong-tin-shop .thong-tin-contact {
+  display: flex;
+  width: 100%;
+  min-height: 20px;
+}
+.thong-tin-shop .thong-tin-contact .contact-center {
+  width: 56%;
+  min-height: 20px;
+  margin: 0 auto;
+
+}
+.contact-center .leftt {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  min-height: 100%;
+}
+.contact .rightt {
+  display: inline-block;
+  float: right;
+  width: 50%;
+  min-height: 100%;
+}
+
+.thong-tin-shop .chat-facebook {
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position-x:10px ;
+  background-position-y:30px ;
+  padding-left: 33px;
+  outline: none;
+}
+.thong-tin-shop .chat-facebook:hover {
+  box-shadow: 2px 2px 3px #c6c4c4;
+} 
 
 
+.thong-tin-shop button.chat-facebook {
+  margin: 0;
+  background: white;
+  border: 1px solid #0570E6;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0px 15px;
+  color: #0570E6;
+  min-height: 27px;
+  line-height: 10px;
+}
 
+.thong-tin-shop button.hotline {
+  margin: 0;
+  background: white;
+  border: 1px solid #F04C63;
+  border-radius: 3px;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0px 15px;
+  color: #F04C63;
+  min-height: 27px;
+  line-height: 10px;
+}
+
+.thong-tin-shop .hotline:hover {
+  box-shadow: 2px 2px 3px #c6c4c4;
+} 
+
+.thong-tin-shop .hotline {
+  background-image: url(../../../images/hotline.png);
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position-x:10px ;
+  background-position-y:30px ;
+  padding-left: 33px;
+  outline: none;
+}
+
+.sidebar-background {
+  width: 100%;
+  display: flex;
+  min-height: 435px;
+}
+
+.sidebar-background .sidebar-iconbox {
+  width: 100%;
+  display: flex-box;
+  margin: 7px 0px;
+  min-height: 100px;
+}
+.text-left {
+  text-align: left;
+}
+.icon-box-left .icon-box-img {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+  max-width: 200px;
+}
+.icon-box-img img {
+  padding-top: .2em;
+  width: 100%;
+  transition: opacity 1s;
+  opacity: 1;
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-box-left, .icon-box-right {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.icon-box-left .icon-box-img+.icon-box-text {
+  padding-left: 1em;
+}
+.icon-box-left .icon-box-text {
+  flex: 1 1 0%;
+}
+
+.icon-box-text strong {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 0.25;
+  letter-spacing: 1;
+}
+
+.social-icons {
+  vertical-align: middle;
+  font-size: .85em;
+  color: #999;
+  width: 450px;
+  min-height: 50px;
+}
+.relative {
+  position: relative!important;
+}
+
+.button {
+  margin-bottom: 25px;
+}
+.circle {
+  border-radius: 999px!important;
+  object-fit: cover;
+}
+.button.icon.circle {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.is-outline {
+  color: silver;
+}
+.button.is-outline {
+  border-radius: 3px;
+  font-weight: 400;
+  border: 2px solid currentColor;
+  background-color: transparent;
+  line-height: 2.19em;
+}
+.button.tooltip {
+  opacity: 1;
+}
+.button.icon {
+  margin-left: .12em;
+  margin-right: .12em;
+  min-width: 2.5em;
+  padding-left: .6em;
+  padding-right: .6em;
+}
+.button i {
+  vertical-align: middle;
+  top: -1.5px;
+  padding-left: 4px;
+}
+
+.button.facebook:hover {
+  background-color: #446084;
+  border-color: #446084;
+  color: white;
+}
 
