@@ -1,4 +1,3 @@
-
 <?php
     include '.system/lib/facebook-google-API/facebook_source.php';
     include '.system/lib/facebook-google-API/google_source.php';
@@ -7,8 +6,8 @@
     <div class="frame">
         <div class="nav">
             <ul class="links">                   
-                <li class="signin-active"><a class="btn">Đăng nhập</a></li>
-                <li class="signup-inactive"><a class="btn">Đăng ký </a></li>     
+                <li class="signin-active"><a class="btn" href="#">Đăng nhập</a></li>
+                <li class="signup-inactive"><a class="btn" href="index.php?ctrl=account&act=signup">Đăng ký </a></li>     
             </ul>
             <div class="box_logo"><img src="images/logo.png" alt=""></div>
         </div>
@@ -41,18 +40,7 @@
                 </a>
             </form>
     
-            <form class="form-signup" action="index.php?ctrl=account&act=signup" method="post" name="form">
-                <label for="name">Tên người dùng</label>
-                <input class="form-styling" type="text" name="name" id="name" required>
-                <label for="email">Email</label>
-                <input class="form-styling" type="email" name="email" id="email" required>
-                <label for="tel">Số điện thoại</label>
-                <input class="form-styling" type="text" name="tel" id="tel" required>
-                <label for="pass">Mật khẩu</label>
-                <input class="form-styling" type="password" name="pass" id="pass" required>
-                <label for="confirm_pass">Xác nhận mật khẩu</label>
-                <input class="form-styling" type="password" name="confirm_pass" id="confirm_pass" required>
-                <input width="100%" type="submit" name="signup" id="submit" value="Đăng ký" class="btn-signup">
+            <form class="form-signup">
             </form>
         
             <div class="success">
@@ -61,25 +49,12 @@
                             c3.894-6.28,11.169-10.243,19.283-9.348c9.258,1.021,16.694,8.542,17.622,17.81c1.232,12.295-8.683,22.607-20.849,22.042
                             c-9.9-0.46-18.128-8.344-18.972-18.218c-0.292-3.416,0.276-6.673,1.51-9.578" />
                 </svg>
-                <div class="successtext">
-                    <p> Cảm ơn bạn đã đăng ký <br> Vui lòng kiểm tra gmail.</p>
-                </div>
             </div>
         </div>
 
         <div class="forgot">
-            <a href="#">Quên mật khẩu?</a>
+            <a href="index.php?ctrl=account&act=forgot">Quên mật khẩu?</a>
         </div>
-
-        <!-- <div>
-            <div class="cover-photo"></div>
-            <div class="profile-photo"></div>
-    
-            <h1 class="welcome"> CHÀO MỪNG , S </h1>
-            <a href="./edit.php" class="btn-goback" value="Refresh">Đổi mật khẩu</a>
-            <a class="btn-goback" value="Refresh" onClick="history.go()">Trở lại</a>
-            <a href="./logout.php" class="btn-goback" value="Refresh">Đăng xuất</a>   
-        </div> -->
 
     </div>
 
