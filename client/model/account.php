@@ -95,7 +95,30 @@
         $mailer->sendmail($to_email, $to_name, $subject, $content);
     }
 
-    function forgot_mail($to_email, $to_name, $user_id, $activation)
+    function reset_password($id, $code, $pass)
+    {
+        $sql = "UPDATE users SET pass = '$pass', activation = NULL WHERE id = '$id' AND activation = '$code'";
+        $dtb->execute($sql);
+    }
+
+    function reset_activation($id, $code)
+    {
+        $sql =
+            "SET GLOBAL event_scheduler = ON;
+            CREATE EVENT IF NOT EXISTS reset_activation_".$id."
+            ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
+            DO
+                UPDATE users SET activation = NULL WHERE activation = '$code' AND id = '$id'";
+        $dtb->execute($sql);
+    }
+
+    function drop_resetActivation_event($id)
+    {
+        $sql = "DROP EVENT [IF EXIST] reset_activation_".$id;
+        $dtb->execute($sql);
+    }
+
+    function forgot_mail($to_email, $to_name, $activation)
     {
         $subject = 'Lấy lại mật khẩu';
         $content =
@@ -113,7 +136,7 @@
                         <br/>
                         Hãy chắc chắn rằng bạn nhận được mail của chúng tôi và không chia sẻ nó cho bất cứ ai.</p>
                     <p>
-                        <a href="http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=forgot&id='.$user_id.'&code='.$activation.'">
+                        <a href="http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=forgot&code='.$activation.'">
                             '.$activation.'
                         </a>
                     </p>

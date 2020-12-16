@@ -1,6 +1,11 @@
 <?php
     ob_start();
     session_start();
+
+    include_once '.system/lib/controller.php';
+    // Khởi động event trên Database
+    event_scheduler('on');
+
     if(!(isset($_GET['ctrl']) && $_GET['ctrl'] == 'account'))
     {
 ?>

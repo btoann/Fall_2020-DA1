@@ -2,6 +2,10 @@
     ob_start();
     session_start();
 
+    include_once '.system/lib/controller.php';
+    // Khởi động event trên Database
+    event_scheduler('on');
+
     if(isset($_SESSION['sbs_id_seller']) && $_SESSION['sbs_id_seller'] > 0)
     {
 ?>
