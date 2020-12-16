@@ -177,6 +177,8 @@
                 break;
 
             case 'forgot':
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_POST['forgot']) && $_POST['forgot'])
                 {
                     $email = (isset($_POST['email']) && $_POST['email']) ? $_POST['email'] : NULL;
@@ -236,6 +238,7 @@
                                 {
                                     $pass = (isset($_POST['pass']) && $_POST['pass']) ? $_POST['pass'] : NULL;
                                     $confirm_pass = (isset($_POST['confirm_pass']) && $_POST['confirm_pass']) ? $_POST['confirm_pass'] : NULL;
+                                    $signin = (isset($_POST['signin'])) ? $_POST['signin'] : NULL;
                                     if($bool->checkNull($pass, $confirm_pass))
                                     {
                                         if($pass == $confirm_pass)
@@ -247,6 +250,20 @@
                                             // Huỷ sự kiện reset mã xác nhận
                                             drop_resetActivation_event($_SESSION['forgot_send']['id']);
                                             unset($_SESSION['forgot_send']);
+
+                                            $url = 'index.php?ctrl=account&signin';
+                                            if($bool->checkNull($signin))
+                                            {
+                                                $url = 'index.php';
+                                                $_SESSION['sbs_user'] = $account;
+                                                unset($_SESSION['sbs_user']['pass']);
+                                            }
+                                            echo
+                                                '<script>
+                                                    swal("Thành công", "Bạn đã đổi thành công mật khẩu của mình", "success").then(() => {
+                                                        window.location.replace("'.$url.'");
+                                                    });
+                                                </script>';
                                         }
                                         else
                                             echo

@@ -104,6 +104,7 @@
 
     function reset_activation($id, $code)
     {
+        drop_resetActivation_event($id);
         $sql =
             "CREATE EVENT IF NOT EXISTS reset_activation_".$id."
             ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 5 MINUTE
@@ -115,7 +116,7 @@
 
     function drop_resetActivation_event($id)
     {
-        $sql = "DROP EVENT IF EXIST reset_activation_".$id;
+        $sql = "DROP EVENT IF EXISTS reset_activation_".$id;
         $dtb = new database();
         $dtb->execute($sql);
     }

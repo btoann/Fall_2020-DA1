@@ -18,7 +18,7 @@
         </p>
 
         <div ng-app ng-init="checked = false">
-            <form action="index.php?ctrl=account&act=signin" class="form-signin"  method="post" name="form" autocomplete="off">
+            <form action="index.php?ctrl=account&act=signin" class="form-signin" method="post" name="form" autocomplete="off" id="signinform">
                 <label for="username">Email / Số điện thoại</label>
                 <input class="form-styling" type="text" name="username" id="username" placeholder="" required>
                 <label for="password">Mật khẩu</label>
@@ -57,7 +57,7 @@
 
     </div>
 
-    <a id="refresh" value="Refresh" onClick="history.go()">
+    <a type="reset" id="refresh" value="Refresh" onclick="document.getElementById('signinform').reset()">
         <svg class="refreshicon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 322.447 322.447" style="enable-background:new 0 0 322.447 322.447;" xml:space="preserve">
             <path d="M321.832,230.327c-2.133-6.565-9.184-10.154-15.75-8.025l-16.254,5.281C299.785,206.991,305,184.347,305,161.224
                         c0-84.089-68.41-152.5-152.5-152.5C68.411,8.724,0,77.135,0,161.224s68.411,152.5,152.5,152.5c6.903,0,12.5-5.597,12.5-12.5
