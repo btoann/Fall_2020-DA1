@@ -2,8 +2,19 @@
 
     include_once '.system/core/connect.php';
 
+    function event_scheduler($cmd)
+    {
+        $conn = connect();
+        if($cmd == 'on' || $cmd == 'off')
+        {
+            $sql = "SET GLOBAL event_scheduler = '$cmd';";
+            $conn->exec($sql);
+        }
+    }
+    
     class database
     {
+
         public function query($sql)
         {
             $conn = connect();
