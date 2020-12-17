@@ -5,7 +5,7 @@
     
     function signin($user)
     {
-        $sql = 'SELECT * FROM users WHERE email = "'.$user.'" OR tel = "'.$user.'" AND (role >= 0 AND role < 20)';
+        $sql = 'SELECT * FROM users WHERE (email = "'.$user.'" OR tel = "'.$user.'") AND (role >= 0 AND role < 20)';
         $dtb = new database();
         return $dtb->queryOne($sql);
     }

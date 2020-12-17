@@ -22,7 +22,7 @@
                 <label for="username">Email / Số điện thoại</label>
                 <input class="form-styling" type="text" name="username" id="username" placeholder="" required>
                 <label for="password">Mật khẩu</label>
-                <input class="form-styling" type="password" name="password" id="username" placeholder="" required>
+                <input class="form-styling" type="password" name="password" id="password" placeholder="" required>
                 <br>
                 <input type="checkbox" id="checkbox" name="remember">
                 <label for="checkbox" class="bside-txt-i"><span class="ui upc-txt"></span><p class="m-t-2-i">Nhớ lần đăng nhập này</p></label>
