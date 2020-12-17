@@ -6,7 +6,6 @@ $array = json_decode($config, true);
 
 include "../common/helper.php";
 
-
 $endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
 
 
@@ -76,8 +75,8 @@ if (!empty($_POST)) {
           href="./statics/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <link rel="stylesheet" href="../../../css/client/css-fix/style.css" />
-    <link rel="stylesheet" href="../../../icons/css/fontello.css" />
+    <link rel="stylesheet" href="../../../.public/css/client/css-fix/style.css" />
+    <link rel="stylesheet" href="../../../.public/.public/icons/css/fontello.css" />
     <script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script type="text/javascript" src="./statics/jquery/dist/jquery.min.js"></script>
@@ -89,34 +88,38 @@ if (!empty($_POST)) {
     <link rel="stylesheet"
           href="./statics/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
           <link rel="stylesheet" href="css/style.css">
+        
 
 </head>
 
 <body>
     <header>
-        <div class="header">
-            <div class="logo">
-                <a href="http://localhost/fall2020/da/git/btoann.github.io/index.php"><img src="./img/images/logo.png" alt="" /></a>
+    <div class="header">
+        <div class="logo">
+          <a href="./index-fix.html"
+            ><img src="./img/images/logo.png" alt=""
+          /></a>
+        </div>
+        <div class="menu">
+          <div class="menu-top">
+            <div class="menu-top-list">
+              <ul>
+                <li><a href="#" class="a">Bán hàng cùng SBS</a></li>
+                <li><a href="#" class="a">Chăm sóc khách hàng</a></li>
+                <li><a href="#" class="a">Kiểm tra đơn hàng</a></li>
+                <li><a href="#" class="a">Chế độ tối</a></li>
+                <li><a href="#" class="a">Thay đổi ngôn ngữ</a></li>
+              </ul>
             </div>
-            <div class="menu">
-                <div class="menu-top">
-                    <div class="menu-top-list">
-                        <ul>
-                            <li><a href="#" class="a">Bán hàng cùng SBS</a></li>
-                            <li><a href="#" class="a">Chăm sóc khách hàng</a></li>
-                            <li><a href="#" class="a">Kiểm tra đơn hàng</a></li>
-                            <li><a href="#" class="a">Chế độ tối</a></li>
-                            <li><a href="#" class="a">Thay đổi ngôn ngữ</a></li>
-                        </ul>
-                    </div>
-                    <div class="menu-top-login">
-                        <p><a href="#">Đăng Nhập</a> <i class="icon-user-2"></i></p>
-                    </div>
-                </div>
-                <div class="menu-bottom">
-                    <div class="menu-bottom-category">
-                        <p>
-                            <a href="#" class="a1"><i class="icon-list-nested"></i> Danh mục</a
+            <div class="menu-top-login">
+              <p><a href="#">Đăng Nhập</a> <i class="fas fa-user"></i></p>
+            </div>
+          </div>
+          <div class="menu-bottom">
+            <div class="menu-bottom-category">
+              <p>
+              <a href="#" class="a1"
+                  ><i class="fa fa-align-right" style="font-size:18px"></i> Danh mục</a
                 >
               </p>
               <div class="hover">
@@ -259,6 +262,24 @@ if (!empty($_POST)) {
                         </span>
                       </li>
                     </ul>
+                    <ul class="block-2">
+                      <li><strong>Điện thoại</strong></li>
+                      <li>Android</li>
+                      <li>IOS</li>
+                      <li>Khác</li>
+                    </ul>
+                    <ul style="margin-left: 10%" class="block-2">
+                      <li><strong>Điện thoại</strong></li>
+                      <li>Android</li>
+                      <li>IOS</li>
+                      <li>Khác</li>
+                    </ul>
+                    <ul style="margin-left: 10%" class="block-2">
+                      <li><strong>Điện thoại</strong></li>
+                      <li>Android</li>
+                      <li>IOS</li>
+                      <li>Khác</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -269,15 +290,16 @@ if (!empty($_POST)) {
                   type="text"
                   placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..."
                 /><a href="#"><i class="fas fa-search"></i></a>
-                            <hr />
-                    </div>
-                </div>
-                <div class="menu-bottom-cart">
-                    <i class="fas fa-shopping-cart"></i
+                <hr />
+              </div>
+            </div>
+            <div class="menu-bottom-cart">
+              <i class="fas fa-shopping-cart"></i
               ><span class="shopping-number">0</span>
             </div>
           </div>
         </div>
+      </div>
       </div>
       <div class="container-px-0">
         <div class="cart">
@@ -316,11 +338,13 @@ if (!empty($_POST)) {
                     </div>
                     <div class="number">
                       <div class="CartQty__StyledCartQty-o1bx97-0 iaIXXn">
-                        <span class="qty-decrease qty-disable">-</span
-                        ><input type="tel" class="qty-input" value="1" /><span
-                          class="qty-increase"
-                          >+</span
-                        >
+
+                        <span class="qty-decrease" onclick="minus()" > - </span>
+                        
+                        <input type="tel" class="qty-input" value="1" id="count" />
+
+                        <span class="qty-increase" onclick="plus()">+</span>
+
                       </div>
                     </div>
                   </div>
@@ -680,6 +704,22 @@ if (!empty($_POST)) {
           </div>
         </div>
 </div>
+<script>
+var count = 1;
+var countEl = document.getElementById('count');
+
+function plus() {
+    count++;
+    countEl.value = count;
+}
+
+function minus() {
+    if (count > 1) {
+        count--;
+        countEl.value = count;
+    }
+}
+</script>
 </header>
   </body>
 </html>
