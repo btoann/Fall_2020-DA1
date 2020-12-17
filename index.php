@@ -10,50 +10,116 @@
     {
 ?>
 <!DOCTYPE html>
-<html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>sidebyside.shop</title>
-        <script src=".public/js/jquery_3.5.1.js" defer></script>
-        <script async src=".public/js/sweetalert.min.js"></script>
-    </head>
-    <body>
-    
-        <h3>Trang chủ</h3>
-        
-        <?php
-            if(isset($_SESSION['sbs_user'])) print_r($_SESSION['sbs_user']);
-            if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
-            {
-                if($_SESSION['sbs_user']['role'] >= 30) 
-                    echo
-                        '<a href="admin.php">[ admin: '.$_SESSION['sbs_user']['name'].' ]</a>
-                        &ensp;
-                        <a href="seller.php">[ Trang người bán ]</a>
-                        &ensp;
-                        <a href="index.php?ctrl=account&act=signout">[ Đăng xuất ]</a>';
-                else
-                {
-                    $api = ($_SESSION['sbs_user']['role'] >= 25 && $_SESSION['sbs_user']['role'] < 30)
-                            ? 'google: '
-                            : (($_SESSION['sbs_user']['role'] >= 20 && $_SESSION['sbs_user']['role'] < 25)? 'facebook: ' : '');
-                    echo
-                        '<a href="index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'">[ '.$api.$_SESSION['sbs_user']['name'].' ]</a>
-                        &ensp;
-                        <a href="seller.php">[ Trang người bán ]</a>
-                        &ensp;
-                        <a href="index.php?ctrl=account&act=signout">[ Đăng xuất ]</a>';
-                }
-            }
-            else
-            {
-                echo
-                    '<a href="index.php?ctrl=account&act=signin">[ Đăng nhập ]</a>
-                    &ensp;
-                    <a href="seller.php">[ Trang người bán ]</a>';
-            }
-        ?>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href=".public/css/client/css-fix/style.css" />
+    <!-- <link rel="stylesheet" href=".public/bootstrap/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href=".public/bootstrap/js/bootstrap.min.js" />
+    <link rel="stylesheet" href=".public/icons/css/fontello.css" />
+    <script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <a href="./index-fix.html"><img src=".public/images/logo.png" alt="" /></a>
+            </div>
+            <div class="menu">
+                <div class="menu-top">
+                    <div class="menu-top-list">
+                        <ul>
+                            <li><a href="seller.php" class="a">Bán hàng cùng SBS</a></li>
+                            <li><a href="#" class="a">Chăm sóc khách hàng</a></li>
+                            <li><a href="#" class="a">Kiểm tra đơn hàng</a></li>
+                            <li><a href="#" class="a">Chế độ tối</a></li>
+                            <li><a href="#" class="a">Thay đổi ngôn ngữ</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-top-login">
+                        <p>
+                        <?php
+                            if(isset($_SESSION['sbs_user'])) print_r($_SESSION['sbs_user']);
+                            if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                            {
+                                if($_SESSION['sbs_user']['role'] >= 30) 
+                                    echo
+                                        '<a href="index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'">'.$_SESSION['sbs_user']['name'].'</i></a>
+                                        &ensp;
+                                        <a href="admin.php"><i class="con-user-circle-o"></i></a>
+                                        &ensp;
+                                        <a href="index.php?ctrl=account&act=signout"><i class="icon-logout-2"></i></a>';
+                                else
+                                {
+                                    $api = ($_SESSION['sbs_user']['role'] >= 25 && $_SESSION['sbs_user']['role'] < 30)
+                                            ? 'google: '
+                                            : (($_SESSION['sbs_user']['role'] >= 20 && $_SESSION['sbs_user']['role'] < 25)? 'facebook: ' : '');
+                                    echo
+                                        '<a href="index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'">'.$_SESSION['sbs_user']['name'].'</i></a>
+                                        &ensp;
+                                        <a href="index.php?ctrl=account&act=signout"><i class="icon-logout-2"></i></a>';
+                                }
+                            }
+                            else
+                            {
+                                echo
+                                    '<a href="index.php?ctrl=account&act=signin">Đăng Nhập <i class="icon-user-2"></i></a>';
+                            }
+                        ?>
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="menu-bottom">
+                    <div class="menu-bottom-category">
+                        <p>
+                            <a href="#" class="a1"><i class="icon-list-nested"></i> Danh mục</a>
+                        </p>
+                        <div class="hover">
+                            <div class="category">
+                                <div class="category-hover">
+                                    <ul class="block-1">
+                                        <?php
+                                          foreach($index_ui_categories as $index_category)
+                                          {
+                                              echo
+                                                '<li>
+                                                    <strong><a href="index.php?ctrl=categories&id='.$index_category['id'].'">'.$index_category['name'].'</a></strong>
+                                                    <span>
+                                                        <i class="fas fa-angle-right" style="font-size: 18px"></i>
+                                                    </span>
+                                                </li>';
+                                          }
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-bottom-search">
+                        <div class="menu-bottom-search-in">
+                            <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..." /><a href="#"><i
+                                    class="fas fa-search"></i></a>
+                            <hr/>
+                            </div>
+                    </div>
+                    <div class="menu-bottom-cart">
+                        <a href="#"><i class="fas fa-shopping-cart"></i><span class="shopping-number">0</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
         <?php
 

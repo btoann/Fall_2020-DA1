@@ -1,7 +1,7 @@
 <?php
 
     include 'client/model/categories.php';
-    $categories_0 = get_categories_0();
+    $index_ui_categories = index_ui_categories(15);
     
     if(isset($_GET['act']) && $_GET['act'] == 'home')
         include 'client/view/home/index.php';
