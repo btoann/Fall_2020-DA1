@@ -6,7 +6,7 @@
     // Khởi động event trên Database
     event_scheduler('on');
 
-    if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0 && $_SESSION['sbs_role'] >= 30)
+    if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0 && $_SESSION['sbs_user']['role'] >= 30)
     {
 ?>
 

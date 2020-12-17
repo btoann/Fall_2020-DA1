@@ -12,6 +12,8 @@
         {
 
             case 'signin':
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php');
                 if(isset($_POST['signin']) && isset($_POST['signin']))
                 {
                     $user = (isset($_POST['username']) && $_POST['username']) ? $_POST['username'] : NULL;
@@ -41,8 +43,6 @@
                             </script>';
                     }
                 }
-                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
-                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_GET['api']) && $_GET['api'])
                 {
                     $api = $_GET['api'];

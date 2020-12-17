@@ -8,7 +8,7 @@
           <div>
             <h2 class="sbs-dashboard-title">Chào mừng trở lại!</h2>
             <p class="sbs-dashboard-text">
-              <?= $_SESSION['sbs_name'] ?>, công việc hôm nay đã sẵn sàng!
+              <?= $_SESSION['sbs_user']['name'] ?>, công việc hôm nay đã sẵn sàng!
             </p>
           </div>
           <div class="sbs-content-header-right">
