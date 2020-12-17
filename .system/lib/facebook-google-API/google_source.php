@@ -7,7 +7,7 @@ require_once ('google/libraries/Google/autoload.php');
 //You can get it from : https://console.developers.google.com/
 $client_id = '947193584716-bp1d1uu7jsdqokp4c38h7l9oq1855hs5.apps.googleusercontent.com';
 $client_secret = 'WUvzUPMhg8is8jRw8HTSMedR';
-$redirect_uri = 'http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=signin&api=google';
+$redirect_uri = 'http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=signin';
 
 //incase of logout request, just unset the session var
 //if (isset($_GET['logout'])) {
@@ -68,7 +68,7 @@ if (!isset($authUrl)) {
     $googleUser = $service->userinfo->get(); //get user info 
     if(!empty($googleUser)){
         include 'function.php';
-        loginFromSocialCallBack($googleUser);
+        loginFromSocialCallBack($googleUser, 'google');
     }
 }
 //End Google Code
