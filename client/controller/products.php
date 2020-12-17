@@ -14,7 +14,8 @@
 
             case 'hotprice':
                 /*  Chi tiết danh mục  */
-                $sbs_chosen = sbs_chosen(15);
+                $hotprice = new hotprice();
+                $sbs_chosen = $hotprice->sbs_chosen(15);
                 include 'client/view/products/'.$act.'.php';
                 break;
 
