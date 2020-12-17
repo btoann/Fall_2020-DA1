@@ -12,6 +12,15 @@
         switch($act)
         {
 
+            case 'search':
+                /*  Tìm kiếm sản phẩm  */
+                if(isset($_POST['search']) && $_POST['search'])
+                {
+                    $search_result = search($_POST['search']);
+                }
+                include 'client/view/products/'.$act.'.php';
+                break;
+
             case 'hotprice':
                 /*  Chi tiết danh mục  */
                 $hotprice = new hotprice();

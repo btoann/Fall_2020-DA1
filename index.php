@@ -6,7 +6,7 @@
     // Khởi động event trên Database
     event_scheduler('on');
 
-    if(!(isset($_GET['ctrl']) && $_GET['ctrl'] == 'account'))
+    if(!(isset($_GET['ctrl']) && ($_GET['ctrl'] == 'account' || $_GET['ctrl'] == 'ajax')))
     {
         include 'client/model/categories.php';
         $index_ui_categories = index_ui_categories(15);
@@ -110,10 +110,12 @@
                     </div>
                     <div class="menu-bottom-search">
                         <div class="menu-bottom-search-in">
-                            <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..." id="search"/>
+                            <form action="index.php?ctrl=products&act=search" method="post" id="search_form">
+                            </form>
+                            <input type="text" name="search" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..." id="search" form="search_form"/>
                             <a href="#"><i class="fas fa-search"></i></a>
-                            <div class="search_result box_shadow_1" id="search_result">
-                            </div>
+                            <!-- <div class="search_result box_shadow_1" id="search_result">
+                            </div> -->
                             <hr/>
                         </div>
                     </div>

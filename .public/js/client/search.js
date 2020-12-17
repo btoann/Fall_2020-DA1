@@ -5,7 +5,7 @@ $(document).ready(function () {
         $('#search_result').addClass('search_result_active');
         if (txt != '') {
             $.ajax({
-                url: "index.php?ctrl=home",
+                url: "index.php?ctrl=ajax&act=search",
                 method: "post",
                 data: { search: txt },
                 dataType: "text",
