@@ -162,8 +162,7 @@ img {
 }
 
 .banner-item {
-  padding-top: 1.5%;
-  width: 87.9%;
+  max-width: 1200px;
   height: 95%;
   margin: 0 auto;
   display: flex;
@@ -176,7 +175,7 @@ img {
   overflow: hidden;
 }
 .banner-right {
-  width: 80%;
+  width: 81%;
   background-color: #f8f6f7;
 }
 .category {
@@ -424,6 +423,10 @@ h2 {
   background-color: white;
   border: solid 1px #51c5de;
 }
+.container-px-1 {
+  background-color: #51c5de;
+  padding: 20px;
+}
 .time {
   padding: 20px;
   color: #0a4f70;
@@ -602,6 +605,7 @@ img {
 }
 .song {
   width: 213.44px;
+  height: 413.66px;
   transition: 0.3s;
 }
 .song:hover {
