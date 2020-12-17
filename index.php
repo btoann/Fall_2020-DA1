@@ -49,14 +49,13 @@
                     <div class="menu-top-login">
                         <p>
                         <?php
-                            if(isset($_SESSION['sbs_user'])) print_r($_SESSION['sbs_user']);
                             if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
                             {
                                 if($_SESSION['sbs_user']['role'] >= 30) 
                                     echo
                                         '<a href="index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'">'.$_SESSION['sbs_user']['name'].'</i></a>
                                         &ensp;
-                                        <a href="admin.php"><i class="con-user-circle-o"></i></a>
+                                        <a href="admin.php"><i class="icon-wrench-1"></i></a>
                                         &ensp;
                                         <a href="index.php?ctrl=account&act=signout"><i class="icon-logout-2"></i></a>';
                                 else
