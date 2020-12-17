@@ -49,7 +49,7 @@
                                 : '<sub class="hl-txt"><em>Tạm ẩn</em></sub>';
                         $output .=
                             '<tr>
-                                <th scope="row">'.$parent['id'].'</th>
+                                <th scope="row">'.$promotion['id'].'</th>
                                 <td>'.$promotion['name'].'</td>
                                 <td>'.$promotion['discount'].'</td>
                                 <td>'.$promotion['begin'].'</td>

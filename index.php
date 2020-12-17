@@ -1,6 +1,11 @@
 <?php
     ob_start();
     session_start();
+
+    include_once '.system/lib/controller.php';
+    // Khởi động event trên Database
+    event_scheduler('on');
+
     if(!(isset($_GET['ctrl']) && $_GET['ctrl'] == 'account'))
     {
 ?>
@@ -78,18 +83,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>sidebyside.shop</title>
-        <!-- <link rel="stylesheet" href=".public/css/_style.css"> -->
         <link rel="stylesheet" href=".public/css/client/account.css">
+        <link rel="stylesheet" href=".public/css/_style.css">
         <script src=".public/js/jquery_3.5.1.js"></script>
         <script src=".public/js/sweetalert.min.js"></script>
         <script async src=".public/js/client/account.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
     </head>
-    <body>
+    <body class="lightgray-bg-i">
 
         <?php
-                if(isset($_GET['act']) && ($_GET['act'] == 'signin' || $_GET['act'] == 'signup' || $_GET['act'] == 'signout'))
+                if(isset($_GET['act']) && ($_GET['act'] == 'signin' || $_GET['act'] == 'signup' || $_GET['act'] == 'signout' || $_GET['act'] == 'forgot'))
                 {
                     $index_file = 'index';
                     $filename = 'client/controller/'.$_GET['ctrl'].'.php';

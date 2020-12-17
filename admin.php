@@ -1,7 +1,12 @@
 <?php
     ob_start();
     session_start();
-    if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0 && $_SESSION['sbs_role'] >= 30)
+
+    include_once '.system/lib/controller.php';
+    // Khởi động event trên Database
+    event_scheduler('on');
+
+    if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0 && $_SESSION['sbs_user']['role'] >= 30)
     {
 ?>
 
