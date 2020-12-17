@@ -29,6 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src=".public/js/jquery_3.5.1.js"></script>
 </head>
 
 <body>
@@ -109,8 +110,10 @@
                     </div>
                     <div class="menu-bottom-search">
                         <div class="menu-bottom-search-in">
-                            <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..." /><a href="#"><i
-                                    class="fas fa-search"></i></a>
+                            <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..." id="search"/>
+                            <a href="#"><i class="fas fa-search"></i></a>
+                            <div class="search_result box_shadow_1" id="search_result">
+                            </div>
                             <hr/>
                         </div>
                     </div>
@@ -240,6 +243,8 @@
         </div>
     </div>
 </div>
+
+<script src=".public/js/client/search.js"></script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

@@ -25,8 +25,31 @@
 
               foreach($sbs_chosen as $product)
               {
-                echo
-                  '<div class="box-product">
+                // echo
+                //   '<div class="box-product">
+                //     <a href="#">
+                //       <div class="product">
+                //         <div class="product-image">
+                //           <img class="iphone" src=".public/images/products/p_9/1.jpg" alt=""/>
+                //         </div>
+                //         <div class="product-information">
+                //           <p>
+                //             <a class="product-link" href="#"><strong>Điện thoại iphone 12 hàng nhập khẩu từ china</strong></a>
+                //           </p>
+                //           <p class="product-price">900.000đ <del>1.200.000đ</del></p>
+                //         </div>
+                //         <div class="sale">
+                //           <div class="sale-item">45%</div>
+                //           <div class="triangle"></div>
+                //         </div>
+                //       </div>
+                //     </a>
+                //   </div>';
+              }
+
+            ?>
+
+                  <div class="box-product">
                     <a href="#">
                       <div class="product">
                         <div class="product-image">
@@ -44,12 +67,7 @@
                         </div>
                       </div>
                     </a>
-                  </div>';
-              }
-
-            ?>
-
-            
+                  </div>
 
             <div class="box-product">
               <a href="#">
@@ -182,6 +200,7 @@
               </a>
             </div>
           </div>
+
           <div class="col-bg-dark">
             <div class="box-product">
               <a href="#">
