@@ -2,11 +2,6 @@
     
     include_once '.system/lib/controller.php';
 
-    if(isset($_GET['act']) && $_GET['act'] == 'home')
-        include 'client/view/home/index.php';
-    else
-        include 'client/view/home/index.php';
-
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         if(isset($_POST['search']) && $_POST['search'] == 'search')
@@ -28,5 +23,11 @@
             }
         }
     }
+    
+    if(isset($_GET['act']) && $_GET['act'] == 'home')
+        include 'client/view/home/index.php';
+    else
+        include 'client/view/home/index.php';
+
 
 ?>
