@@ -184,6 +184,7 @@ img {
 }
 
 .banner-right {
+  position: relative;
   width: 81%;
   background-color: #f8f6f7;
 }
@@ -282,14 +283,11 @@ img {
 }
 
 .category-hover .block-2 {
-<<<<<<< HEAD
   position: absolute;
   top: 0;
   right: -50%;
   width: 50%;
-=======
   margin-top: 20px;
->>>>>>> main
   height: 140px;
   background-color: rgb(255, 255, 255);
   display: none;
@@ -314,12 +312,10 @@ img {
   display: block;
   color: gray;
 }
-<<<<<<< HEAD
 .category-hover .block-2 ul:hover {
   background-color: #0570e6;
 }
-=======
->>>>>>> main
+
 
 .footer-item {
   max-width: 1200px;
@@ -644,8 +640,8 @@ img {
 
 .dots {
   position: absolute;
-  top: 78%;
-  right: 40%;
+  top: 96%;
+  right: 50%;
 }
 
 /* Fading animation */
@@ -1216,6 +1212,9 @@ li {
 /*Product-details*/
 
 .shop-container {
+
+    background-color: #eff0f3;
+    height: 180vh;
   background-color: #eff0f3;
 }
 
@@ -1248,7 +1247,6 @@ li {
 .header-container {
   background-color: #51c5dd;
 }
-
 .product-detail-listed a {
   color: #0a4f70;
   font-size: 14px;
