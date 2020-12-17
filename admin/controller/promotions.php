@@ -16,11 +16,14 @@
 
             case 'detail':
                 /*  Chi tiết phân loại  */
-                if(isset($_GET['id']) && $_GET['id'])
+                if(isset($_GET['id']) && $_GET['id'] > 0)
                 {
-                    $parent = get_category($_GET['id']);
-                    $childrens = getChildren_categories($_GET['id']);
+                    $promotion = get_promotion($_GET['id']);
+                    if(!is_array($promotion))
+                        header('location: admin.php?ctrl=promotions');
                 }
+                else
+                    header('location: admin.php?ctrl=promotions');
                 include 'admin/view/promotions/'.$act.'.php';
                 break;
 
@@ -75,9 +78,10 @@
                     $max = (isset($_POST['max']) && $_POST['max']) ? $_POST['max'] : NULL;
                     $begin = (isset($_POST['begin']) && $_POST['begin']) ? $_POST['begin'] : NULL;
                     $end = (isset($_POST['end']) && $_POST['end']) ? $_POST['end'] : NULL;
-                    $description = (isset($_POST['description']) && $_POST['description']) ? $_POST['end'] : NULL;
-                    $last_id = 0;
-                    if($bool->checkNull($name, $type, $discount, $min, $max, $begin, $end, $description))
+                    $active = (isset($_POST['active']) && $_POST['active']) ? $_POST['active'] : NULL;
+                    $description = (isset($_POST['description']) && $_POST['description']) ? $_POST['description'] : NULL;
+
+                    if($bool->checkNull($name, $type, $discount, $min, $max, $begin, $end, $description, $active))
                     {
                         $messenge = '';
                         $bool2 = true;
@@ -101,14 +105,14 @@
                         }
                         if($min < $max)
                         {
-                            if($type == 2 && $discount < $min)
+                            if($type == 2 && $discount >= $min)
                             {
-                                $messenge .= '- Giá tối thiểu phải nhỏ hơn hoặc bằng giá giảm\n';
+                                $messenge .= '- Giá tối thiểu phải lớn hơn giá giảm\n';
                                 $bool2 = false;
                             }
-                            if($type == 2 && $discount > $max)
+                            if($type == 2 && $discount >= $max)
                             {
-                                $messenge .= '- Giá tối đa phải lớn hơn hoặc bằng giá giảm\n';
+                                $messenge .= '- Giá tối đa phải lớn hơn giá giảm\n';
                                 $bool2 = false;
                             }
                         }
@@ -125,7 +129,7 @@
 
                         if($bool2 == true)
                         {
-                            insert_promotion($name, $type, $_SESSION['sbs_user']['id'], $discount, $min, $max, $begin, $end, $description);
+                            insert_promotion($name, $type, $_SESSION['sbs_user']['id'], $discount, $min, $max, $begin, $end, $description, $active);
                             echo
                                 '<script>
                                     swal("Thành công!", "Bạn đã thêm khuyến mãi \"'.$name.'\"", "success").then(() => {
@@ -136,79 +140,110 @@
                         else
                             echo
                                 '<script>
-                                    swal("Lỗi!", "'.$messenge.'", "warning").then(() => {
-                                        window.location.replace("admin.php?ctrl=promotions");
-                                    });
+                                    swal("Lỗi!", "'.$messenge.'", "warning");
                                 </script>';
-                        //header('location: admin.php?ctrl=promotions');
                     }
                 }
                 include 'admin/view/promotions/'.$act.'.php';
                 break;
             
             case 'update':
-                /*  Cập nhật danh mục  */
-                if(isset($_POST['update']) && $_POST['update'])
-                {
-                    // Danh mục cha
-                    $id = (isset($_POST['id']) && $_POST['id']) ? $_POST['id'] : NULL;
-                    $parent = get_category($id);
-                    if(!is_array($parent))
-                    {
-                        break;
-                    }
-                    $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
-                    $active = (isset($_POST['active']) && $_POST['active']) ? $_POST['active'] : NULL;
-                    if($bool->checkNull($id, $name, $active))
-                    {
-                        update_category($id, $name, $_SESSION['sbs_id'], $active);
-                    }
-                    $parent_width = get_widthCategory($id);
-
-                    // Danh mục con
-                    if($parent_width['width'] > 1)
-                    {
-                        $ids = (isset($_POST['ids']) && $_POST['ids']) ? $_POST['ids'] : NULL;
-                        $names = (isset($_POST['names']) && $_POST['names']) ? $_POST['names'] : NULL;
-                        $parents = (isset($_POST['parents'])) ? $_POST['parents'] : NULL;
-                        $actives = (isset($_POST['actives'])) ? $_POST['actives'] : NULL;
-                        if($bool->checkNull($ids, $names, $parents))
-                        {
-                            $success = false;
-                            for($i = 0; $i < sizeof($ids); $i++)
-                            {
-                                $child_width = get_widthCategory($ids[$i]);
-                                if(($child_width['lft'] > $parent_width['lft']) && ($child_width['rgt'] < $parent_width['rgt']))
-                                {
-                                    if($bool->checkNull($ids[$i], $names[$i], $parents[$i], $actives[$i]))
-                                    {
-                                        $success = true;
-                                        if($parents[$i] == $id)
-                                            update_category($ids[$i], $names[$i], $_SESSION['sbs_id'], $actives[$i]);
-                                        else
-                                            updateChildren_category($ids[$i], $names[$i], $_SESSION['sbs_id'], $parents[$i], $child_width['rgt'], $actives[$i]);
-                                        
-                                    }
-                                }
-                            }
-                            //if($success == true) break;
-                        }
-                    }
-                }
+                /*  Cập nhật khuyến mãi  */
                 if(isset($_GET['id']) && $_GET['id'] > 0)
                 {
-                    $parent = get_category($_GET['id']);
-                    if(!is_array($parent))
-                    {
+                    $promotion = get_promotion($_GET['id']);
+                    if(!is_array($promotion))
                         header('location: admin.php?ctrl=promotions');
-                    }
-                    else
-                    {
-                        $childrens = getChildren_promotions($_GET['id']);
-                    }
                 }
                 else
                     header('location: admin.php?ctrl=promotions');
+                if(isset($_POST['update']) && $_POST['update'])
+                {
+                    $id = (isset($_POST['id']) && $_POST['id']) ? $_POST['id'] : NULL;
+                    $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
+                    $type = (isset($_POST['type'])) ? $_POST['type'] : NULL;
+                    $discount = (isset($_POST['discount']) && $_POST['discount']) ? $_POST['discount'] : NULL;
+                    $min = (isset($_POST['min']) && $_POST['min']) ? $_POST['min'] : NULL;
+                    $max = (isset($_POST['max']) && $_POST['max']) ? $_POST['max'] : NULL;
+                    $begin = (isset($_POST['begin']) && $_POST['begin']) ? $_POST['begin'] : NULL;
+                    $end = (isset($_POST['end']) && $_POST['end']) ? $_POST['end'] : NULL;
+                    $active = (isset($_POST['active']) && $_POST['active']) ? $_POST['active'] : NULL;
+                    $description = (isset($_POST['description']) && $_POST['description']) ? $_POST['description'] : NULL;
+
+                    if($bool->checkNull($id, $name, $type, $discount, $min, $max, $begin, $end, $description, $active))
+                    {
+                        $promotion = get_promotion($id);
+                        if(!is_array($promotion))
+                        {
+                            echo
+                                '<script>
+                                    swal("Lỗi!", Vui lòng thử lại, "warning").then(() => {
+                                        window.location.replace("admin.php?ctrl=promotions&act=update&id='.$id.'");
+                                    });
+                                </script>';
+                            break;
+                        }
+                        $messenge = '';
+                        $bool2 = true;
+                        if($type == 1 || $type == 2)
+                        {
+                            if($type == 1 && $discount < 0 && $discount > 100)
+                            {
+                                $messenge .= '- Giá giảm yêu cầu: 0 - 100 (%)\n';
+                                $bool2 = false;
+                            }
+                            if($type == 2 && $discount < 0)
+                            {
+                                $messenge .= '- Giá giảm phải lớn hơn 0\n';
+                                $bool2 = false;
+                            }
+                        }
+                        else
+                        {
+                            $messenge .= '- Loại giảm giá không hợp lệ\n';
+                            $bool2 = false;
+                        }
+                        if($min < $max)
+                        {
+                            if($type == 2 && $discount >= $min)
+                            {
+                                $messenge .= '- Giá tối thiểu phải lớn hơn giá giảm\n';
+                                $bool2 = false;
+                            }
+                            if($type == 2 && $discount >= $max)
+                            {
+                                $messenge .= '- Giá tối đa phải lớn hơn giá giảm\n';
+                                $bool2 = false;
+                            }
+                        }
+                        else
+                        {
+                            $messenge .= '- Giá tối thiểu phải lớn hơn giá tối đa\n';
+                            $bool2 = false;
+                        }
+                        if($begin > $end)
+                        {
+                            $messenge .= '- Thời gian bắt đầu phải lớn hơn thời gian kết thúc\n';
+                            $bool2 = false;
+                        }
+
+                        if($bool2 == true)
+                        {
+                            update_promotion($id, $name, $type, $_SESSION['sbs_user']['id'], $discount, $min, $max, $begin, $end, $description, $active);
+                            echo
+                                '<script>
+                                    swal("Thành công!", "Bạn đã cập nhật khuyến mãi \"'.$name.'\"", "success").then(() => {
+                                        window.location.replace("admin.php?ctrl=promotions&act=detail&id='.$id.'");
+                                    });
+                                </script>';
+                        }
+                        else
+                            echo
+                                '<script>
+                                    swal("Lỗi!", "'.$messenge.'", "warning");
+                                </script>';
+                    }
+                }
                 include 'admin/view/promotions/'.$act.'.php';
                 break;
 

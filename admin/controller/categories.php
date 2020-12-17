@@ -135,8 +135,9 @@
                 }
                 if(isset($_GET['id']) && $_GET['id'] > 0)
                 {
-                    $parent = get_widthCategory($_GET['id']);
-                    if(!is_array($parent) || $parent['width'] <= 1)
+                    $width = get_widthCategory($_GET['id']);
+                    $parent = get_category($_GET['id']);
+                    if(!is_array($width) || $width['width'] <= 1)
                     {
                         header('location: admin.php?ctrl=categories&act=delete');
                     }

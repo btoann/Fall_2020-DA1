@@ -1,13 +1,12 @@
 <?php
 
     
-    include_once '../../../.system/lib/controller.php';
+    // include_once '../../../.system/lib/controller.php';
 
     function capnhap_cmt( $noidung){
-        $sql = "INSERT INTO comments (  content ) VALUES ( '$noidung' )";
-
-        $dtb = new database();
-        $dtb->execute($sql);
+        $sql = "INSERT INTO comments ( content ) VALUES ( $noidung' )";
+        $conn = connect();
+        $conn->exec($sql);
     }
         function show_cmt(){
             $sql = "select * from comments ";
@@ -18,5 +17,8 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             return $stmt->fetchAll(); 
         }
+
+
+
     
 ?>

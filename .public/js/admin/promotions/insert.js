@@ -1,5 +1,29 @@
 
+$("#begin").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i:ss"
+});
+$("#end").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i:ss"
+});
+
 $(document).ready(function () {
+
+    var radio = $('.rdiobox').find('input[type = radio]');
+    radio.change(function () {
+        if ($(this).is(':checked')) {
+            if ($(this).attr('id') == 'type1') {
+                $('#discount').attr('max', 100);
+                $('#discount_extension').html('%');
+            }
+
+            if ($(this).attr('id') == 'type2') {
+                $('#discount').removeAttr('max');
+                $('#discount_extension').html('VNĐ');
+            }
+        }
+    });
 });
 
 
@@ -9,6 +33,9 @@ $(function () {
     // Toggle Switches
     $('.sbs-toggle').on('click', function () {
         $(this).toggleClass('on');
+        var active = $(this).parent().find('input[type = "hidden"]'),
+            val = ($(this).hasClass('on')) ? 2 : 1;
+        active.val(val);
     });
 
     // Input Masks

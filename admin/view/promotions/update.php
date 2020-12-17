@@ -21,18 +21,17 @@
             <div class="sbs-content-breadcrumb">
                 <span><a href="admin.php">Admin</a></span>
                 <span><a href="admin.php?ctrl=promotions">Khuyến mãi</a></span>
-                <span>Thêm Khuyến mãi</span>
+                <span>Chỉnh sửa khuyến mãi</span>
             </div>
-            <h2 class="sbs-content-title">Thêm khuyến mãi</h2>
-            <!-- <div class="sbs-content-label mg-b-5">#1 - Simple Table</div>
-            <p class="mg-b-15">admin - 01/01/2001</p> -->
+            <h2 class="sbs-content-title">Chỉnh sửa khuyến mãi</h2>
 
-            <form class="" action="admin.php?ctrl=promotions&act=insert" method="post">
+            <form class="" action="admin.php?ctrl=promotions&act=update" method="post">
+                <input name="id" required type="hidden" value="<?= $promotion['id'] ?>">
                 <div class="row row-sm mg-b-20">
                     <div class="col-lg-8 needs-validation was-validated">
                         <p class="sbs-content-label mg-b-10">Tên khuyến mãi</p>
                         <div class="form-group has-success mg-b-0">
-                            <input class="form-control" placeholder="Tên khuyến mãi" name="name" required type="text">
+                            <input class="form-control" placeholder="Tên khuyến mãi" name="name" required type="text" value="<?= $promotion['name'] ?>">
                         </div><!-- form-group -->
                     </div><!-- col -->
                     <div class="col-lg-4 mg-t-20 mg-lg-t-0 needs-validation was-validated">
@@ -40,13 +39,13 @@
                         <div class="row pd-t-10">
                             <div class="col-lg-6">
                                 <label class="rdiobox">
-                                    <input name="type" type="radio" id="type1" checked value="1">
+                                    <input name="type" type="radio" id="type1" <?= ($promotion['type'] == 1) ? 'checked' : '' ?> value="1">
                                     <span>Phần trăm (%)</span>
                                 </label>
                             </div>
                             <div class="col-lg-6">
                                 <label class="rdiobox">
-                                    <input name="type" type="radio" id="type2" value="2">
+                                    <input name="type" type="radio" id="type2" <?= ($promotion['type'] == 2) ? 'checked' : '' ?> value="2">
                                     <span>Giá (VNĐ)</span>
                                 </label>
                             </div>
@@ -58,9 +57,9 @@
                         <p class="sbs-content-label mg-b-10">Giá trị giảm</p>
                         <div class="input-group has-success mg-b-0">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="discount_extension">%</span>
+                                <span class="input-group-text" id="discount_extension"><?= ($promotion['type'] == 1) ? '%' : 'VNĐ' ?></span>
                             </div>
-                            <input type="number" class="form-control" name="discount" id="discount" min="0" max="100" required placeholder="Giá trị giảm" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" class="form-control" name="discount" id="discount" min="0" <?= ($promotion['type'] == 1) ? 'max="100"' : '' ?> required placeholder="Giá trị giảm" aria-label="Amount (to the nearest dollar)" value="<?= $promotion['discount'] ?>">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="discount_step">.00</span>
                             </div>
@@ -72,7 +71,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">VNĐ</span>
                             </div>
-                            <input type="number" class="form-control" name="min" required placeholder="Giá sản phẩm tối thiểu" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" class="form-control" name="min" required placeholder="Giá sản phẩm tối thiểu" aria-label="Amount (to the nearest dollar)" value="<?= $promotion['min'] ?>">
                             <div class="input-group-append">
                                 <span class="input-group-text">.00</span>
                             </div>
@@ -84,7 +83,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">VNĐ</span>
                             </div>
-                            <input type="number" class="form-control" name="max" required placeholder="Giá sản phẩm tối đa" aria-label="Amount (to the nearest dollar)">
+                            <input type="number" class="form-control" name="max" required placeholder="Giá sản phẩm tối đa" aria-label="Amount (to the nearest dollar)" value="<?= $promotion['max'] ?>">
                             <div class="input-group-append">
                                 <span class="input-group-text">.00</span>
                             </div>
@@ -100,7 +99,7 @@
                                     <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                 </div>
                             </div>
-                            <input type="text" value="<?php date_default_timezone_set('Asia/Ho_Chi_Minh'); echo date('Y-m-d h:00:00') ?>" name="begin" id="begin" data-input="" class="flatpickr-input form-control" readonly>
+                            <input type="text" value="<?= $promotion['begin'] ?>" name="begin" id="begin" data-input="" class="flatpickr-input form-control" readonly>
                         </div>
                     </div>
                     <div class="col-lg-4 mg-b-20">
@@ -111,7 +110,7 @@
                                     <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                 </div>
                             </div>
-                            <input type="text" value="<?php date_default_timezone_set('Asia/Ho_Chi_Minh'); echo date('Y-m-d h:00:00', strtotime('+1 week')) ?>" name="end" id="end" class="form-control flatpickr-input">
+                            <input type="text" value="<?= $promotion['end'] ?>" name="end" id="end" class="form-control flatpickr-input">
                         </div>
                     </div>
                     <div class="col-lg-4 mg-b-20">
@@ -123,7 +122,7 @@
                                         <tr>
                                             <td class="pt-1 pb-1">
                                                 <div class="sbs-toggle-group-demo mg-t-2 mg-b-2">
-                                                    <div class="sbs-toggle sbs-toggle-success"><span></span></div>  
+                                                    <div class="sbs-toggle sbs-toggle-success <?= ($promotion['active'] == 2) ? 'on' : '' ?>"><span></span></div>  
                                                     <input name="active" required type="hidden" value="1">
                                                 </div>
                                             </td>
@@ -135,13 +134,13 @@
                     </div>
                     <div class=" col-lg-8">
                         <p class="sbs-content-label mg-b-10">Nội dung khuyến mãi</p>
-                        <textarea rows="8" class="form-control mg-t-5" placeholder="Mô tả" name="description" required></textarea>
+                        <textarea rows="8" class="form-control mg-t-5" placeholder="Mô tả" name="description" required><?= $promotion['description'] ?></textarea>
                     </div>
                 </div><!-- row -->
 
                 <div class="row row-xs wd-xl-80p">
                     <div class="col-sm-6 col-md-3">
-                        <input type="submit" value="Thêm khuyến mãi" name="insert" class="btn btn-main btn-block">
+                        <input type="submit" value="Hoàn thành" name="update" class="btn btn-main btn-block">
                     </div>
                 </div>
             </form>

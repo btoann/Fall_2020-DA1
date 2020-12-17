@@ -229,7 +229,7 @@
       </div>
 
     <main>
-        <div style="height: 100vh" class="shop-container">
+        <div style="height: 70vh" class="shop-container">
             <div class="container">
                 <div class="row content-row row-divied row-large row-reverse">
                     <div class="col col-lg-9 pr-0">
@@ -433,11 +433,14 @@
         </div>
     </main>
 
-    <div style="text-align: letf;margin-left:13%" class="lienquan" data-demo="18" id="bl_demo">
 
 
-
+    <div style="text-align: letf;margin-left:13%"  class="lienquan">
+        <iframe src="binhluan.php" width="30%" height="500px" frameborder="0"></iframe>
     </div>
+
+
+
 
         <script src="../../../.public/js/client/binhluan.js"></script>
  
