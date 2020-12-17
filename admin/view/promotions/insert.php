@@ -7,7 +7,8 @@
 <link href=".system/lib/admin/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet">
 <link href=".system/lib/admin/pickerjs/picker.min.css" rel="stylesheet">
 
-<script defer src=".public/js/admin/categories/insert.js"></script>
+<!-- flatpickr_4.2.3.css -->
+<link href=".system/lib/flatpickr_4.2.3/flatpickr.css" rel="stylesheet">
 
 <div class="sbs-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
@@ -26,7 +27,7 @@
             <!-- <div class="sbs-content-label mg-b-5">#1 - Simple Table</div>
             <p class="mg-b-15">admin - 01/01/2001</p> -->
 
-            <form class="" action="admin.php?ctrl=categories&act=insert" method="post">
+            <form class="" action="admin.php?ctrl=promotions&act=insert" method="post">
                 <div class="row row-sm mg-b-20">
                     <div class="col-lg-8 needs-validation was-validated">
                         <p class="sbs-content-label mg-b-10">Tên khuyến mãi</p>
@@ -50,7 +51,7 @@
                                 <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                 </div>
                             </div>
-                            <input type="text" value="2018-12-20 21:05" id="datetimepicker" class="form-control">
+                            <input type="text" value="<?php date_default_timezone_set('Asia/Ho_Chi_Minh'); echo date('Y-m-d h:00:00') ?>" name="begin" id="begin" data-input="" class="flatpickr-input form-control" readonly>
                         </div>
                     </div>
                     <div class="col-lg-4 mg-b-20">
@@ -61,7 +62,7 @@
                                 <i class="typcn typcn-calendar-outline tx-24 lh--9 op-6"></i>
                                 </div>
                             </div>
-                            <input type="text" value="2018-12-20 21:05" id="datetimepicker" class="form-control">
+                            <input type="text" value="<?php date_default_timezone_set('Asia/Ho_Chi_Minh'); echo date('Y-m-d h:00:00', strtotime('+1 week')) ?>" name="end" id="end" class="form-control flatpickr-input">
                         </div>
                     </div>
                     <div class=" col-lg-8">
@@ -80,222 +81,108 @@
             <hr class="mg-y-30">
 
             <!-- Date box -->
-            <div class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu" style="left: 454.6px; z-index: 10000004; display: none; top: 2744.6px;">
-                <div class="datetimepicker-minutes" style="display: none;">
-                    <table class=" table-condensed">
-                        <thead>
-                            <tr>
-                                <th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span>
-                                </th>
-                                <th colspan="5" class="switch">20 December 2018</th>
-                                <th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="7"><span class="minute">21:00</span><span class="minute active">21:05</span><span
-                                        class="minute">21:10</span><span class="minute">21:15</span><span
-                                        class="minute">21:20</span><span class="minute">21:25</span><span
-                                        class="minute">21:30</span><span class="minute">21:35</span><span
-                                        class="minute">21:40</span><span class="minute">21:45</span><span
-                                        class="minute">21:50</span><span class="minute">21:55</span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th colspan="7" class="today" style="display: none;">Today</th>
-                            </tr>
-                            <tr>
-                                <th colspan="7" class="clear" style="display: none;">Clear</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="datetimepicker-hours" style="display: none;">
-                    <table class=" table-condensed">
-                        <thead>
-                            <tr>
-                                <th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span>
-                                </th>
-                                <th colspan="5" class="switch">20 December 2018</th>
-                                <th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span
-                                        class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span
-                                        class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span
-                                        class="hour">8:00</span><span class="hour">9:00</span><span class="hour">10:00</span><span
-                                        class="hour">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span
-                                        class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span
-                                        class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span
-                                        class="hour">20:00</span><span class="hour active">21:00</span><span
-                                        class="hour">22:00</span><span class="hour">23:00</span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th colspan="7" class="today" style="display: none;">Today</th>
-                            </tr>
-                            <tr>
-                                <th colspan="7" class="clear" style="display: none;">Clear</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="datetimepicker-days" style="display: block;">
-                    <table class=" table-condensed">
-                        <thead>
-                            <tr>
-                                <th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span>
-                                </th>
-                                <th colspan="5" class="switch">December 2018</th>
-                                <th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="dow">Su</th>
-                                <th class="dow">Mo</th>
-                                <th class="dow">Tu</th>
-                                <th class="dow">We</th>
-                                <th class="dow">Th</th>
-                                <th class="dow">Fr</th>
-                                <th class="dow">Sa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="day old">25</td>
-                                <td class="day old">26</td>
-                                <td class="day old">27</td>
-                                <td class="day old">28</td>
-                                <td class="day old">29</td>
-                                <td class="day old">30</td>
-                                <td class="day">1</td>
-                            </tr>
-                            <tr>
-                                <td class="day">2</td>
-                                <td class="day">3</td>
-                                <td class="day">4</td>
-                                <td class="day">5</td>
-                                <td class="day">6</td>
-                                <td class="day">7</td>
-                                <td class="day">8</td>
-                            </tr>
-                            <tr>
-                                <td class="day">9</td>
-                                <td class="day">10</td>
-                                <td class="day">11</td>
-                                <td class="day">12</td>
-                                <td class="day">13</td>
-                                <td class="day">14</td>
-                                <td class="day">15</td>
-                            </tr>
-                            <tr>
-                                <td class="day">16</td>
-                                <td class="day">17</td>
-                                <td class="day">18</td>
-                                <td class="day">19</td>
-                                <td class="day active">20</td>
-                                <td class="day">21</td>
-                                <td class="day">22</td>
-                            </tr>
-                            <tr>
-                                <td class="day">23</td>
-                                <td class="day">24</td>
-                                <td class="day">25</td>
-                                <td class="day">26</td>
-                                <td class="day">27</td>
-                                <td class="day">28</td>
-                                <td class="day">29</td>
-                            </tr>
-                            <tr>
-                                <td class="day">30</td>
-                                <td class="day">31</td>
-                                <td class="day new">1</td>
-                                <td class="day new">2</td>
-                                <td class="day new">3</td>
-                                <td class="day new">4</td>
-                                <td class="day new">5</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th colspan="7" class="today" style="display: none;">Today</th>
-                            </tr>
-                            <tr>
-                                <th colspan="7" class="clear" style="display: none;">Clear</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="datetimepicker-months" style="display: none;">
-                    <table class="table-condensed">
-                        <thead>
-                            <tr>
-                                <th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span>
-                                </th>
-                                <th colspan="5" class="switch">2018</th>
-                                <th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span
-                                        class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span
-                                        class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span
-                                        class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span
-                                        class="month active">Dec</span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th colspan="7" class="today" style="display: none;">Today</th>
-                            </tr>
-                            <tr>
-                                <th colspan="7" class="clear" style="display: none;">Clear</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="datetimepicker-years" style="display: none;">
-                    <table class="table-condensed">
-                        <thead>
-                            <tr>
-                                <th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span>
-                                </th>
-                                <th colspan="5" class="switch">2010-2019</th>
-                                <th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span
-                                        class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span
-                                        class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span
-                                        class="year">2017</span><span class="year active">2018</span><span
-                                        class="year">2019</span><span class="year old">2020</span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th colspan="7" class="today" style="display: none;">Today</th>
-                            </tr>
-                            <tr>
-                                <th colspan="7" class="clear" style="display: none;">Clear</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-
             <div class="ht-40"></div>
+            <!-- <div class="flatpickr-calendar animate arrowTop open" tabindex="-1" style="top: 195.5px; left: 238.2px; right: auto;">
+                <div class="flatpickr-month"><span class="flatpickr-prev-month" style="display: block;"><svg version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+                            <g></g>
+                            <path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path>
+                        </svg></span>
+                    <div class="flatpickr-current-month"><span class="cur-month" title="Scroll to increment">December </span>
+                        <div class="numInputWrapper"><input class="numInput cur-year" type="text" pattern="\d*" tabindex="-1"
+                                title="Scroll to increment"><span class="arrowUp"></span><span class="arrowDown"></span></div>
+                    </div><span class="flatpickr-next-month" style="display: block;"><svg version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+                            <g></g>
+                            <path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z">
+                            </path>
+                        </svg></span>
+                </div>
+                <div class="flatpickr-innerContainer">
+                    <div class="flatpickr-rContainer">
+                        <div class="flatpickr-weekdays">
+                            <span class="flatpickr-weekday">
+                                Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span
+                                class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span
+                                class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+                            </span>
+                        </div>
+                        <div class="flatpickr-days" tabindex="-1">
+                            <div class="dayContainer"><span class="flatpickr-day " aria-label="December 1, 2019"
+                                    tabindex="-1">1</span><span class="flatpickr-day " aria-label="December 2, 2019"
+                                    tabindex="-1">2</span><span class="flatpickr-day " aria-label="December 3, 2019"
+                                    tabindex="-1">3</span><span class="flatpickr-day " aria-label="December 4, 2019"
+                                    tabindex="-1">4</span><span class="flatpickr-day " aria-label="December 5, 2019"
+                                    tabindex="-1">5</span><span class="flatpickr-day " aria-label="December 6, 2019"
+                                    tabindex="-1">6</span><span class="flatpickr-day " aria-label="December 7, 2019"
+                                    tabindex="-1">7</span><span class="flatpickr-day " aria-label="December 8, 2019"
+                                    tabindex="-1">8</span><span class="flatpickr-day " aria-label="December 9, 2019"
+                                    tabindex="-1">9</span><span class="flatpickr-day " aria-label="December 10, 2019"
+                                    tabindex="-1">10</span><span class="flatpickr-day " aria-label="December 11, 2019"
+                                    tabindex="-1">11</span><span class="flatpickr-day " aria-label="December 12, 2019"
+                                    tabindex="-1">12</span><span class="flatpickr-day " aria-label="December 13, 2019"
+                                    tabindex="-1">13</span><span class="flatpickr-day " aria-label="December 14, 2019"
+                                    tabindex="-1">14</span><span class="flatpickr-day " aria-label="December 15, 2019"
+                                    tabindex="-1">15</span><span class="flatpickr-day " aria-label="December 16, 2019"
+                                    tabindex="-1">16</span><span class="flatpickr-day " aria-label="December 17, 2019"
+                                    tabindex="-1">17</span><span class="flatpickr-day " aria-label="December 18, 2019"
+                                    tabindex="-1">18</span><span class="flatpickr-day " aria-label="December 19, 2019"
+                                    tabindex="-1">19</span><span class="flatpickr-day " aria-label="December 20, 2019"
+                                    tabindex="-1">20</span><span class="flatpickr-day " aria-label="December 21, 2019"
+                                    tabindex="-1">21</span><span class="flatpickr-day " aria-label="December 22, 2019"
+                                    tabindex="-1">22</span><span class="flatpickr-day " aria-label="December 23, 2019"
+                                    tabindex="-1">23</span><span class="flatpickr-day " aria-label="December 24, 2019"
+                                    tabindex="-1">24</span><span class="flatpickr-day " aria-label="December 25, 2019"
+                                    tabindex="-1">25</span><span class="flatpickr-day " aria-label="December 26, 2019"
+                                    tabindex="-1">26</span><span class="flatpickr-day " aria-label="December 27, 2019"
+                                    tabindex="-1">27</span><span class="flatpickr-day " aria-label="December 28, 2019"
+                                    tabindex="-1">28</span><span class="flatpickr-day " aria-label="December 29, 2019"
+                                    tabindex="-1">29</span><span class="flatpickr-day " aria-label="December 30, 2019"
+                                    tabindex="-1">30</span><span class="flatpickr-day " aria-label="December 31, 2019"
+                                    tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="January 1, 2020"
+                                    tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="January 2, 2020"
+                                    tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="January 3, 2020"
+                                    tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="January 4, 2020"
+                                    tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="January 5, 2020"
+                                    tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="January 6, 2020"
+                                    tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="January 7, 2020"
+                                    tabindex="-1">7</span><span class="flatpickr-day nextMonthDay" aria-label="January 8, 2020"
+                                    tabindex="-1">8</span><span class="flatpickr-day nextMonthDay" aria-label="January 9, 2020"
+                                    tabindex="-1">9</span><span class="flatpickr-day nextMonthDay" aria-label="January 10, 2020"
+                                    tabindex="-1">10</span><span class="flatpickr-day nextMonthDay" aria-label="January 11, 2020"
+                                    tabindex="-1">11</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
 
         </div><!-- sbs-content-body -->
     </div><!-- container -->
 </div><!-- sbs-content -->
+
+
+<script defer src=".system/lib/admin/jquery-ui/ui/widgets/datepicker.js"></script>
+<script defer src=".system/lib/admin/spectrum-colorpicker/spectrum.js"></script>
+<script defer src=".system/lib/admin/jquery.maskedinput/jquery.maskedinput.js"></script>
+<script defer src=".system/lib/admin/select2/js/select2.min.js"></script>
+<script defer src=".system/lib/admin/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<script defer src=".system/lib/admin/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js"></script>
+<script defer src=".system/lib/admin/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+<script defer src=".system/lib/admin/pickerjs/picker.min.js"></script>
+
+<!-- flatpickr_4.2.3.js -->
+<script src=".system/lib/flatpickr_4.2.3/flatpickr.js"></script>
+
+<script defer scr=".public/js/admin/promotions/insert.js"></script>
+  <!--  Flatpickr  -->
+
+<script defer>
+    $("#begin").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i:ss"
+    });
+    $("#end").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i:ss"
+    });
+</script>

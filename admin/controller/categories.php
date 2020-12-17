@@ -33,7 +33,7 @@
                     $last_id = 0;
                     if($bool->checkNull($name, $parent))
                     {
-                        $last_id = insert_category($name, $parent, $_SESSION['sbs_id']);
+                        $last_id = insert_category($name, $parent, $_SESSION['sbs_user']['id']);
                         if($parent > 0)
                         {
                             $last_id = $last_id->lastInsertId();
@@ -71,7 +71,7 @@
                     $active = (isset($_POST['active']) && $_POST['active']) ? $_POST['active'] : NULL;
                     if($bool->checkNull($id, $name, $active))
                     {
-                        update_category($id, $name, $_SESSION['sbs_id'], $active);
+                        update_category($id, $name, $_SESSION['sbs_user']['id'], $active);
                     }
                     $parent_width = get_widthCategory($id);
 
@@ -94,9 +94,9 @@
                                     {
                                         $success = true;
                                         if($parents[$i] == $id)
-                                            update_category($ids[$i], $names[$i], $_SESSION['sbs_id'], $actives[$i]);
+                                            update_category($ids[$i], $names[$i], $_SESSION['sbs_user']['id'], $actives[$i]);
                                         else
-                                            updateChildren_category($ids[$i], $names[$i], $_SESSION['sbs_id'], $parents[$i], $child_width['rgt'], $actives[$i]);
+                                            updateChildren_category($ids[$i], $names[$i], $_SESSION['sbs_user']['id'], $parents[$i], $child_width['rgt'], $actives[$i]);
                                         
                                     }
                                 }

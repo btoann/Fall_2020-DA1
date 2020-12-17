@@ -155,12 +155,12 @@
                                     if(is_array(get_verify($_GET['id'], $_GET['verify'])))
                                     {
                                         $new_role = verify_account($_GET['id'], $_GET['verify']);
-                                        $_SESSION['sbs_user']['role'] = $new_role;
+                                        $_SESSION['sbs_user']['role'] = $new_role['role'];
                                         if(isset($_SESSION['sbs_user']['active_time_sent']))
                                             unset($_SESSION['sbs_user']['active_time_sent']);
                                         echo
                                             '<script>
-                                                swal("Thành công '.$_SESSION['sbs_user']['id'].'", "Bạn đã kích hoạt tài khoản thành công", "success").then(() => {
+                                                swal("Thành công", "Bạn đã kích hoạt tài khoản thành công", "success").then(() => {
                                                     window.location.replace("index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'");
                                                 });
                                             </script>';
