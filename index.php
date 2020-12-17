@@ -24,6 +24,7 @@
     <!-- <link rel="stylesheet" href=".public/bootstrap/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href=".public/bootstrap/js/bootstrap.min.js" />
     <link rel="stylesheet" href=".public/icons/css/fontello.css" />
+    <link rel="stylesheet" href=".public/css/_style.css">
     <script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +37,7 @@
     <header>
         <div class="header">
             <div class="logo">
-                <a href="./index-fix.html"><img src=".public/images/logo.png" alt="" /></a>
+                <a href="index.php"><img src=".public/images/logo.png" alt="" /></a>
             </div>
             <div class="menu">
                 <div class="menu-top">
@@ -57,8 +58,6 @@
                                 if($_SESSION['sbs_user']['role'] >= 30) 
                                     echo
                                         '<a href="index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'">'.$_SESSION['sbs_user']['name'].'</i></a>
-                                        &ensp;
-                                        <a href="admin.php"><i class="icon-wrench-1"></i></a>
                                         &ensp;
                                         <a href="index.php?ctrl=account&act=signout"><i class="icon-logout-2"></i></a>';
                                 else

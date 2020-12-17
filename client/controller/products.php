@@ -22,9 +22,16 @@
                 break;
 
             case 'hotprice':
-                /*  Chi tiết danh mục  */
                 $hotprice = new hotprice();
                 $sbs_chosen = $hotprice->sbs_chosen(15);
+                include 'client/view/products/'.$act.'.php';
+                break;
+
+            case 'detail':
+                if(isset($_GET['id']) && $_GET['id'])
+                {
+                    $product = product($_GET['id']);
+                }
                 include 'client/view/products/'.$act.'.php';
                 break;
 
