@@ -12,6 +12,8 @@
         {
 
             case 'signin':
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_POST['signin']) && isset($_POST['signin']))
                 {
                     $user = (isset($_POST['username']) && $_POST['username']) ? $_POST['username'] : NULL;
@@ -32,7 +34,6 @@
                                 header('location: '.$url);
                             }
                         }
-                        
                         echo
                             '<script>
                                 swal("Tài khoản hoặc mật khẩu không chính xác", "Vui lòng thử lại!", "warning").then(() => {
@@ -41,8 +42,6 @@
                             </script>';
                     }
                 }
-                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
-                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_GET['api']) && $_GET['api'])
                 {
                     $api = $_GET['api'];
@@ -64,56 +63,71 @@
                 break;
 
             case 'signup':
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_POST['signup']) && isset($_POST['signup']))
                 {
                     $email = (isset($_POST['email']) && $_POST['email']) ? $_POST['email'] : NULL;
                     $tel = (isset($_POST['tel']) && $_POST['tel']) ? $_POST['tel'] : NULL;
                     $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
                     $pass = (isset($_POST['pass']) && $_POST['pass']) ? $_POST['pass'] : NULL;
-                    if($bool->checkNull($email, $tel, $name, $pass))
+                    $confirm_pass = (isset($_POST['confirm_pass']) && $_POST['confirm_pass']) ? $_POST['confirm_pass'] : NULL;
+                    if($bool->checkNull($email, $tel, $name, $pass, $confirm_pass))
                     {
-                        // Email's regex
-                        $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/';
-                        if(preg_match($regex, $email))
+                        if($pass == $confirm_pass)
                         {
-                            $test_email = signin($email);
-                            $test_tel = signin($tel);
-                            if(!(is_array($test_email) && is_array($test_tel)))
+                            // Email's regex
+                            $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/';
+                            if(preg_match($regex, $email))
                             {
-                                // Mã hoá mật khẩu
-                                $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
-                                signup($name, $email, $tel, $hashed_password);
+                                $test_email = signin($email);
+                                $test_tel = signin($tel);
+                                if(!(is_array($test_email) && is_array($test_tel)))
+                                {
+                                    // Mã hoá mật khẩu
+                                    $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+                                    signup($name, $email, $tel, $hashed_password);
 
-                                $acc = signin($email);
-                                $_SESSION['sbs_user'] = $acc;
+                                    $acc = signin($email);
+                                    $_SESSION['sbs_user'] = $acc;
 
-                                // Tạo mã xác thực
-                                $activation = create_activation($_SESSION['sbs_user']['id'], $_SESSION['sbs_user']['email']);
+                                    // Tạo mã xác thực
+                                    $activation = create_activation($_SESSION['sbs_user']['id'], $_SESSION['sbs_user']['email']);
 
-                                // Gửi mail xác thực
-                                verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
+                                    // Gửi mail xác thực
+                                    verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
 
-                                $url = ($acc['role'] >= 30) ? 'admin.php' :
-                                        (($acc['role'] < 30 ) ? 'index.php?ctrl=account&act=user&id='.$acc['id'] : 'index.php');
-                                header('location: '.$url);
-                            }
-                            else
-                            {
-                                $value = (is_array($test_email) && is_array($test_tel))
-                                        ? 'email và số điện thoại'
-                                        : ((!is_array($test_email) && is_array($test_tel))
-                                            ? 'số điện thoại' : ((is_array($test_email) && !is_array($test_tel))
-                                                                ? 'email' : ''));
-                                echo
-                                    '<script>
-                                        swal("'.ucfirst($value).' đã tồn tại!", "Vui lòng thử nhập '.$value.' khác", "warning").then(() => {
-                                            $("#name").val("'.$name.'");
-                                            $("#email").val("'.$email.'");
-                                            $("#tel").val("'.$tel.'");
-                                        });
-                                    </script>';
+                                    $url = ($acc['role'] >= 30) ? 'admin.php' :
+                                            (($acc['role'] < 30 ) ? 'index.php?ctrl=account&act=user&id='.$acc['id'] : 'index.php');
+                                    header('location: '.$url);
+                                }
+                                else
+                                {
+                                    $value = (is_array($test_email) && is_array($test_tel))
+                                            ? 'email và số điện thoại'
+                                            : ((!is_array($test_email) && is_array($test_tel))
+                                                ? 'số điện thoại' : ((is_array($test_email) && !is_array($test_tel))
+                                                                    ? 'email' : ''));
+                                    echo
+                                        '<script>
+                                            swal("'.ucfirst($value).' đã tồn tại!", "Vui lòng thử nhập '.$value.' khác", "warning").then(() => {
+                                                $("#name").val("'.$name.'");
+                                                $("#email").val("'.$email.'");
+                                                $("#tel").val("'.$tel.'");
+                                            });
+                                        </script>';
+                                }
                             }
                         }
+                        else
+                            echo
+                                '<script>
+                                    swal("Mật khẩu xác nhận không khớp", "Vui lòng thử lại", "warning").then(() => {
+                                        $("#name").val("'.$name.'");
+                                        $("#email").val("'.$email.'");
+                                        $("#tel").val("'.$tel.'");
+                                    });
+                                </script>';
                     }
                 }
                 include 'client/view/account/'.$act.'.php';
@@ -128,7 +142,7 @@
                 break;
             
             case 'user':
-                if(isset($_GET['id']) && $_GET['id'])
+                if(isset($_GET['id']) && $_GET['id'] > 0)
                 {
                     if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
                     {
@@ -141,18 +155,45 @@
                                     if(is_array(get_verify($_GET['id'], $_GET['verify'])))
                                     {
                                         $new_role = verify_account($_GET['id'], $_GET['verify']);
-                                        $_SESSION['sbs_user']['role'] = $new_role;
+                                        $_SESSION['sbs_user']['role'] = $new_role['role'];
+                                        if(isset($_SESSION['sbs_user']['active_time_sent']))
+                                            unset($_SESSION['sbs_user']['active_time_sent']);
+                                        echo
+                                            '<script>
+                                                swal("Thành công", "Bạn đã kích hoạt tài khoản thành công", "success").then(() => {
+                                                    window.location.replace("index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'");
+                                                });
+                                            </script>';
                                     }
+                                    else
+                                        header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
                                 }
                                 if(isset($_POST['resend_verify']) && $_POST['resend_verify'])
                                 {
-                                    $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
-                                    verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
-                                    header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
-                                }
-                                if($_SESSION['sbs_user']['role'] > 0)
-                                {
-                                    header('location: index.php');
+                                    $timestamp = isset($_SESSION['sbs_user']['active_time_sent'])
+                                        ? $_SESSION['sbs_user']['active_time_sent']
+                                        : NULL;
+                                    if(!$bool->checkNull($timestamp) || (time() - $timestamp) > (1 * 60))
+                                    {
+                                        $_SESSION['sbs_user']['active_time_sent'] = time();
+                                        // Tạo mã kích hoạt
+                                        $activation = create_activation($_SESSION['sbs_user']['id'], $_SESSION['sbs_user']['email']);
+                                        // Đặt thời gian reset mã kích hoạt (5')
+                                        reset_activation($_SESSION['sbs_user']['id'], $activation);
+                                        // Tạo mail kích hoạt
+                                        verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
+                                        echo
+                                            '<script>
+                                                swal("Thành công", "Mã kích hoạt đã được gửi, hết hiệu lực sau 5 phút", "success").then(() => {
+                                                    window.location.replace("index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'");
+                                                });
+                                            </script>';
+                                    }
+                                    else
+                                        echo
+                                            '<script>
+                                                swal("Yêu cầu bị từ chối!", "Bạn cần ít nhất 1 phút sau lần gửi mail cuối cùng để tiếp tục yêu cầu", "warning");
+                                            </script>';
                                 }
                             }
                         }
@@ -164,7 +205,9 @@
                 break;
 
             case 'forgot':
-                if(isset($_POST['forgot']) && !empty($_POST['forgot']))
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
+                if(isset($_POST['forgot']) && $_POST['forgot'])
                 {
                     $email = (isset($_POST['email']) && $_POST['email']) ? $_POST['email'] : NULL;
                     $this_acc = signin($email);
@@ -175,19 +218,23 @@
                             : NULL;
                         if(!$bool->checkNull($timestamp) || (time() - $timestamp) > (1 * 60))
                         {
-                            $_SESSION['forgot_send'] = array('id' => $this_acc['id'], 'time' => time());
+                            $_SESSION['forgot_send'] = array('id' => $this_acc['id'], 'email' => $this_acc['email'], 'time' => time());
                             // Tạo mã xác nhận
                             $activation = create_activation(0, $this_acc['email']);
+                            // Đặt thời gian reset mã xác nhận (5')
+                            reset_activation($this_acc['id'], $activation);
                             // Tạo mail xác nhận
-                            forgot_mail($this_acc['email'], $this_acc['name'], $this_acc['id'], $activation);
+                            forgot_mail($this_acc['email'], $this_acc['name'], $activation);
+                            echo
+                                '<script>
+                                    swal("Thành công", "Mã đã được gửi, hết hiệu lực sau 5 phút", "success");
+                                </script>';
                         }
                         else
-                        {
                             echo
                                 '<script>
                                     swal("Yêu cầu bị từ chối!", "Bạn cần ít nhất 1 phút sau lần gửi mail cuối cùng để tiếp tục yêu cầu", "warning");
                                 </script>';
-                        }
                     }
                     else
                         echo
@@ -196,6 +243,68 @@
                                     $("#email").val("'.$email.'");
                                 });
                             </script>';
+                }
+                if(isset($_GET['new']) && $_GET['new'])
+                {
+                    if(isset($_SESSION['forgot_send']))
+                        unset($_SESSION['forgot_send']);
+                    header('location: index.php?ctrl=account&act=forgot');
+                }
+                $sent = false;
+                if(isset($_SESSION['forgot_send']))
+                {
+                    if(isset($_GET['code']) && $_GET['code'])
+                    {
+                        $code = $_GET['code'];
+                        $account = signin($_SESSION['forgot_send']['email']);
+                        if(is_array($account))
+                        {
+                            if($code == $account['activation'])
+                            {
+                                $sent = true;
+                                if(isset($_POST['reset']) && $_POST['reset'])
+                                {
+                                    $pass = (isset($_POST['pass']) && $_POST['pass']) ? $_POST['pass'] : NULL;
+                                    $confirm_pass = (isset($_POST['confirm_pass']) && $_POST['confirm_pass']) ? $_POST['confirm_pass'] : NULL;
+                                    $signin = (isset($_POST['signin'])) ? $_POST['signin'] : NULL;
+                                    if($bool->checkNull($pass, $confirm_pass))
+                                    {
+                                        if($pass == $confirm_pass)
+                                        {
+                                            // Mã hoá mật khẩu
+                                            $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+                                            // Nhận mật khẩu mới
+                                            reset_password($_SESSION['forgot_send']['id'], $code, $hashed_password);
+                                            // Huỷ sự kiện reset mã xác nhận
+                                            drop_resetActivation_event($_SESSION['forgot_send']['id']);
+                                            unset($_SESSION['forgot_send']);
+
+                                            $url = 'index.php?ctrl=account&signin';
+                                            if($bool->checkNull($signin))
+                                            {
+                                                $url = 'index.php';
+                                                $_SESSION['sbs_user'] = $account;
+                                                unset($_SESSION['sbs_user']['pass']);
+                                            }
+                                            echo
+                                                '<script>
+                                                    swal("Thành công", "Bạn đã đổi thành công mật khẩu của mình", "success").then(() => {
+                                                        window.location.replace("'.$url.'");
+                                                    });
+                                                </script>';
+                                        }
+                                        else
+                                            echo
+                                                '<script>
+                                                    swal("Mật khẩu xác nhận không khớp", "Vui lòng thử lại", "warning");
+                                                </script>';
+                                    }
+                                }
+                            }
+                            else
+                                header('location: index.php?ctrl=account&act=forgot');
+                        }
+                    }
                 }
                 include 'client/view/account/'.$act.'.php';
                 break;

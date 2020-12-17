@@ -30,7 +30,7 @@
                     <tr>
                         <th>#</th>
                         <th>Tên</th>
-                        <th>Giảm giá (%)</th>
+                        <th>Giảm giá</th>
                         <th>Bắt đầu</th>
                         <th>Kết thúc</th>
                         <th>Trạng thái</th>
@@ -44,19 +44,21 @@
                     $output = '';
                     foreach($get_promotions as $promotion)
                     {
+                        $type = ($promotion['type'] == 1)
+                                ? '%' : '₫';
                         $active = ($promotion['active'] > 1)
                                 ? '<sub class="tx-success"><em>Hoạt động</em></sub>'
                                 : '<sub class="hl-txt"><em>Tạm ẩn</em></sub>';
                         $output .=
                             '<tr>
-                                <th scope="row">'.$parent['id'].'</th>
+                                <th scope="row">'.$promotion['id'].'</th>
                                 <td>'.$promotion['name'].'</td>
-                                <td>'.$promotion['discount'].'</td>
+                                <td>'.$promotion['discount'].' '.$type.'</td>
                                 <td>'.$promotion['begin'].'</td>
                                 <td>'.$promotion['end'].'</td>
                                 <td>'.$active.'</td>
                                 <td>
-                                    <a href="admin.php?ctrl=promotion&act=detail&id='.$promotion['id'].'" class="hl-hv">
+                                    <a href="admin.php?ctrl=promotions&act=detail&id='.$promotion['id'].'" class="hl-hv">
                                         Chi tiết<i class="icon-info-circled-1"></i>
                                     </a>
                                 </td>

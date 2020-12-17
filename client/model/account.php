@@ -5,7 +5,7 @@
     
     function signin($user)
     {
-        $sql = 'SELECT * FROM users WHERE email = "'.$user.'" OR tel = "'.$user.'" AND (role >= 0 AND role < 20)';
+        $sql = 'SELECT * FROM users WHERE (email = "'.$user.'" OR tel = "'.$user.'") AND ((role >= 0 AND role < 20) OR role >= 30)';
         $dtb = new database();
         return $dtb->queryOne($sql);
     }
@@ -18,10 +18,10 @@
         $dtb->execute($sql);
     }
 
-    function signin_social($user, $role)
+    function signin_social($user)
     {
         $sql = 'SELECT id, name, email, tel, avatar, cardimage, birth, date, role
-                    FROM users WHERE email = "'.$user.'" AND role = "'.$role.'"';
+                    FROM users WHERE email = "'.$user.'" AND (role >= 20 AND role < 29)';
         $dtb = new database();
         return $dtb->queryOne($sql);
     }
@@ -95,7 +95,33 @@
         $mailer->sendmail($to_email, $to_name, $subject, $content);
     }
 
-    function forgot_mail($to_email, $to_name, $user_id, $activation)
+    function reset_password($id, $code, $pass)
+    {
+        $sql = "UPDATE users SET pass = '$pass', activation = NULL WHERE id = '$id' AND activation = '$code'";
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
+    function reset_activation($id, $code)
+    {
+        drop_resetActivation_event($id);
+        $sql =
+            "CREATE EVENT IF NOT EXISTS reset_activation_".$id."
+            ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 5 MINUTE
+            DO
+                UPDATE users SET activation = NULL WHERE activation = '$code' AND id = '$id'";
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
+    function drop_resetActivation_event($id)
+    {
+        $sql = "DROP EVENT IF EXISTS reset_activation_".$id;
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
+    function forgot_mail($to_email, $to_name, $activation)
     {
         $subject = 'Lấy lại mật khẩu';
         $content =
@@ -113,7 +139,7 @@
                         <br/>
                         Hãy chắc chắn rằng bạn nhận được mail của chúng tôi và không chia sẻ nó cho bất cứ ai.</p>
                     <p>
-                        <a href="http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=forgot&id='.$user_id.'&code='.$activation.'">
+                        <a href="http://localhost:8888/btoann.github.io/index.php?ctrl=account&act=forgot&code='.$activation.'">
                             '.$activation.'
                         </a>
                     </p>

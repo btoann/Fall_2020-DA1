@@ -1,7 +1,12 @@
 <?php
     ob_start();
     session_start();
-    if(isset($_SESSION['sbs_id']) && $_SESSION['sbs_id'] > 0 && $_SESSION['sbs_role'] >= 30)
+
+    include_once '.system/lib/controller.php';
+    // Khởi động event trên Database
+    event_scheduler('on');
+
+    if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0 && $_SESSION['sbs_user']['role'] >= 30)
     {
 ?>
 
@@ -18,7 +23,7 @@
 
             gtag('config', 'UA-90680653-2');
         </script>
-        <script async src=".system/lib/admin/jquery/jquery.min.js"></script>
+        <script src=".system/lib/admin/jquery/jquery.min.js"></script>
         <script async src=".public/js/sweetalert.min.js"></script>
 
         <!-- Required meta tags -->
@@ -196,7 +201,7 @@
     <script src=".public/js/admin/chart.flot.sampledata.js"></script>
     <script src=".public/js/admin/dashboard.sampledata.js"></script>
     <script src=".public/js/admin/jquery.cookie.js" type="text/javascript"></script>
-    <script>
+    <script defer>
         $(function () {
         'use strict'
 
