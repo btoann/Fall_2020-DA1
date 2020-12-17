@@ -12,6 +12,8 @@
         {
 
             case 'signin':
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_POST['signin']) && isset($_POST['signin']))
                 {
                     $user = (isset($_POST['username']) && $_POST['username']) ? $_POST['username'] : NULL;
@@ -40,8 +42,6 @@
                             </script>';
                     }
                 }
-                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
-                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_GET['api']) && $_GET['api'])
                 {
                     $api = $_GET['api'];
@@ -63,6 +63,8 @@
                 break;
 
             case 'signup':
+                if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
+                    header('location: index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id']);
                 if(isset($_POST['signup']) && isset($_POST['signup']))
                 {
                     $email = (isset($_POST['email']) && $_POST['email']) ? $_POST['email'] : NULL;
@@ -140,7 +142,7 @@
                 break;
             
             case 'user':
-                if(isset($_GET['id']) && $_GET['id'])
+                if(isset($_GET['id']) && $_GET['id'] > 0)
                 {
                     if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
                     {
@@ -153,18 +155,45 @@
                                     if(is_array(get_verify($_GET['id'], $_GET['verify'])))
                                     {
                                         $new_role = verify_account($_GET['id'], $_GET['verify']);
-                                        $_SESSION['sbs_user']['role'] = $new_role;
+                                        $_SESSION['sbs_user']['role'] = $new_role['role'];
+                                        if(isset($_SESSION['sbs_user']['active_time_sent']))
+                                            unset($_SESSION['sbs_user']['active_time_sent']);
+                                        echo
+                                            '<script>
+                                                swal("Thành công", "Bạn đã kích hoạt tài khoản thành công", "success").then(() => {
+                                                    window.location.replace("index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'");
+                                                });
+                                            </script>';
                                     }
+                                    else
+                                        header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
                                 }
                                 if(isset($_POST['resend_verify']) && $_POST['resend_verify'])
                                 {
-                                    $activation = create_activation($_SESSION['sbs_id'], $_SESSION['sbs_email']);
-                                    verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
-                                    header('location: index.php?ctrl=account&act=user&id='.$_GET['id']);
-                                }
-                                if($_SESSION['sbs_user']['role'] > 0)
-                                {
-                                    header('location: index.php');
+                                    $timestamp = isset($_SESSION['sbs_user']['active_time_sent'])
+                                        ? $_SESSION['sbs_user']['active_time_sent']
+                                        : NULL;
+                                    if(!$bool->checkNull($timestamp) || (time() - $timestamp) > (1 * 60))
+                                    {
+                                        $_SESSION['sbs_user']['active_time_sent'] = time();
+                                        // Tạo mã kích hoạt
+                                        $activation = create_activation($_SESSION['sbs_user']['id'], $_SESSION['sbs_user']['email']);
+                                        // Đặt thời gian reset mã kích hoạt (5')
+                                        reset_activation($_SESSION['sbs_user']['id'], $activation);
+                                        // Tạo mail kích hoạt
+                                        verify_mail($_SESSION['sbs_user']['email'], $_SESSION['sbs_user']['name'], $_SESSION['sbs_user']['id'], $activation);
+                                        echo
+                                            '<script>
+                                                swal("Thành công", "Mã kích hoạt đã được gửi, hết hiệu lực sau 5 phút", "success").then(() => {
+                                                    window.location.replace("index.php?ctrl=account&act=user&id='.$_SESSION['sbs_user']['id'].'");
+                                                });
+                                            </script>';
+                                    }
+                                    else
+                                        echo
+                                            '<script>
+                                                swal("Yêu cầu bị từ chối!", "Bạn cần ít nhất 1 phút sau lần gửi mail cuối cùng để tiếp tục yêu cầu", "warning");
+                                            </script>';
                                 }
                             }
                         }

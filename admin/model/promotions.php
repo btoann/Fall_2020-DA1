@@ -10,10 +10,11 @@
         return $dtb->query($sql);
     }
     
-    function insert_promotion($id)
+    function insert_promotion($name, $type, $id_admin, $discount, $min, $max, $begin, $end, $description)
     {
         $sql =
-            'DELETE FROM promotions WHERE id = '.$id;
+            'INSERT INTO promotions(name, type, id_admin, discount, min, max, begin, end, description)
+                    VALUES("'.$name.'", "'.$type.'", "'.$id_admin.'", "'.$discount.'", "'.$min.'", "'.$max.'", "'.$begin.'", "'.$end.'", "'.$description.'")';
         $dtb = new database();
         $dtb->execute($sql);
     }

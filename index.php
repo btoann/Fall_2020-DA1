@@ -23,6 +23,7 @@
         <h3>Trang chủ</h3>
         
         <?php
+            if(isset($_SESSION['sbs_user'])) print_r($_SESSION['sbs_user']);
             if(isset($_SESSION['sbs_user']) && $_SESSION['sbs_user']['id'] > 0)
             {
                 if($_SESSION['sbs_user']['role'] >= 30) 

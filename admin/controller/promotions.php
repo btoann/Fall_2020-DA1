@@ -5,7 +5,7 @@
 
     $bool = new boolean();
 
-    /*  Get dữ liệu Danh mục  */
+    /*  Get dữ liệu Khuyến mãi  */
     $get_promotions = get_promotions();
 
     if(isset($_GET['act']) && $_GET['act'])
@@ -65,31 +65,81 @@
                 break;
 
             case 'insert':
-                /*  Thêm phân loại  */
+                /*  Thêm Khuyến mãi  */
                 if(isset($_POST['insert']) && $_POST['insert'])
                 {
                     $name = (isset($_POST['name']) && $_POST['name']) ? $_POST['name'] : NULL;
-                    $parent = (isset($_POST['parent'])) ? $_POST['parent'] : NULL;
+                    $type = (isset($_POST['type'])) ? $_POST['type'] : NULL;
+                    $discount = (isset($_POST['discount']) && $_POST['discount']) ? $_POST['discount'] : NULL;
+                    $min = (isset($_POST['min']) && $_POST['min']) ? $_POST['min'] : NULL;
+                    $max = (isset($_POST['max']) && $_POST['max']) ? $_POST['max'] : NULL;
+                    $begin = (isset($_POST['begin']) && $_POST['begin']) ? $_POST['begin'] : NULL;
+                    $end = (isset($_POST['end']) && $_POST['end']) ? $_POST['end'] : NULL;
+                    $description = (isset($_POST['description']) && $_POST['description']) ? $_POST['end'] : NULL;
                     $last_id = 0;
-                    if($bool->checkNull($name, $parent))
+                    if($bool->checkNull($name, $type, $discount, $min, $max, $begin, $end, $description))
                     {
-                        $last_id = insert_category($name, $parent, $_SESSION['sbs_id']);
-                        if($parent > 0)
+                        $messenge = '';
+                        $bool2 = true;
+                        if($type == 1 || $type == 2)
                         {
-                            $last_id = $last_id->lastInsertId();
-                            if(isset($_POST['check_hashtag']) && $_POST['check_hashtag'])
+                            if($type == 1 && $discount < 0 && $discount > 100)
                             {
-                                $promotions = $bool->array_removeNull($_POST['promotions']);
-                                if($promotions != NULL)
-                                    insert_category_promotions($promotions, $last_id);
+                                $messenge .= '- Giá giảm yêu cầu: 0 - 100 (%)\n';
+                                $bool2 = false;
+                            }
+                            if($type == 2 && $discount < 0)
+                            {
+                                $messenge .= '- Giá giảm phải lớn hơn 0\n';
+                                $bool2 = false;
                             }
                         }
-                        echo
-                            '<script>
-                                swal("Thành công!", "Bạn đã thêm danh mục \"'.$name.'\"", "success").then(() => {
-                                    window.location.replace("admin.php?ctrl=promotions");
-                                  });
-                            </script>';
+                        else
+                        {
+                            $messenge .= '- Loại giảm giá không hợp lệ\n';
+                            $bool2 = false;
+                        }
+                        if($min < $max)
+                        {
+                            if($type == 2 && $discount < $min)
+                            {
+                                $messenge .= '- Giá tối thiểu phải nhỏ hơn hoặc bằng giá giảm\n';
+                                $bool2 = false;
+                            }
+                            if($type == 2 && $discount > $max)
+                            {
+                                $messenge .= '- Giá tối đa phải lớn hơn hoặc bằng giá giảm\n';
+                                $bool2 = false;
+                            }
+                        }
+                        else
+                        {
+                            $messenge .= '- Giá tối thiểu phải lớn hơn giá tối đa\n';
+                            $bool2 = false;
+                        }
+                        if($begin > $end)
+                        {
+                            $messenge .= '- Thời gian bắt đầu phải lớn hơn thời gian kết thúc\n';
+                            $bool2 = false;
+                        }
+
+                        if($bool2 == true)
+                        {
+                            insert_promotion($name, $type, $_SESSION['sbs_user']['id'], $discount, $min, $max, $begin, $end, $description);
+                            echo
+                                '<script>
+                                    swal("Thành công!", "Bạn đã thêm khuyến mãi \"'.$name.'\"", "success").then(() => {
+                                        window.location.replace("admin.php?ctrl=promotions");
+                                    });
+                                </script>';
+                        }
+                        else
+                            echo
+                                '<script>
+                                    swal("Lỗi!", "'.$messenge.'", "warning").then(() => {
+                                        window.location.replace("admin.php?ctrl=promotions");
+                                    });
+                                </script>';
                         //header('location: admin.php?ctrl=promotions');
                     }
                 }

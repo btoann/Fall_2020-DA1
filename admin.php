@@ -23,7 +23,7 @@
 
             gtag('config', 'UA-90680653-2');
         </script>
-        <script async src=".system/lib/admin/jquery/jquery.min.js"></script>
+        <script src=".system/lib/admin/jquery/jquery.min.js"></script>
         <script async src=".public/js/sweetalert.min.js"></script>
 
         <!-- Required meta tags -->
@@ -201,7 +201,7 @@
     <script src=".public/js/admin/chart.flot.sampledata.js"></script>
     <script src=".public/js/admin/dashboard.sampledata.js"></script>
     <script src=".public/js/admin/jquery.cookie.js" type="text/javascript"></script>
-    <script>
+    <script defer>
         $(function () {
         'use strict'
 
