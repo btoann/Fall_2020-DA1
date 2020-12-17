@@ -5,6 +5,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a:hover {
+  text-decoration: none!important;
+}
+
 img {
   max-width: 100%;
   max-height: 100%;
@@ -254,7 +258,7 @@ img {
   color: white;
 }
 
-.category-hover .block-1 li:hover strong {
+.category-hover li.block-1:hover strong {
   color: #f04c63;
 }
 
@@ -267,10 +271,13 @@ img {
 }
 
 .category-hover .block-2 {
-  width: 20%;
-  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50%;
   height: 140px;
   background-color: rgb(255, 255, 255);
+  display: none;
 }
 
 .category-hover .block-2 strong {
@@ -279,7 +286,7 @@ img {
   height: 30px;
 }
 
-.category-hover .block-2 li {
+.category-hover ul.block-2 li {
   width: 100%;
   font-size: 11pt;
   float: left;
@@ -288,10 +295,14 @@ img {
   list-style: none;
 }
 
-.category-hover .block-2 li:hover {
-  color: #51c5de;
-  transition: 0.5s;
+.category-hover li.block-1:hover>ul.block-2 {
+  display: block;
+  color: gray;
 }
+.category-hover .block-2 ul:hover {
+  background-color: #0570e6;
+}
+
 .footer-item {
   max-width: 1200px;
   margin: 0 auto;
