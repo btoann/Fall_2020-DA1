@@ -10,11 +10,29 @@
         return $dtb->query($sql);
     }
     
-    function insert_promotion($name, $type, $id_admin, $discount, $min, $max, $begin, $end, $description)
+    function get_promotion($id)
     {
         $sql =
-            'INSERT INTO promotions(name, type, id_admin, discount, min, max, begin, end, description)
-                    VALUES("'.$name.'", "'.$type.'", "'.$id_admin.'", "'.$discount.'", "'.$min.'", "'.$max.'", "'.$begin.'", "'.$end.'", "'.$description.'")';
+            'SELECT * FROM promotions WHERE id = '.$id;
+        $dtb = new database();
+        return $dtb->queryOne($sql);
+    }
+
+    function insert_promotion($name, $type, $id_admin, $discount, $min, $max, $begin, $end, $description, $active)
+    {
+        $sql =
+            'INSERT INTO promotions(name, type, id_admin, discount, min, max, begin, end, description, active)
+                    VALUES("'.$name.'", "'.$type.'", "'.$id_admin.'", "'.$discount.'", "'.$min.'", "'.$max.'", "'.$begin.'", "'.$end.'", "'.$description.'", "'.$active.'")';
+        $dtb = new database();
+        $dtb->execute($sql);
+    }
+
+    function update_promotion($id, $name, $type, $id_admin, $discount, $min, $max, $begin, $end, $description, $active)
+    {
+        $sql =
+            "UPDATE promotions SET name = '$name', type = '$type', id_admin = '$id_admin', discount = '$discount', min = '$min', max = '$max',
+                                    begin = '$begin', end = '$end', description = '$description', active = '$active'
+                WHERE id = '$id'";
         $dtb = new database();
         $dtb->execute($sql);
     }
