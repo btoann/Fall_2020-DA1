@@ -49,5 +49,5 @@ $fbUser = $response->getGraphUser();
 
 if (!empty($fbUser)) {
     include 'function.php';
-    loginFromSocialCallBack($fbUser);
+    loginFromSocialCallBack($fbUser, 'facebook');
 }
