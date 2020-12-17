@@ -18,10 +18,10 @@
         $dtb->execute($sql);
     }
 
-    function signin_social($user, $role)
+    function signin_social($user)
     {
         $sql = 'SELECT id, name, email, tel, avatar, cardimage, birth, date, role
-                    FROM users WHERE email = "'.$user.'" AND role = "'.$role.'"';
+                    FROM users WHERE email = "'.$user.'" AND (role >= 20 AND role < 29)';
         $dtb = new database();
         return $dtb->queryOne($sql);
     }

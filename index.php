@@ -94,7 +94,7 @@
     <body class="lightgray-bg-i">
 
         <?php
-                if(isset($_GET['act']) && ($_GET['act'] == 'signin' || $_GET['act'] == 'signup' || $_GET['act'] == 'signout' || $_GET['act'] == 'forgot'))
+                if(isset($_GET['act']) && ($_GET['act'] == 'signin' || $_GET['act'] == 'signup' || $_GET['act'] == 'signout' || $_GET['act'] == 'forgot' || $_GET['act'] == 'user'))
                 {
                     $index_file = 'index';
                     $filename = 'client/controller/'.$_GET['ctrl'].'.php';

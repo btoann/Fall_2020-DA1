@@ -3,14 +3,28 @@
 include_once '.system/lib/controller.php';
 
 //Hàm login sau khi mạng xã hội trả dữ liệu về
-function loginFromSocialCallBack($socialUser) {
+function loginFromSocialCallBack($socialUser, $cmd) {
     //include 'connect_db.php';
-    $account = signin($socialUser['email']);
-    //$result = mysqli_query($con, "Select `id`,`username`,`email`,`fullname` from `user` WHERE `email` ='" . $socialUser['email'] . "'");
-    if(!is_array($account) || ($account['role'] < 20 && $account['role'] > 24))
+    $account = signin_social($socialUser['email']);
+    $min = $max = 1;
+    switch($cmd)
     {
-        signup_social($socialUser['name'], $socialUser['email'], '20');
-        $this_account = signin_social($socialUser['email'], '20');
+        case 'facebook':
+            $min = 20;
+            $max = 24;
+            break;
+        case 'google':
+            $min = 25;
+            $max = 29;
+            break;
+        default:
+            return;
+    }
+
+    if(!is_array($account) || ($account['role'] < $min && $account['role'] > $max))
+    {
+        signup_social($socialUser['name'], $socialUser['email'], $min);
+        $this_account = signin_social($socialUser['email'], $min);
         $_SESSION['sbs_user'] = $this_account;
         header('location: index.php');
     }
