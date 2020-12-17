@@ -160,7 +160,7 @@
                     </div>
                     <hr class="line">
                     <div class="qr__code mt edit">
-                        <i class="fa fa-qrcode"></i>
+                        <i onclick="qr__show()" class="fa fa-qrcode"></i>
                     </div>
                     <div class="info mt edit">
                         <i class="fa fa-info-circle "></i>
@@ -180,6 +180,22 @@
                 </div>
             </div>
         </div>
+        <div id="qr" class="qr__show">
+        <img class="qr__inside" src=".public/images/QR.png" alt="">
+        <i onclick="close__qr()" class="fa fa-close"></i>
+        <p>Vui lòng giữ nguyên 3s</p>
+        
+    </div>
+    <script>
+        function qr__show() {
+            document.getElementById('qr').style.display = "block";
+        }
+
+        function close__qr() {
+            document.getElementById('qr').style.display = "none";
+
+        }
+    </script>
     </div>
 
     <script src=".public/js/seller/main.js"></script>
