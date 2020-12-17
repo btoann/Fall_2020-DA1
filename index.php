@@ -8,6 +8,8 @@
 
     if(!(isset($_GET['ctrl']) && $_GET['ctrl'] == 'account'))
     {
+        include 'client/model/categories.php';
+        $index_ui_categories = index_ui_categories(15);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,16 +91,16 @@
                                 <div class="category-hover">
                                     <ul class="block-1">
                                         <?php
-                                          foreach($index_ui_categories as $index_category)
-                                          {
-                                              echo
-                                                '<li>
-                                                    <strong><a href="index.php?ctrl=categories&id='.$index_category['id'].'">'.$index_category['name'].'</a></strong>
-                                                    <span>
-                                                        <i class="fas fa-angle-right" style="font-size: 18px"></i>
-                                                    </span>
-                                                </li>';
-                                          }
+                                            foreach($index_ui_categories as $index_category)
+                                            {
+                                                echo
+                                                    '<li>
+                                                        <strong><a href="index.php?ctrl=categories&id='.$index_category['id'].'">'.$index_category['name'].'</a></strong>
+                                                        <span>
+                                                            <i class="fas fa-angle-right" style="font-size: 18px"></i>
+                                                        </span>
+                                                    </li>';
+                                            }
                                         ?>
                                     </ul>
                                 </div>
@@ -110,7 +112,7 @@
                             <input type="text" placeholder="Tìm kiếm sản phẩm, danh mục, đại lý..." /><a href="#"><i
                                     class="fas fa-search"></i></a>
                             <hr/>
-                            </div>
+                        </div>
                     </div>
                     <div class="menu-bottom-cart">
                         <a href="#"><i class="fas fa-shopping-cart"></i><span class="shopping-number">0</span></a>
@@ -133,8 +135,182 @@
 
         ?>
 
-    </body>
+
+    <div class="Container-itwfbd-0 jFkAwY" style="height: 100px; padding-top: 32px">
+        <div class="NewsLetter-icon">
+            <img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/newsletter.png" width="163" alt="" />
+        </div>
+        <div class="NewsLetter-description">
+            <h3>Đăng ký nhận bản tin Side by Side</h3>
+            <h5>Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn</h5>
+        </div>
+        <div class="NewsLetter-form">
+            <div>
+                <input type="email" placeholder="Địa chỉ email của bạn" value="" />
+            </div>
+            <button>Đăng ký</button>
+        </div>
+    </div>
+    <div class="Footer__Information-e3clg6-3 dZezzK">
+        <div class="Container-itwfbd-0 jFkAwY" style="display: flex; justify-content: space-between">
+            <div class="block" style="width: 268px">
+                <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+                <p class="hotline">
+                    Hotline chăm sóc khách hàng:
+                    <a href="tel:1900-6035">1900-6035</a><span class="small-text">(1000đ/phút , 8-21h kể cả T7, CN)</span>
+                </p>
+                <a rel="noreferrer" href="https://hotro.tiki.vn/hc/vi" class="small-text" target="_blank">Các câu hỏi thường gặp</a><a
+                    rel="noreferrer" href="https://hotro.tiki.vn/hc/vi/requests/new" class="small-text" target="_blank">Gửi yêu cầu hỗ
+                    trợ</a><a rel="noreferrer" href="https://hotro.tiki.vn/hc/vi/categories/200126644" class="small-text"
+                    target="_blank">Hướng dẫn đặt hàng</a><a rel="noreferrer" href="https://hotro.tiki.vn/hc/vi/categories/200123960"
+                    class="small-text" target="_blank">Phương thức vận chuyển</a><a rel="noreferrer"
+                    href="https://tiki.vn/doi-tra-de-dang" class="small-text" target="_blank">Chính sách đổi trả</a><a rel="noreferrer"
+                    href="https://tiki.vn/chuong-trinh/dieu-kien-tra-gop" class="small-text" target="_blank">Hướng dẫn trả góp</a><a
+                    rel="noreferrer" href="https://hotro.tiki.vn/hc/vi/articles/360000822643" class="small-text" target="_blank">Chính
+                    sách hàng nhập khẩu</a>
+                <p class="security">
+                    Hỗ trợ khách hàng:
+                    <a href="mailto:hotro@tiki.vn">hotro@sidebyside.vn</a>
+                </p>
+                <p class="security">
+                    Báo lỗi bảo mật:
+                    <a href="mailto:security@tiki.vn">security@sidebyside.vn</a>
+                </p>
+            </div>
+            <div class="block">
+                <h4>VỀ Side by Side</h4>
+                <a rel="noreferrer" href="https://tiki.vn/gioi-thieu-ve-tiki" class="small-text" target="_blank">Giới thiệu
+                    sidebyside</a><a rel="noreferrer" href="https://tuyendung.tiki.vn" class="small-text" target="_blank">Tuyển
+                    Dụng</a><a rel="noreferrer" href="https://tiki.vn/bao-mat-thanh-toan" class="small-text" target="_blank">Chính
+                    sách bảo mật thanh toán</a><a rel="noreferrer" href="https://tiki.vn/bao-mat-thong-tin-ca-nhan"
+                    class="small-text" target="_blank">Chính sách bảo mật thông tin cá nhân</a><a rel="noreferrer"
+                    href="https://hotro.tiki.vn/hc/vi/articles/115005575826" class="small-text" target="_blank">Chính sách giải
+                    quyết khiếu nại</a><a rel="noreferrer" href="https://hotro.tiki.vn/hc/vi/articles/201971214" class="small-text"
+                    target="_blank">Điều khoản sử dụng</a><a rel="noreferrer"
+                    href="https://hotro.tiki.vn/hc/vi/articles/201710754-Tiki-Xu-l%C3%A0-g%C3%AC-Gi%C3%A1-tr%E1%BB%8B-quy-%C4%91%E1%BB%95i-nh%C6%B0-th%E1%BA%BF-n%C3%A0o"
+                    class="small-text" target="_blank">Giới thiệu Tiki Xu</a><a rel="noreferrer"
+                    href="https://tiki.vn/chuong-trinh/ban-hang-doanh-nghiep" class="small-text" target="_blank">Bán hàng doanh nghiệp
+                </a>
+            </div>
+            <div class="block">
+                <h4>HỢP TÁC VÀ LIÊN KẾT</h4>
+                <a rel="noreferrer" href="https://tiki.vn/quy-che-hoat-dong-sgdtmdt" class="small-text" target="_blank">Quy chế hoạt
+                    động Sàn GDTMĐT</a><a rel="noreferrer" href="https://tiki.vn/ban-hang-cung-tiki" class="small-text"
+                    target="_blank">Bán hàng cùng sidebyside
+                </a>
+            </div>
+            <div class="block">
+                <h4>PHƯƠNG THỨC THANH TOÁN</h4>
+                <p>
+                    <img class="icon" src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/visa.svg" width="54"
+                        alt="" /><img class="icon" src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/mastercard.svg"
+                        width="54" alt="" /><img class="icon"
+                        src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/jcb.svg" width="54" alt="" /><img
+                        class="icon" src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/cash.svg" width="54"
+                        alt="" /><img class="icon"
+                        src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/internet-banking.svg" width="54"
+                        alt="" /><img class="icon"
+                        src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/installment.svg" width="54" alt="" />
+                </p>
+            </div>
+            <div class="block">
+                <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+                <p>
+                    <a rel="noreferrer" href="https://www.facebook.com/Side-by-Side-100311098633597" class="icon" target="_blank"
+                        title="Facebook"><img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/fb.svg" width="32"
+                            alt="" /></a><a rel="noreferrer"
+                        href="https://www.youtube.com/channel/UC_uV8IYP4XF8R0acsXfERAg?view_as=subscriber" class="icon"
+                        target="_blank" title="Youtube"><img
+                            src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/youtube.svg" width="32"
+                            alt="" /></a><a rel="noreferrer" href="http://zalo.me/589673439383195103" class="icon" target="_blank"
+                        title="Zalo"><i class="icon tikicon icon-footer-zalo"></i></a>
+                </p>
+                <h4 class="store-title">TẢI ỨNG DỤNG TRÊN ĐIỆN THOẠI</h4>
+                <p>
+                    <a rel="noreferrer" href="https://itunes.apple.com/vn/app/id958100553" class="icon" target="_blank"
+                        aria-label=""><img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/appstore.png"
+                            width="134" alt="" /></a>
+                    <a rel="noreferrer" href="https://play.google.com/store/apps/details?id=vn.tiki.app.tikiandroid" class="icon"
+                        target="_blank" aria-label=""><img
+                            src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/playstore.png" width="134"
+                            alt="" />
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script>
+    var dh = null;
+
+    function tg() {
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+    }
+</script>
+<script>
+    dh = setInterval("tg()", 1000);
+</script>
+<script>
+    function starstopdh() {
+        if (dh == null) {
+            dh = setInterval("tg()", 1000);
+        } else {
+            clearInterval(dh);
+            dh = null;
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $(".carousel").slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            prevArrow: `<button type="button" class="slick-prev prev-arrow-carousel">Previous</button>`,
+            nextArrow: `<button type="button" class="slick-next next-arrow-carousel">Next</button>`,
+        });
+    });
+</script>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
+</body>
+
 </html>
+
+
 
 
 <?php
