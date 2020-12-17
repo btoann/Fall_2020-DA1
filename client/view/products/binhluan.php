@@ -1,7 +1,8 @@
 <?php
         session_start();
-        // include "../model/connect.php";
-        // include "../model/binhluan.php";
+        include_once '../../../.system/core/connect.php';
+        include './cmt.php';
+        $show_cmt = show_cmt();
         // include "../model/user.php";
 
         if(isset($_SESSION['sid']) && ($_SESSION['sid']>0)){
@@ -12,16 +13,18 @@
             else $user = "";
 
             if(isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])){
-                if(isset($_POST['idsp']) && ($_POST['idsp'])>0){
 
-                $idsp = $_POST['idsp'];
-                $iduser = $_SESSION['sid'];
+
+                // if(isset($_POST['idsp']) && ($_POST['idsp'])>0){
+
+                // $idsp = $_POST['idsp'];
+                // $iduser = $_SESSION['sid'];
                 $noidung = $_POST['noidung'];
                 // $postdate = $_SESSION['postdate'];
                 
-                // capnhap_cmt( $iduser , $idsp , $noidung);
+                capnhap_cmt(  $noidung);
          
-            }
+            // }
        
           
          
@@ -45,8 +48,8 @@
 
 
           <p>Bình luận</p>
-<form action="binhluan.php?idsp=<?=$_GET['idsp']?>" method="post">
-    <input type="hidden" name="idsp" value="<?=$_GET['idsp']?>">
+<form action="binhluan.php" method="post">
+    <input type="hidden" name="idsp" value="">
  <div class="noidung">   <textarea name="noidung" id="" cols="30" rows="1" placeholder="Hãy nói điều gì đó..."></textarea><hr></div>
  <button  type="submit" value="send" name="guibinhluan" style="font-size:24px"><ins>0/200</ins> <i class="material-icons">send</i></button>
  </form>
@@ -54,13 +57,13 @@
  <?php
        
       
-       if(isset($_GET['idsp']) && ($_GET['idsp'])>0){
-           $idsp = $_GET['idsp'];
+    //    if(isset($_GET['idsp']) && ($_GET['idsp'])>0){
+    //        $idsp = $_GET['idsp'];
      
     //    $dsbl = show_cmt($idsp);
-       foreach($dsbl as $bll){
+       foreach($show_cmt as $bll){
            $noidung = $bll['noidung'];
-           $avatar = "../view/img/avataruser.jpg";
+        //    $avatar = "../view/img/avataruser.jpg";
            echo '       
                <nav>  <img src="'.$avatar.'" alt=""><span>'.$user.'</span> : '.$noidung.'</nav>
            ';            
@@ -86,7 +89,7 @@
 </body>
 </html>   
  <?php
-        }else{
-            echo '<a href="login.php" target="_parent">Vui lòng đăng nhập :)) </a>';
-        }
+        // }else{
+        //     echo '<a href="login.php" target="_parent">Vui lòng đăng nhập :)) </a>';
+        // }
     ?>

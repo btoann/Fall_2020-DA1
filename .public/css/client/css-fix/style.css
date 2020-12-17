@@ -1218,6 +1218,7 @@ li {
 
 .shop-container {
     background-color: #eff0f3;
+    height: 180vh;
 }
 
 .shop-container .content-row {
@@ -1244,10 +1245,6 @@ li {
 .product-img-slide img {
     width: 332.5px;
     height: 400px;
-}
-
-.header-container {
-    background-color: #51c5dd;
 }
 
 .product-detail-listed a {

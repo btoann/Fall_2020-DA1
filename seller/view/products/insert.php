@@ -77,6 +77,8 @@
                     ?>
                     </select>
                 </div>
+
+                
                 <div style="margin-bottom: 15px;">
                     <label for="category">Phân loại</label>
                     <div id="category_hashtag">
