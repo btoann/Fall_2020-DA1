@@ -221,15 +221,15 @@
         </div>
         <div class="menu-item">
           <div class="icon1"><i class="fas fa-book"></i></div>
-          <div><a href="./product-history.html">Đơn mua</a></div>
+          <div><a href=".public/template/client/home/product-history.html">Đơn mua</a></div>
         </div>
         <div class="menu-item">
           <div class="icon2"><i class="fas fa-bell"></i></div>
-          <div><a href="./notification.html">Thông Báo</a></div>
+          <div><a href=".public/template/client/home/notification.html">Thông Báo</a></div>
         </div>
         <div class="menu-item">
           <div class="icon3"><i class="fas fa-wallet"></i></div>
-          <div><a href="./voucher.html">Ví voucher</a></div>
+          <div><a href=".public/template/client/home/voucher.html">Ví voucher</a></div>
         </div>
       </div>
       <div class="information-detail">
