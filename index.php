@@ -24,7 +24,6 @@
     <!-- <link rel="stylesheet" href=".public/bootstrap/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href=".public/bootstrap/js/bootstrap.min.js" />
     <link rel="stylesheet" href=".public/icons/css/fontello.css" />
-    <link rel="stylesheet" href=".public/css/_style.css">
     <script src="https://kit.fontawesome.com/978d2e326d.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -95,7 +94,7 @@
                                             {
                                                 echo
                                                     '<li>
-                                                        <strong><a href="index.php?ctrl=categories&id='.$index_category['id'].'">'.$index_category['name'].'</a></strong>
+                                                        <a href="index.php?ctrl=categories&id='.$index_category['id'].'" class="hl-hv"><strong>'.$index_category['name'].'</strong></a>
                                                         <span>
                                                             <i class="fas fa-angle-right" style="font-size: 18px"></i>
                                                         </span>
